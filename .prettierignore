@@ -1,0 +1,14 @@
+node_modules
+.vscode
+public
+.gitignore
+eslint.config.js
+.eslintrc
+package.json
+README.md
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+yarn.lock
+dist
