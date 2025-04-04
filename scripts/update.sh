@@ -22,7 +22,7 @@ if ! command -v git &> /dev/null; then
 fi
 
 echo "📦 Updating project..."
-git pull --rebase
+git pull
 
 # Checking if docker-compose is available
 if ! command -v docker-compose &> /dev/null; then

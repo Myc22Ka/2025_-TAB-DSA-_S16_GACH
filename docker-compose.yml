@@ -30,6 +30,8 @@ services:
             - postgresql_database
         env_file:
             - .env
+        environment:
+            - SPRING_PROFILES_ACTIVE=docker
         ports:
             - '${BACKEND_PORT}:8080'
         restart: always
