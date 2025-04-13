@@ -1,4 +1,4 @@
-package polsl.pl.tab.api.model;
+package polsl.pl.tab.auth.model;
 
 import jakarta.persistence.*;
 
@@ -34,7 +34,7 @@ public class User {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "photo_url", nullable = false)
+    @Column(name = "photo_url")
     private String photoUrl;
 
     @Column(name = "email", nullable = false)
@@ -46,16 +46,16 @@ public class User {
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "phone_number", updatable = false)
+    @Column(name = "phone_number")
     private Long phoneNumber;
 
-    @Column(name = "address", updatable = false)
+    @Column(name = "address")
     private String address;
 
-    @Column(name = "date", updatable = false)
+    @Column(name = "date")
     private LocalDate dateOfBirth;
 
-    @Column(name = "gender", updatable = false)
+    @Column(name = "gender")
     private String gender;
 
     @PrePersist

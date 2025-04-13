@@ -1,10 +1,10 @@
-package polsl.pl.tab.initializer;
+package polsl.pl.tab.auth.initializer;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import polsl.pl.tab.api.model.User;
-import polsl.pl.tab.api.repository.UserRepository;
+import polsl.pl.tab.auth.model.User;
+import polsl.pl.tab.auth.repository.UserRepository;
 
 import java.time.LocalDate;
 
