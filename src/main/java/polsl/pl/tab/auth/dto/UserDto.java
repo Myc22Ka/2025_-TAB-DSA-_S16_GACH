@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 public class UserDto {
     private Long id;
     private String login;
+    private String token;
     private String firstName;
     private String lastName;
     private String photoUrl;

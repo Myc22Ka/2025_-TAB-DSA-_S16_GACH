@@ -18,14 +18,12 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<User> registerUser(@RequestBody RegisterDto registerDto) {
-        User user = userService.registerUser(registerDto);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(userService.registerUser(registerDto));
     }
 
     @PostMapping("/login")
     public ResponseEntity<UserDto> loginUser(@RequestBody LoginDto loginDto) {
-        UserDto user = userService.login(loginDto);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(userService.login(loginDto));
     }
 
 //    @PutMapping("/users/{id}")
@@ -33,6 +31,12 @@ public class UserController {
 //        User user = userService.updateUser(id, updatedUser);
 //        return ResponseEntity.ok(user);
 //    }
+
+    @PostMapping("/validate")
+    public ResponseEntity<UserDto> validateToken(@RequestParam("token") String token) {
+        UserDto userDto = userService.validateUser(token);
+        return ResponseEntity.ok(userDto);
+    }
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {

@@ -1,14 +1,13 @@
 package polsl.pl.tab.exception;
 
+import com.auth0.jwt.exceptions.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.LocalDateTime;
-import java.util.Map;
 
 @ControllerAdvice
 @Slf4j
@@ -25,11 +24,12 @@ public class DefaultException {
     public ResponseEntity<ErrorResponse> handleAuthException(AuthException ex) {
         ErrorResponse errorResponse = new ErrorResponse(
                 LocalDateTime.now().toString(),
-                "Bad Request",
+                ex.getStatus().getReasonPhrase(),
                 ex.getMessage(),
-                HttpStatus.BAD_REQUEST.value()
+                ex.getStatus().value()
         );
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+
+        return ResponseEntity.status(ex.getStatus()).body(errorResponse);
     }
 
     @ExceptionHandler(Exception.class)
@@ -40,6 +40,7 @@ public class DefaultException {
                 ex.getMessage(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value()
         );
+
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
     }
 }

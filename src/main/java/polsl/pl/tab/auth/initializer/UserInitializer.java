@@ -1,15 +1,20 @@
 package polsl.pl.tab.auth.initializer;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import polsl.pl.tab.auth.model.User;
 import polsl.pl.tab.auth.repository.UserRepository;
+import polsl.pl.tab.configuration.UserAuthenticationProvider;
 
 import java.time.LocalDate;
 
 @Configuration
+@RequiredArgsConstructor
 public class UserInitializer {
+
+    private final UserAuthenticationProvider userAuthenticationProvider;
 
     @Bean
     public CommandLineRunner initUsers(UserRepository userRepository) {
@@ -28,6 +33,8 @@ public class UserInitializer {
                 user.setDateOfBirth(LocalDate.of(1990, 1, 1));
                 user.setGender("M");
 
+                String token = userAuthenticationProvider.createToken(user.getLogin());
+                user.setToken(token);
                 userRepository.save(user);
             }
         };
