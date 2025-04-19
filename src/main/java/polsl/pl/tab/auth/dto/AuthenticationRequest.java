@@ -1,13 +1,16 @@
 package polsl.pl.tab.auth.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
-public class LoginDto {
-    private String login;
+@NoArgsConstructor
+public class AuthenticationRequest {
+
+    private String email;
     private String password;
 }
