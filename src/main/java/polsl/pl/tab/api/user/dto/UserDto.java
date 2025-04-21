@@ -8,8 +8,7 @@ import polsl.pl.tab.api.user.model.Role;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDto {
-    private String firstname;
-    private String lastname;
+    private String login;
     private String email;
     private Role role;
 }

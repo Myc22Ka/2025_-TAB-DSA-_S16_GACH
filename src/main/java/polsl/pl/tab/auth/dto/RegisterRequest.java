@@ -17,9 +17,7 @@ import polsl.pl.tab.auth.validator.Password;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegisterRequest {
-
-    private String firstname;
-    private String lastname;
+    private String login;
 
     @Email(message = "Please provide a valid email address")
     private String email;
