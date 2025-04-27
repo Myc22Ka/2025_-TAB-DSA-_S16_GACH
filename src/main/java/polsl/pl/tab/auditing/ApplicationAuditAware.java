@@ -1,5 +1,6 @@
 package polsl.pl.tab.auditing;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -9,6 +10,7 @@ import polsl.pl.tab.api.user.model.User;
 import java.util.Optional;
 
 public class ApplicationAuditAware implements AuditorAware<Integer> {
+    @NotNull
     @Override
     public Optional<Integer> getCurrentAuditor() {
         Authentication authentication =

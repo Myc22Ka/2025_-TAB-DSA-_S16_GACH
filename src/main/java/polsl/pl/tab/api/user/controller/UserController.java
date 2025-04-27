@@ -27,4 +27,10 @@ public class UserController {
     public ResponseEntity<UserDto> getCurrentUser(Authentication authentication) {
         return ResponseEntity.ok(service.getCurrentUser(authentication));
     }
+
+    @PostMapping("/give-ticket")
+    public ResponseEntity<?> giveTicket(@RequestParam("email") String email, Authentication authentication) {
+        service.giveTicketToUser(email);
+        return ResponseEntity.ok().build();
+    }
 }

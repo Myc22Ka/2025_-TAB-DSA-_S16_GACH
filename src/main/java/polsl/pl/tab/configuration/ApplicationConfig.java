@@ -19,6 +19,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import polsl.pl.tab.auditing.ApplicationAuditAware;
 import polsl.pl.tab.api.user.repository.UserRepository;
+import io.swagger.v3.oas.models.security.SecurityScheme;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.security.SecurityScheme.Type;
 
 /**
  * Application configuration class that defines security-related beans
@@ -118,6 +121,13 @@ public class ApplicationConfig {
                 .info(new Info()
                         .title("TAB Project")
                         .version("1.0")
-                        .description("API documentation for testing backend application"));
+                        .description("API documentation for testing backend application"))
+                .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
+                .components(new io.swagger.v3.oas.models.Components()
+                        .addSecuritySchemes("bearerAuth", new SecurityScheme()
+                                .type(Type.HTTP)
+                                .scheme("bearer")
+                                .bearerFormat("JWT")
+                                .description("Use `Bearer <token>` for Authorization")));
     }
 }

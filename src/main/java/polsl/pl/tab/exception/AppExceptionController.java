@@ -9,6 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.nio.file.AccessDeniedException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,13 +69,29 @@ public class AppExceptionController {
     /**
      * Handles custom application-specific auth exceptions.
      *
-     * @param ex The thrown {@link AppException}.
+     * @param ex The thrown {@link AuthException}.
      * @return A {@link ResponseEntity} with HTTP 401 Unauthorized and a custom message.
      */
-    @ExceptionHandler(AppException.class)
-    public ResponseEntity<ErrorResponse> handleAuthException(AppException ex) {
+    @ExceptionHandler(AuthException.class)
+    public ResponseEntity<ErrorResponse> handleAuthException(AuthException ex) {
         List<String> messages = List.of(ex.getMessage());
         HttpStatus status = HttpStatus.UNAUTHORIZED;
+
+        return new ResponseEntity<>(generateErrorResponse(status, messages), status);
+    }
+
+    @ExceptionHandler(AppException.class)
+    public ResponseEntity<ErrorResponse> handleAppException(AppException ex) {
+        List<String> messages = List.of(ex.getMessage());
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+
+        return new ResponseEntity<>(generateErrorResponse(status, messages), status);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ErrorResponse> handleAccessDeniedException(AccessDeniedException ex) {
+        List<String> messages = List.of(ex.getMessage());
+        HttpStatus status = HttpStatus.FORBIDDEN;
 
         return new ResponseEntity<>(generateErrorResponse(status, messages), status);
     }
@@ -122,6 +139,8 @@ public class AppExceptionController {
     public ResponseEntity<ErrorResponse> handleGenericException(Exception ex) {
         List<String> messages = List.of(ex.getMessage());
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+
+        log.info("Exception: {}", ex.getMessage());
 
         return new ResponseEntity<>(generateErrorResponse(status, messages), status);
     }

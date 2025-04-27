@@ -1,6 +1,5 @@
 package polsl.pl.tab.api.user.repository;
 
-import jakarta.validation.constraints.Email;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import polsl.pl.tab.api.user.model.User;

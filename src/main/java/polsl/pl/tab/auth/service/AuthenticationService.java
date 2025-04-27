@@ -20,7 +20,6 @@ import polsl.pl.tab.auth.model.TokenType;
 import polsl.pl.tab.exception.AuthException;
 
 import java.io.IOException;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -41,7 +40,6 @@ public class AuthenticationService {
         }
 
         var user = User.builder()
-                .uid(UUID.randomUUID().toString())
                 .login(request.getLogin())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))

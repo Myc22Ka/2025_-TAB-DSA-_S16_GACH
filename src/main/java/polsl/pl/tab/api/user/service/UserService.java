@@ -6,6 +6,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import polsl.pl.tab.api.ticket.model.Ticket;
+import polsl.pl.tab.api.ticket.repository.TicketRepository;
 import polsl.pl.tab.api.user.dto.ChangePasswordRequest;
 import polsl.pl.tab.api.user.dto.UserDto;
 import polsl.pl.tab.api.user.model.User;
@@ -18,7 +20,9 @@ import java.security.Principal;
 public class UserService {
 
     private final PasswordEncoder passwordEncoder;
-    private final UserRepository repository;
+    private final UserRepository userRepository;
+    private final TicketRepository ticketRepository;
+
     public void changePassword(ChangePasswordRequest request, Principal connectedUser) {
 
         var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
@@ -33,14 +37,24 @@ public class UserService {
 
         user.setPassword(passwordEncoder.encode(request.getNewPassword()));
 
-        repository.save(user);
+        userRepository.save(user);
     }
 
     public UserDto getCurrentUser(Authentication authentication) {
         String email = authentication.getName();
-        User user = repository.findByEmail(email)
+        User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         return new UserDto(user.getLogin(), user.getEmail(), user.getRole());
     }
 
+    public void giveTicketToUser(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        Ticket ticket = Ticket.builder()
+                .user(user)
+                .build();
+
+        ticketRepository.save(ticket);
+    }
 }

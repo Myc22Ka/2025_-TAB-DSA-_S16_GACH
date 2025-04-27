@@ -21,10 +21,9 @@ import polsl.pl.tab.auth.model.Token;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String uid;
     private String login;
     private String email;
     private String password;
