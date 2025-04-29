@@ -1,9 +1,10 @@
 import React from 'react';
 import { RouteObject } from 'react-router';
-import Home from './views/Home';
+
 import ErrorPage from './views/ErrorPage';
 import Login from './components/auth/Login';
 import SignUp from './components/auth/SignUp';
+import Home from './views/HomePage/Home';
 export const routes: RouteObject[] = [
     {
         path: '/',
