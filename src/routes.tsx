@@ -5,6 +5,7 @@ import ErrorPage from './views/ErrorPage';
 import Login from './components/auth/Login';
 import SignUp from './components/auth/SignUp';
 import Home from './views/HomePage/Home';
+import Dashboard from './views/Dashboard/Dashboard';
 export const routes: RouteObject[] = [
     {
         path: '/',
@@ -17,6 +18,10 @@ export const routes: RouteObject[] = [
     {
         path: '/signup',
         element: <SignUp />,
+    },
+    {
+        path: '/dashboard',
+        element: <Dashboard />,
     },
     {
         path: '*',
