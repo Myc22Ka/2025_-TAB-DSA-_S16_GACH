@@ -12,3 +12,8 @@ export interface User {
     dateOfBirth: string | null;
     gender: string | null;
 }
+
+export interface AuthenticationResponse {
+    accessToken: string;
+    refreshToken: string;
+}

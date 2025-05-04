@@ -1,9 +1,13 @@
 import { RequestConfig } from '@/interfaces/IAxios';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
+export const BASE_URL = `http://${import.meta.env.VITE_PLATFORM_URL}:${import.meta.env.VITE_BACKEND_PORT}` || 'http://localhost:8080';
+export const API_URL = `${BASE_URL}/api`;
+export const AUTH_URL = `${BASE_URL}/api/auth`;
+
 // Create Axios instance with default config
 const apiClient: AxiosInstance = axios.create({
-    baseURL: `http://localhost:8080`,
+    baseURL: BASE_URL,
     headers: {
         'Content-Type': 'application/json',
     },
@@ -43,7 +47,7 @@ export const get = async <T>(url: string, params?: unknown): Promise<T> => {
 };
 
 export const post = async <T>(url: string, data?: unknown): Promise<T> => {
-    const response = await request<T>({ method: 'PUT', url, data });
+    const response = await request<T>({ method: 'POST', url, data });
     return response.data;
 };
 

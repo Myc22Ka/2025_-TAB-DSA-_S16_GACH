@@ -1,14 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-    Sidebar,
-    SidebarContent,
-    SidebarFooter,
-    SidebarHeader,
-    SidebarMenu,
-    SidebarMenuItem,
-} from '@/components/ui/sidebar';
-import { FaTicketAlt, FaCog } from 'react-icons/fa';
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar';
+// import { FaTicketAlt, FaCog } from 'react-icons/fa';
 import { ModeToggle } from '@/components/ModeToggle/ModeToggle';
 
 const SidebarComponent: React.FC = () => {
@@ -27,7 +20,7 @@ const SidebarComponent: React.FC = () => {
                             to="/moje-bilety"
                             className="flex items-center gap-2 p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
                         >
-                            <FaTicketAlt />
+                            {/* <FaTicketAlt /> */}
                             <span>Moje bilety</span>
                         </Link>
                     </SidebarMenuItem>
@@ -36,7 +29,7 @@ const SidebarComponent: React.FC = () => {
                             to="/ustawienia"
                             className="flex items-center gap-2 p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
                         >
-                            <FaCog />
+                            {/* <FaCog /> */}
                             <span>Ustawienia</span>
                         </Link>
                     </SidebarMenuItem>

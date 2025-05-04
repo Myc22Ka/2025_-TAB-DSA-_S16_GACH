@@ -1,11 +1,12 @@
 package polsl.pl.tab.auth.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import polsl.pl.tab.api.user.model.Role;
 import polsl.pl.tab.auth.validator.Password;
 
 /**
@@ -17,6 +18,8 @@ import polsl.pl.tab.auth.validator.Password;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegisterRequest {
+
+    @Size(min = 3, message = "Login is to short")
     private String login;
 
     @Email(message = "Please provide a valid email address")
@@ -24,5 +27,4 @@ public class RegisterRequest {
 
     @Password
     private String password;
-    private Role role;
 }
