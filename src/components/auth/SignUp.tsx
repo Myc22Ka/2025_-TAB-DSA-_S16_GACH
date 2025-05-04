@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
-import register from './utils/service';
+import { register } from './utils/service';
 import { FormSignUpData, formSignUpSchema } from './utils/zod';
 import { toast } from 'sonner';
 
@@ -26,7 +26,6 @@ const SignUp: React.FC = () => {
     const onSubmit: SubmitHandler<FormSignUpData> = async values => {
         try {
             await register(values);
-
             toast.success('Rejestracja zakończona sukcesem');
             navigate(-1);
         } catch (error) {

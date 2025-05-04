@@ -9,6 +9,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import polsl.pl.tab.api.user.model.Role;
 import polsl.pl.tab.api.user.model.User;
 import polsl.pl.tab.auth.dto.AuthenticationRequest;
 import polsl.pl.tab.auth.dto.AuthenticationResponse;
@@ -43,6 +44,7 @@ public class AuthenticationService {
                 .login(request.getLogin())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.USER)
                 .build();
 
         var savedUser = repository.save(user);

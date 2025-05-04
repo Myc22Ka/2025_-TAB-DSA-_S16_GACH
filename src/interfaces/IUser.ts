@@ -1,19 +1,12 @@
 export interface User {
-    id: number;
     login: string;
-    firstName: string;
-    lastName: string;
-    photoUrl: string;
     email: string;
-    cash: number;
-    createdAt: string;
-    phoneNumber: number | null;
-    address: string | null;
-    dateOfBirth: string | null;
-    gender: string | null;
+    role: Role;
 }
 
+export type Role = 'USER' | 'ADMIN' | 'INSTRUCTOR' | 'CASHIER';
+
 export interface AuthenticationResponse {
-    accessToken: string;
-    refreshToken: string;
+    access_token: string;
+    refresh_token: string;
 }

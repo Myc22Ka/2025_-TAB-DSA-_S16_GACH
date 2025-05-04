@@ -16,6 +16,18 @@ const apiClient: AxiosInstance = axios.create({
     },
 });
 
+// Add request interceptor to add auth token to every request
+apiClient.interceptors.request.use(
+    config => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    error => Promise.reject(error)
+);
+
 // Error handling interceptor
 apiClient.interceptors.response.use(
     response => response,
