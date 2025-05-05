@@ -10,6 +10,7 @@ type AuthProviderProps = {
 
 type AuthProviderState = {
     user: User | null;
+    isLoggedIn: boolean;
     token: string | null;
     setToken: (token: string) => void;
     setUser: (user: User) => void;
@@ -21,6 +22,8 @@ const AuthProviderContext = createContext<AuthProviderState | undefined>(undefin
 export function AuthProvider({ children }: AuthProviderProps) {
     const [user, setUser] = useState<User | null>(null);
     const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
+
+    const isLoggedIn = Boolean(user && token);
 
     const logout = () => {
         setUser(null);
@@ -48,6 +51,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         <AuthProviderContext.Provider
             value={{
                 user,
+                isLoggedIn,
                 setUser,
                 token,
                 setToken,
