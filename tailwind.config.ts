@@ -6,6 +6,9 @@ export default {
     content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
     theme: {
         extend: {
+            fontFamily: {
+                kanchenjunga: ['Kanchenjunga', 'serif'],
+            },
             borderRadius: {
                 lg: 'var(--radius)',
                 md: 'calc(var(--radius) - 2px)',
@@ -25,6 +28,8 @@ export default {
                 primary: {
                     DEFAULT: 'hsl(var(--primary))',
                     foreground: 'hsl(var(--primary-foreground))',
+                    hover: 'hsl(var(--primary-hover))',
+                    'hover-foreground': 'hsl(var(--primary-hover-foreground))',
                 },
                 secondary: {
                     DEFAULT: 'hsl(var(--secondary))',

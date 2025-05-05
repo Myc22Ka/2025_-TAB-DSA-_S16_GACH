@@ -1,4 +1,5 @@
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from '@/components/ui/navigation-menu';
+import { motion } from 'framer-motion';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -25,12 +26,14 @@ const navigationList: NavigationList[] = [
 const Navigation: React.FC = () => {
     return (
         <NavigationMenu>
-            <NavigationMenuList className="space-x-4">
+            <NavigationMenuList className="flex gap-10">
                 {navigationList.map((item, index) => (
                     <NavigationMenuItem key={index}>
-                        <Link to={item.link} className="hover:text-blue-500 transition-colors">
-                            {item.text}
-                        </Link>
+                        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: index * 0.1 }}>
+                            <Link to={item.link} className="text-2xl hover:text-primary-hover transition-colors">
+                                {item.text}
+                            </Link>
+                        </motion.div>
                     </NavigationMenuItem>
                 ))}
             </NavigationMenuList>

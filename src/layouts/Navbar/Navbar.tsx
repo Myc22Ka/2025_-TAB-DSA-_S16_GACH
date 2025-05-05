@@ -12,8 +12,8 @@ const Navbar: React.FC = () => {
     const { user, isLoggedIn } = useAuth();
 
     return (
-        <header className="fixed top-0 w-full z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
-            <div className="container mx-auto px-6 py-3 flex items-center justify-between">
+        <header className="fixed top-0 w-full z-50 bg-white dark:bg-gray-900 dark:border-gray-700 py-6">
+            <div className="container mx-auto px-1 py-6 flex items-center justify-between border-y border-gray-300">
                 <Logo />
                 <Navigation />
 
