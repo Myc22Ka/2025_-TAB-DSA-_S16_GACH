@@ -16,3 +16,10 @@ export const formSignUpSchema = z
     });
 
 export type FormSignUpData = z.infer<typeof formSignUpSchema>;
+
+export const formLoginSchema = z.object({
+    email: z.string().email('Niepoprawny adres email'),
+    password: z.string().min(9, 'Hasło musi mieć co najmniej 9 znaków'),
+});
+
+export type FormLoginData = z.infer<typeof formLoginSchema>;

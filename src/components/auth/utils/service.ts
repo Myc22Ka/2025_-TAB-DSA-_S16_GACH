@@ -3,6 +3,20 @@ import { get, post, AUTH_URL, API_URL } from '@/lib/axios';
 import { FormSignUpData } from './zod';
 import { toast } from 'sonner';
 
+export interface LoginPayload {
+    email: string;
+    password: string;
+}
+
+export async function login(payload: LoginPayload): Promise<void> {
+    const response = await post<AuthenticationResponse>(`${AUTH_URL}/login`, payload);
+    if (!response) {
+        throw new Error('Błąd podczas logowania');
+    }
+    localStorage.setItem('token', response.access_token);
+    localStorage.setItem('refresh_token', response.refresh_token);
+}
+
 export const register = async (data: FormSignUpData) => {
     try {
         const response = await post<AuthenticationResponse>(`${AUTH_URL}/register`, data);
