@@ -1,0 +1,43 @@
+{
+"activity": [
+	{
+		"id" : 1,
+		"activitytime" : "13:00:00Z",
+		"activityduration" : 60,
+		"entrylimit" : 15,
+		"activitytype" : "Yoga",
+		"available" : true,
+		"price" : 30.00,
+		"instructor_id" : null
+	},
+	{
+		"id" : 2,
+		"activitytime" : "15:00:00Z",
+		"activityduration" : 45,
+		"entrylimit" : 10,
+		"activitytype" : "Zumba",
+		"available" : true,
+		"price" : 25.00,
+		"instructor_id" : null
+	},
+	{
+		"id" : 3,
+		"activitytime" : "09:00:00Z",
+		"activityduration" : 30,
+		"entrylimit" : 8,
+		"activitytype" : "Pilates",
+		"available" : true,
+		"price" : 20.00,
+		"instructor_id" : null
+	},
+	{
+		"id" : 4,
+		"activitytime" : "17:00:00Z",
+		"activityduration" : 50,
+		"entrylimit" : 12,
+		"activitytype" : "Crossfit",
+		"available" : true,
+		"price" : 35.00,
+		"instructor_id" : null
+	}
+]}

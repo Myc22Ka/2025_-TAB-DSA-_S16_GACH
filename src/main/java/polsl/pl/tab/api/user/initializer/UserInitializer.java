@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @RequiredArgsConstructor
 public class UserInitializer {
 
-//    private final UserAuthenticationProvider userAuthenticationProvider;
+//    private final UserAuth   enticationProvider userAuthenticationProvider;
 //
 //    @Bean
 //    public CommandLineRunner initUsers(UserRepository userRepository) {
