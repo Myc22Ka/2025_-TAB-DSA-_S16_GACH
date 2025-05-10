@@ -6,14 +6,16 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
-import { login as loginService } from './utils/service';
+import { authenticate, login as loginService } from './utils/service';
 import { FormLoginData, formLoginSchema } from './utils/zod';
 import { toast } from 'sonner';
 import DefaultLayout from '@/layouts/DefaultLayout';
 import { Eye, EyeOff } from 'lucide-react';
+import { useAuth } from '@/context/AuthProvider';
 
 const Login: React.FC = () => {
     const navigate = useNavigate();
+    const { setUser } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
     const form = useForm<FormLoginData>({
         resolver: zodResolver(formLoginSchema),
@@ -27,6 +29,9 @@ const Login: React.FC = () => {
         try {
             await loginService(values);
             toast.success('Zalogowano pomyślnie');
+
+            const user = await authenticate();
+            setUser(user);
             navigate('/');
         } catch (error) {
             toast.error(`Błąd logowania: ${error}`);

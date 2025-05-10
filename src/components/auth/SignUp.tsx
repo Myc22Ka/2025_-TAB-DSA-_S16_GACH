@@ -7,13 +7,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
-import { register } from './utils/service';
+import { authenticate, register } from './utils/service';
 import { FormSignUpData, formSignUpSchema } from './utils/zod';
 import { toast } from 'sonner';
 import DefaultLayout from '@/layouts/DefaultLayout';
+import { useAuth } from '@/context/AuthProvider';
 
 const SignUp: React.FC = () => {
     const navigate = useNavigate();
+    const { setUser } = useAuth();
     const [isPasswordFocused, setIsPasswordFocused] = React.useState(false);
     const form = useForm<FormSignUpData>({
         resolver: zodResolver(formSignUpSchema),
@@ -29,6 +31,9 @@ const SignUp: React.FC = () => {
         try {
             await register(values);
             toast.success('Rejestracja zakończona sukcesem');
+
+            const user = await authenticate();
+            setUser(user);
             navigate('/');
         } catch (error) {
             toast(`Błąd rejestracji: ${error}`);

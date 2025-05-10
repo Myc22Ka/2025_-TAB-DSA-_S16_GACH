@@ -11,7 +11,7 @@ export interface LoginPayload {
 export async function login(payload: LoginPayload): Promise<void> {
     const response = await post<AuthenticationResponse>(`${AUTH_URL}/login`, payload);
     if (!response) {
-        throw new Error('Błąd podczas logowania');
+        throw new Error('Error during login');
     }
     localStorage.setItem('token', response.access_token);
     localStorage.setItem('refresh_token', response.refresh_token);
@@ -26,7 +26,7 @@ export const register = async (data: FormSignUpData) => {
 
         return response;
     } catch (error) {
-        toast.error('Rejestracja nie powiodła się');
+        toast.error('Registration failed');
         throw error;
     }
 };
@@ -35,14 +35,19 @@ export const authenticate = async (): Promise<User> => {
     const token = localStorage.getItem('token');
 
     if (!token) {
-        throw new Error('Brak tokenu autoryzacyjnego');
+        throw new Error('No authentication token found');
     }
 
     try {
         const user = await get<User>(`${API_URL}/users/me`);
+
         return user;
     } catch (error) {
-        toast.error('Nie można pobrać danych użytkownika');
+        toast.error('Your session has expired. Please log in again.');
+
+        localStorage.removeItem('token');
+        localStorage.removeItem('refresh_token');
+
         throw error;
     }
 };

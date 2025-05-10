@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { createContext, useContext, useState } from 'react';
 import { User } from '@/interfaces/IUser';
 import { toast } from 'sonner';
@@ -15,35 +15,45 @@ type AuthProviderState = {
     setToken: (token: string) => void;
     setUser: (user: User) => void;
     logout: () => void;
+    isLoading: boolean;
 };
 
 const AuthProviderContext = createContext<AuthProviderState | undefined>(undefined);
 
 export function AuthProvider({ children }: AuthProviderProps) {
+    const hasAuthenticatedRef = useRef(false);
+
     const [user, setUser] = useState<User | null>(null);
     const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     const isLoggedIn = Boolean(user && token);
 
     const logout = () => {
         setUser(null);
         setToken(null);
-        localStorage.removeItem('auth_token');
+        localStorage.removeItem('token');
 
         toast.info('You have successfully logged out.');
     };
 
     useEffect(() => {
+        if (hasAuthenticatedRef.current) return;
+
         if (!user && token) {
+            setIsLoading(true);
             authenticate()
                 .then(userData => {
                     setUser(userData);
+                    setIsLoading(false);
                 })
                 .catch(() => {
-                    toast.error('Failed to authenticate user');
+                    setIsLoading(false);
                 });
 
-            return;
+            hasAuthenticatedRef.current = true;
+        } else {
+            setIsLoading(false);
         }
     }, [user, token]);
 
@@ -56,6 +66,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 token,
                 setToken,
                 logout,
+                isLoading,
             }}
         >
             {children}

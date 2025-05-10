@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Footer from './Footer';
 import { SidebarProvider } from '@/components/ui/sidebar';
-import { useAuth } from '@/context/AuthProvider';
 import Navbar from './Navbar/Navbar';
 
 interface IDefaultLayout {
@@ -9,12 +8,6 @@ interface IDefaultLayout {
 }
 
 const DefaultLayout: React.FC<IDefaultLayout> = ({ children }) => {
-    const { user } = useAuth();
-
-    useEffect(() => {
-        console.log('user', user);
-    }, [user]);
-
     return (
         <SidebarProvider>
             <div className="flex min-h-screen w-screen bg-white dark:bg-gray-900 dark:border-gray-700">
