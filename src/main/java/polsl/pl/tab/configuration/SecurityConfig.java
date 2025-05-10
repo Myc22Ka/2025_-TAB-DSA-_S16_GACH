@@ -30,6 +30,7 @@ public class SecurityConfig {
      * Includes authentication endpoints and Swagger documentation paths.
      */
     private static final String[] WHITE_LIST_URL = {"/api/auth/**",
+            "/api/attractions/**",
             "/v2/api-docs",
             "/v3/api-docs",
             "/v3/api-docs/**",
