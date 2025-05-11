@@ -1,0 +1,31 @@
+{
+"classschedule": [
+	{
+		"id" : 1,
+		"classid" : 1,
+		"date" : "2025-05-10",
+		"seatsnumber" : 15,
+		"seatsreservated" : 10
+	},
+	{
+		"id" : 2,
+		"classid" : 2,
+		"date" : "2025-05-11",
+		"seatsnumber" : 10,
+		"seatsreservated" : 7
+	},
+	{
+		"id" : 3,
+		"classid" : 3,
+		"date" : "2025-05-15",
+		"seatsnumber" : 8,
+		"seatsreservated" : 5
+	},
+	{
+		"id" : 4,
+		"classid" : 4,
+		"date" : "2025-05-16",
+		"seatsnumber" : 12,
+		"seatsreservated" : 10
+	}
+]}

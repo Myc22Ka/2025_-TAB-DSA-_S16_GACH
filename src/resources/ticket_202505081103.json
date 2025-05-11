@@ -1,0 +1,33 @@
+{
+"ticket": [
+	{
+		"id" : 3,
+		"user_id" : 3,
+		"timelimit" : 90,
+		"entrylimit" : 5,
+		"availabilityfrom" : "2025-05-10",
+		"availabilityuntil" : "2025-06-10",
+		"tickettype" : "Basic",
+		"used" : false
+	},
+	{
+		"id" : 4,
+		"user_id" : 4,
+		"timelimit" : 180,
+		"entrylimit" : 15,
+		"availabilityfrom" : "2025-05-01",
+		"availabilityuntil" : "2025-06-15",
+		"tickettype" : "Student",
+		"used" : false
+	},
+	{
+		"id" : 5,
+		"user_id" : 5,
+		"timelimit" : 60,
+		"entrylimit" : 3,
+		"availabilityfrom" : "2025-05-20",
+		"availabilityuntil" : "2025-06-20",
+		"tickettype" : "Limited",
+		"used" : true
+	}
+]}
