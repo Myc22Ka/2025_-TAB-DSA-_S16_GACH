@@ -1,17 +1,18 @@
 {
-"attractionentry": [
-	{
-		"id" : 3,
-		"attraction_id" : 3,
-		"user_id" : 3,
-		"peoplecount" : 1,
-		"duration" : 7
-	},
-	{
-		"id" : 4,
-		"attraction_id" : 4,
-		"user_id" : 4,
-		"peoplecount" : 3,
-		"duration" : 20
-	}
-]}
+    "attractionentry": [
+        {
+            "id": 3,
+            "attraction_id": 3,
+            "user_id": 3,
+            "peoplecount": 1,
+            "duration": 7
+        },
+        {
+            "id": 4,
+            "attraction_id": 4,
+            "user_id": 4,
+            "peoplecount": 3,
+            "duration": 20
+        }
+    ]
+}

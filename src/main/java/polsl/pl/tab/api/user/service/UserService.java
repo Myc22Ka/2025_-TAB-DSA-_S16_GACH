@@ -44,7 +44,19 @@ public class UserService {
         String email = authentication.getName();
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        return new UserDto(user.getLogin(), user.getEmail(), user.getRole());
+        return new UserDto(
+                user.getLogin(),
+                user.getFirstname(),
+                user.getLastname(),
+                user.getEmail(),
+                user.getRole(),
+                user.getPhotoUrl(),
+                user.getCash(),
+                user.getPhoneNumber(),
+                user.getAddress(),
+                user.getDateOfBirth(),
+                user.getGender()
+        );
     }
 
     public void giveTicketToUser(String email) {

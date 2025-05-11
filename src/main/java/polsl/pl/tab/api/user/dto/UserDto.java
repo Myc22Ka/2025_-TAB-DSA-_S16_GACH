@@ -1,14 +1,19 @@
 package polsl.pl.tab.api.user.dto;
 
-import lombok.*;
 import polsl.pl.tab.api.user.model.Role;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class UserDto {
-    private String login;
-    private String email;
-    private Role role;
-}
+import java.time.LocalDate;
+
+public record UserDto (
+    String login,
+    String firstname,
+    String lastname,
+    String email,
+    Role role,
+    String photoUrl,
+    Double cash,
+    String phoneNumber,
+    String address,
+    LocalDate dateOfBirth,
+    String gender
+) {}

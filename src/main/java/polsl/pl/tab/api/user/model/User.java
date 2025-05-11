@@ -2,6 +2,8 @@ package polsl.pl.tab.api.user.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -25,6 +27,13 @@ public class User implements UserDetails {
     private Integer id;
 
     private String login;
+
+    @Column(name = "firstname")
+    private String firstname;
+
+    @Column(name = "lastname")
+    private String lastname;
+
     private String email;
     private String password;
 
@@ -34,31 +43,21 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
 
-//    @Column(name = "photo_url")
-//    private String photoUrl;
+    private String photoUrl;
 
-//    @Column(name="cash", nullable = false)
-//    private Double cash;
-//
-//    @Column(name = "created_at", updatable = false)
-//    private LocalDateTime createdAt;
-//
-//    @Column(name = "phone_number")
-//    private Long phoneNumber;
-//
-//    @Column(name = "address")
-//    private String address;
-//
-//    @Column(name = "date")
-//    private LocalDate dateOfBirth;
-//
-//    @Column(name = "gender")
-//    private String gender;
+    @Column(name="cash", nullable = false)
+    private Double cash;
 
-//    @PrePersist
-//    public void prePersist() {
-//        this.createdAt = LocalDateTime.now();
-//    }
+    private String phoneNumber;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "date")
+    private LocalDate dateOfBirth;
+
+    @Column(name = "gender")
+    private String gender;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

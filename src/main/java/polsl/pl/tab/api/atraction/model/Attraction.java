@@ -24,11 +24,9 @@ public class Attraction {
     private Integer maxPeopleAmount;
     private Integer currentPeopleAmount;
 
-    // Godziny otwarcia (każda godzina reprezentuje możliwe otwarcie raz na godzinę)
     @OneToMany(mappedBy = "attraction", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OpeningHour> openingHours;
 
-    // Stawki przypisane do danej atrakcji
     @OneToMany(mappedBy = "attraction", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Rate> rates;
 }
