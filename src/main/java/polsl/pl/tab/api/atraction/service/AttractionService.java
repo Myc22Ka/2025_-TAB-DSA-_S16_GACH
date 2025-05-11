@@ -30,6 +30,7 @@ public class AttractionService {
                 .map(attraction -> new AttractionDetails(
                         attraction.getName(),
                         attraction.getDescription(),
+                        attraction.getImageUrl(),
                         attraction.getMaxPeopleAmount(),
                         attraction.getCurrentPeopleAmount()
                 ))
@@ -81,6 +82,7 @@ public class AttractionService {
         return new AttractionDetailsFull(
                 attraction.getName(),
                 attraction.getDescription(),
+                attraction.getImageUrl(),
                 attraction.getMaxPeopleAmount(),
                 attraction.getCurrentPeopleAmount(),
                 openingDays,
