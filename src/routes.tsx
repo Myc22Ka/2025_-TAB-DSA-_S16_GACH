@@ -5,7 +5,7 @@ import ErrorPage from './views/ErrorPage';
 import Login from './components/auth/Login';
 import SignUp from './components/auth/SignUp';
 import Home from './views/HomePage/Home';
-import DashboardContent from './views/Dashboard/DashboardContent';
+import Dashboard from './views/Dashboard/Dashboard';
 import { Role } from '@/interfaces/IUser';
 
 export const routerConfig = {
@@ -42,7 +42,7 @@ export const routes: RouteObject[] = [
         children: [
             {
                 path: '',
-                element: <DashboardContent role={USER} selectedSection="overview" />,
+                element: <Dashboard role={USER} selectedSection="overview" />,
             },
             {
                 path: 'profile',

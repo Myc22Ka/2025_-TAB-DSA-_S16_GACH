@@ -1,22 +1,25 @@
 // components/Dashboard.tsx
 import React, { useState } from 'react';
 import DashboardSidebar from './DashboardSidebar';
-import { Role } from '@/interfaces/IUser';
-import DashboardContent from './DashboardContent'; // Zaimportowanie komponentu DashboardContent
+import DashboardContent from './DashboardContent';
+import { useAuth } from '@/context/AuthProvider';
 
-const Dashboard: React.FC = () => {
-    const [selectedSection, setSelectedSection] = useState<string>('overview');
+type DashboardProps = {
+    selectedSection: string;
+};
+
+const Dashboard: React.FC<DashboardProps> = ({ selectedSection }) => {
+    const [selectedSectionState, setSelectedSectionState] = useState<string>(selectedSection);
+    const { user } = useAuth();
 
     const handleSectionChange = (section: string) => {
-        setSelectedSection(section);
+        setSelectedSectionState(section);
     };
-
-    const role: Role = 'USER';
 
     return (
         <div className="flex">
             <DashboardSidebar onSectionChange={handleSectionChange} />
-            <DashboardContent role={role} selectedSection={selectedSection} />
+            <DashboardContent user={user} selectedSection={selectedSectionState} />
         </div>
     );
 };
