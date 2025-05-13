@@ -120,7 +120,7 @@ const DashboardOverview: React.FC<DashboardOverviewProps> = ({ user }) => {
                                     ))}
 
                                     <div className="flex justify-end space-x-2 pt-4">
-                                        <Button variant="outline" type="button" onClick={() => setIsFormVisible(false)}>
+                                        <Button type="button" onClick={() => setIsFormVisible(false)}>
                                             Cancel
                                         </Button>
                                         <Button type="submit">Save Change</Button>

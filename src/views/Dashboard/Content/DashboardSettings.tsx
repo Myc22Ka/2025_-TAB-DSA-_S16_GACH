@@ -1,48 +1,48 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { toast } from 'sonner';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { loginOnlySchema, emailOnlySchema, passwordOnlySchema } from '@/components/auth/utils/zod';
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
+import { emailOnlySchema, passwordOnlySchema } from '@/components/auth/utils/zod';
+import { EmailFormValues, PasswordFormValues, RoleFormValues, roleSchema } from '@/components/auth/utils/zod';
 
 const DashboardSettings: React.FC = () => {
     const [isPasswordFocused, setIsPasswordFocused] = React.useState(false);
-
-    // Login form
-    const loginForm = useForm<z.infer<typeof loginOnlySchema>>({
-        resolver: zodResolver(loginOnlySchema),
-        defaultValues: { login: '' },
-    });
-
     // Email form
-    const emailForm = useForm<z.infer<typeof emailOnlySchema>>({
+    const emailForm = useForm<EmailFormValues>({
         resolver: zodResolver(emailOnlySchema),
         defaultValues: { email: '' },
     });
 
     // Password form
-    const passwordForm = useForm<z.infer<typeof passwordOnlySchema>>({
+    const passwordForm = useForm<PasswordFormValues>({
         resolver: zodResolver(passwordOnlySchema),
         defaultValues: { password: '', confirmPassword: '' },
     });
 
-    const onLoginSubmit = (data: z.infer<typeof loginOnlySchema>) => {
-        console.log('New login:', data);
-        toast.success('Your login has been successfully changed.');
-    };
+    // Role form
+    const roleForm = useForm<RoleFormValues>({
+        resolver: zodResolver(roleSchema),
+        defaultValues: { role: 'USER' },
+    });
 
-    const onEmailSubmit = (data: z.infer<typeof emailOnlySchema>) => {
+    const onEmailSubmit = (data: EmailFormValues) => {
         console.log('New email:', data);
         toast.success('Your email address has been successfully changed.');
     };
 
-    const onPasswordSubmit = (data: z.infer<typeof passwordOnlySchema>) => {
+    const onPasswordSubmit = (data: PasswordFormValues) => {
         console.log('New password:', data);
         toast.success('Your password has been successfully changed.');
+    };
+
+    const onRoleSubmit = (data: RoleFormValues) => {
+        console.log('New role:', data);
+        toast.success(`User role has been changed to ${data.role}.`);
     };
 
     return (
@@ -50,31 +50,6 @@ const DashboardSettings: React.FC = () => {
             <h2 className="text-2xl font-semibold mb-6">Account Settings</h2>
 
             <Accordion type="multiple" className="w-full space-y-4">
-                {/* LOGIN */}
-                <AccordionItem value="login">
-                    <AccordionTrigger>Change Login</AccordionTrigger>
-                    <AccordionContent>
-                        <Form {...loginForm}>
-                            <form onSubmit={loginForm.handleSubmit(onLoginSubmit)} className="space-y-4">
-                                <FormField
-                                    control={loginForm.control}
-                                    name="login"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>New Login</FormLabel>
-                                            <FormControl>
-                                                <Input {...field} placeholder="Enter new login" />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <Button type="submit">Save Login</Button>
-                            </form>
-                        </Form>
-                    </AccordionContent>
-                </AccordionItem>
-
                 {/* EMAIL */}
                 <AccordionItem value="email">
                     <AccordionTrigger>Change Email</AccordionTrigger>
@@ -153,6 +128,40 @@ const DashboardSettings: React.FC = () => {
                                     )}
                                 />
                                 <Button type="submit">Save Password</Button>
+                            </form>
+                        </Form>
+                    </AccordionContent>
+                </AccordionItem>
+
+                {/* ROLE */}
+                <AccordionItem value="role">
+                    <AccordionTrigger>Change User Role</AccordionTrigger>
+                    <AccordionContent>
+                        <Form {...roleForm}>
+                            <form onSubmit={roleForm.handleSubmit(onRoleSubmit)} className="space-y-4">
+                                <FormField
+                                    control={roleForm.control}
+                                    name="role"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Select New Role</FormLabel>
+                                            <FormControl>
+                                                <Select onValueChange={field.onChange} value={field.value}>
+                                                    <SelectTrigger>
+                                                        <SelectValue placeholder="Choose role" />
+                                                    </SelectTrigger>
+                                                    <SelectContent>
+                                                        <SelectItem value="USER">USER</SelectItem>
+                                                        <SelectItem value="INSTRUCTOR">INSTRUCTOR</SelectItem>
+                                                        <SelectItem value="CASHIER">CASHIER</SelectItem>
+                                                    </SelectContent>
+                                                </Select>
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <Button type="submit">Save Role</Button>
                             </form>
                         </Form>
                     </AccordionContent>

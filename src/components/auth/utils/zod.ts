@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { passwordValidator } from './passwordValidator';
-
+import { roles } from '@/interfaces/IUser';
 // 📌 Pierwotny schema, bez refine
 const baseSignUpSchema = z.object({
     login: z.string().min(3, 'Login musi mieć co najmniej 3 znaki'),
@@ -19,9 +19,6 @@ export const formSignUpSchema = baseSignUpSchema.refine(data => data.password ==
 
 export type FormSignUpData = z.infer<typeof formSignUpSchema>;
 
-// 📌 Login-only schema
-export const loginOnlySchema = baseSignUpSchema.pick({ login: true });
-
 // 📌 Email-only schema
 export const emailOnlySchema = baseSignUpSchema.pick({ email: true });
 
@@ -37,3 +34,12 @@ export const formLoginSchema = z.object({
 });
 
 export type FormLoginData = z.infer<typeof formLoginSchema>;
+
+export const roleSchema = z.object({
+    role: z.enum(roles),
+});
+
+export type RoleFormValues = z.infer<typeof roleSchema>;
+
+export type EmailFormValues = z.infer<typeof emailOnlySchema>;
+export type PasswordFormValues = z.infer<typeof passwordOnlySchema>;
