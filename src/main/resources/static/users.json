@@ -2,55 +2,63 @@
     "users": [
         {
             "login": "mkowalski",
-            "token": null,
-            "password": "$2a$10$Bb4DdNtg1GlwNm8r/4GHhe9eDBmIorZVyHTW8/3xoRO.vozCk4BGK",
             "firstname": "Marek",
             "lastname": "Kowalski",
             "email": "marek@example.com",
+            "password": "$2a$10$Bb4DdNtg1GlwNm8r/4GHhe9eDBmIorZVyHTW8/3xoRO.vozCk4BGK",
+            "role": "USER",
             "photoUrl": "hi",
             "cash": 120.0,
             "phoneNumber": "555123123",
             "address": "ul. Klonowa 3",
-            "gender": "M"
+            "dateOfBirth": "2025-05-11",
+            "gender": "M",
+            "token": null
         },
         {
             "login": "ajankowska",
-            "token": null,
-            "password": "$2a$10$Bb4DdNtg1GlwNm8r/4GHhe9eDBmIorZVyHTW8/3xoRO.vozCk4BGK",
             "firstname": "Alicja",
             "lastname": "Jankowska",
             "email": "alicja@example.com",
+            "password": "$2a$10$Bb4DdNtg1GlwNm8r/4GHhe9eDBmIorZVyHTW8/3xoRO.vozCk4BGK",
+            "role": "USER",
             "photoUrl": null,
             "cash": 180.0,
             "phoneNumber": "888999000",
             "address": "ul. Sosnowa 7",
-            "gender": "F"
+            "dateOfBirth": "2025-05-11",
+            "gender": "F",
+            "token": null
         },
         {
             "login": "rbialek",
-            "token": null,
-            "password": "$2a$10$Bb4DdNtg1GlwNm8r/4GHhe9eDBmIorZVyHTW8/3xoRO.vozCk4BGK",
             "firstname": "Rafał",
             "lastname": "Białek",
             "email": "rafal@example.com",
+            "password": "$2a$10$Bb4DdNtg1GlwNm8r/4GHhe9eDBmIorZVyHTW8/3xoRO.vozCk4BGK",
+            "role": "USER",
             "photoUrl": null,
             "cash": 90.0,
             "phoneNumber": "111222333",
             "address": "ul. Brzozowa 5",
-            "gender": "M"
+            "dateOfBirth": "2025-05-11",
+            "gender": "M",
+            "token": null
         },
         {
-            "login": "mkowalski",
-            "token": null,
-            "password": "$2a$10$Bb4DdNtg1GlwNm8r/4GHhe9eDBmIorZVyHTW8/3xoRO.vozCk4BGK",
-            "firstname": "Marek",
+            "login": "kkowalski",
+            "firstname": "Kamil",
             "lastname": "Kowalski",
-            "email": "marek@example.com",
+            "email": "kamil@example.com",
+            "password": "$2a$10$Bb4DdNtg1GlwNm8r/4GHhe9eDBmIorZVyHTW8/3xoRO.vozCk4BGK",
+            "role": "USER",
             "photoUrl": null,
             "cash": 120.0,
             "phoneNumber": "555123123",
-            "address": "ul. Klonowa 3",
-            "gender": "M"
+            "address": "ul. Klonowa 9",
+            "dateOfBirth": "2025-05-11",
+            "gender": "M",
+            "token": null
         }
     ]
 }

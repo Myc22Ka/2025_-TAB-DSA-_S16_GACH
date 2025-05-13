@@ -9,6 +9,7 @@ import polsl.pl.tab.api.user.dto.UserDto;
 import polsl.pl.tab.api.user.service.UserService;
 
 import java.security.Principal;
+import polsl.pl.tab.api.user.dto.UpdateUserRequest;
 
 @RestController
 @RequestMapping("/api/users")
@@ -33,4 +34,23 @@ public class UserController {
         service.giveTicketToUser(email);
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/add-cash")
+    public ResponseEntity<?> addCash(
+            @RequestParam("email") String email,
+            @RequestParam("amount") double amount
+    ) {
+        service.addCashToUser(email, amount);
+        return ResponseEntity.ok().build();
+    }
+
+    @PatchMapping("/change-entity")
+    public ResponseEntity<?> updateUser(
+            @RequestBody UpdateUserRequest request,
+            Authentication authentication
+    ) {
+        service.updateUserData(request, authentication);
+        return ResponseEntity.ok().build();
+    }
+
 }

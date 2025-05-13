@@ -12,6 +12,7 @@ import polsl.pl.tab.api.user.dto.ChangePasswordRequest;
 import polsl.pl.tab.api.user.dto.UserDto;
 import polsl.pl.tab.api.user.model.User;
 import polsl.pl.tab.api.user.repository.UserRepository;
+import polsl.pl.tab.api.user.dto.UpdateUserRequest;
 
 import java.security.Principal;
 
@@ -69,4 +70,31 @@ public class UserService {
 
         ticketRepository.save(ticket);
     }
+
+    public void addCashToUser(String email, double amount) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        user.setCash(user.getCash() + amount);
+
+        userRepository.save(user);
+    }
+
+    public void updateUserData(UpdateUserRequest request, Authentication authentication) {
+        String email = authentication.getName();
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        if (request.getFirstname() != null) user.setFirstname(request.getFirstname());
+        if (request.getLastname() != null) user.setLastname(request.getLastname());
+        if (request.getPhoneNumber() != null) user.setPhoneNumber(request.getPhoneNumber());
+        if (request.getAddress() != null) user.setAddress(request.getAddress());
+        if (request.getPhotoUrl() != null) user.setPhotoUrl(request.getPhotoUrl());
+        if (request.getDateOfBirth() != null) user.setDateOfBirth(request.getDateOfBirth());
+        if (request.getGender() != null) user.setGender(request.getGender());
+
+        userRepository.save(user);
+    }
+
+
 }
