@@ -7,7 +7,17 @@ import SignUp from './components/auth/SignUp';
 import Home from './views/HomePage/Home';
 import Dashboard from './views/Dashboard/Dashboard';
 import { Role } from '@/interfaces/IUser';
+import DashboardOverview from './views/Dashboard/Content/DashboardOverview';
+import { useAuth } from '@/context/AuthProvider';
+import DefaultLayout from './layouts/DefaultLayout';
+import AttractionsList from './components/Attractions/AttractionsList';
+const DashboardProfileWrapper = () => {
+    const { user } = useAuth();
 
+    if (!user) return null;
+
+    return <DashboardOverview user={user} />;
+};
 export const routerConfig = {
     future: {
         v7_relativeSplatPath: true,
@@ -37,43 +47,50 @@ export const routes: RouteObject[] = [
         element: <SignUp />,
     },
     {
+        path: '/atrakcje',
+        element: <AttractionsList />,
+    },
+    {
         path: '/dashboard',
-        element: <ProtectedRoute requiredRoles={[USER, CASHIER, ADMIN, INSTRUCTOR]} />,
+        element: (
+            <ProtectedRoute requiredRoles={[USER, CASHIER, ADMIN, INSTRUCTOR]}>
+                <DefaultLayout>
+                    <Dashboard />
+                </DefaultLayout>
+            </ProtectedRoute>
+        ),
         children: [
             {
                 path: '',
-                element: <Dashboard role={USER} selectedSection="overview" />,
+                element: <DashboardProfileWrapper />,
             },
             {
-                path: 'profile',
-                element: <ProtectedRoute requiredRoles={[USER]} />,
-                children: [{ path: '', element: <div>My Profile</div> }],
+                path: 'settings',
+                element: <div>Settings</div>,
             },
             {
                 path: 'orders',
-                element: <ProtectedRoute requiredRoles={[USER]} />,
-                children: [{ path: '', element: <div>Orders</div> }],
+                element: <div>Orders</div>,
             },
             {
                 path: 'transactions',
-                element: <ProtectedRoute requiredRoles={[CASHIER, ADMIN]} />,
-                children: [{ path: '', element: <div>Transactions</div> }],
+                element: <div>Transactions</div>,
             },
             {
                 path: 'cash-register',
-                element: <ProtectedRoute requiredRoles={[CASHIER]} />,
-                children: [{ path: '', element: <div>Cash Register</div> }],
+                element: <div>Cash Register</div>,
             },
             {
-                path: 'admin',
-                element: <ProtectedRoute requiredRoles={[ADMIN]} />,
-                children: [
-                    { path: 'users', element: <div>User Management</div> },
-                    { path: 'logs', element: <div>System Logs</div> },
-                ],
+                path: 'admin/users',
+                element: <div>User Management</div>,
+            },
+            {
+                path: 'admin/logs',
+                element: <div>System Logs</div>,
             },
         ],
     },
+
     {
         path: '*',
         element: <ErrorPage />,

@@ -13,7 +13,7 @@ export const router = createBrowserRouter(routes, routerConfig);
 const App: React.FC = () => {
     return (
         <PersistQueryClientProvider client={queryClient} persistOptions={{ persister }}>
-            <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+            <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
                 <AuthProvider>
                     <Toaster />
                     <RouterProvider router={router} future={{ v7_startTransition: true }} />
