@@ -11,6 +11,7 @@ import DashboardOverview from './views/Dashboard/Content/DashboardOverview';
 import { useAuth } from '@/context/AuthProvider';
 import DefaultLayout from './layouts/DefaultLayout';
 import AttractionsList from './components/Attractions/AttractionsList';
+import DashboardSettings from './views/Dashboard/Content/DashboardSettings';
 const DashboardProfileWrapper = () => {
     const { user } = useAuth();
 
@@ -66,7 +67,7 @@ export const routes: RouteObject[] = [
             },
             {
                 path: 'settings',
-                element: <div>Settings</div>,
+                element: <DashboardSettings />,
             },
             {
                 path: 'orders',

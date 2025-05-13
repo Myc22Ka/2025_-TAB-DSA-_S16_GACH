@@ -25,7 +25,6 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ user }) => {
 
     return (
         <aside className="w-64 bg-gray-100 dark:bg-gray-800 border-r dark:border-gray-700 min-h-screen p-4">
-            <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Dashboard</h2>
             <nav className="space-y-2">
                 {visibleLinks.map(link => (
                     <Link
