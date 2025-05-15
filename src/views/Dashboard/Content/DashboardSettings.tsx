@@ -12,6 +12,7 @@ import { EmailFormValues, PasswordFormValues, RoleFormValues, roleSchema } from 
 
 const DashboardSettings: React.FC = () => {
     const [isPasswordFocused, setIsPasswordFocused] = React.useState(false);
+
     // Email form
     const emailForm = useForm<EmailFormValues>({
         resolver: zodResolver(emailOnlySchema),

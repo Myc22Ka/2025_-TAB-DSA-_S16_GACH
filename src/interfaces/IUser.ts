@@ -21,7 +21,7 @@ export interface AuthenticationResponse {
 }
 export interface RoleChangeRequestDto {
     id: number;
+    userLogin: string;
     requestedRole: Role;
     status: 'PENDING' | 'APPROVED' | 'REJECTED';
-    createdAt: string;
 }

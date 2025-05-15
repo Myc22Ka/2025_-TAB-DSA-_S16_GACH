@@ -1,0 +1,62 @@
+[
+    {
+        "id": 9007199254740991,
+        "userLogin": "user1",
+        "requestedRole": "USER",
+        "status": "PENDING"
+    },
+    {
+        "id": 9007199254740992,
+        "userLogin": "user2",
+        "requestedRole": "ADMIN",
+        "status": "APPROVED"
+    },
+    {
+        "id": 9007199254740993,
+        "userLogin": "user3",
+        "requestedRole": "MODERATOR",
+        "status": "REJECTED"
+    },
+    {
+        "id": 9007199254740994,
+        "userLogin": "user4",
+        "requestedRole": "USER",
+        "status": "PENDING"
+    },
+    {
+        "id": 9007199254740995,
+        "userLogin": "user5",
+        "requestedRole": "ADMIN",
+        "status": "PENDING"
+    },
+    {
+        "id": 9007199254740996,
+        "userLogin": "user6",
+        "requestedRole": "USER",
+        "status": "APPROVED"
+    },
+    {
+        "id": 9007199254740997,
+        "userLogin": "user7",
+        "requestedRole": "MODERATOR",
+        "status": "PENDING"
+    },
+    {
+        "id": 9007199254740998,
+        "userLogin": "user8",
+        "requestedRole": "USER",
+        "status": "REJECTED"
+    },
+    {
+        "id": 9007199254740999,
+        "userLogin": "user9",
+        "requestedRole": "ADMIN",
+        "status": "APPROVED"
+    },
+    {
+        "id": 9007199254741000,
+        "userLogin": "user10",
+        "requestedRole": "USER",
+        "status": "PENDING"
+    }
+]

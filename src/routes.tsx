@@ -12,6 +12,8 @@ import { useAuth } from '@/context/AuthProvider';
 import DefaultLayout from './layouts/DefaultLayout';
 import AttractionsList from './components/Attractions/AttractionsList';
 import DashboardSettings from './views/Dashboard/Content/DashboardSettings';
+import DashboardAdminPanel from './views/Dashboard/Content/DashboardAdminPanel';
+
 const DashboardProfileWrapper = () => {
     const { user } = useAuth();
 
@@ -82,8 +84,8 @@ export const routes: RouteObject[] = [
                 element: <div>Cash Register</div>,
             },
             {
-                path: 'admin/users',
-                element: <div>User Management</div>,
+                path: 'admin',
+                element: <DashboardAdminPanel />,
             },
             {
                 path: 'admin/logs',
