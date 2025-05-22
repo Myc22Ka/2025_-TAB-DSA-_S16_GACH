@@ -1,0 +1,21 @@
+{
+"atractionentry": [
+	{
+		"atraction_id" : 1,
+		"user_id" : 3,
+		"peoplecount" : 4,
+		"duration" : 10
+	},
+	{
+		"atraction_id" : 1,
+		"user_id" : 1,
+		"peoplecount" : 2,
+		"duration" : 15
+	},
+	{
+		"atraction_id" : 2,
+		"user_id" : 2,
+		"peoplecount" : 1,
+		"duration" : 30
+	}
+]}

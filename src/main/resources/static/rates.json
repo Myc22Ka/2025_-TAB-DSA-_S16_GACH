@@ -1,0 +1,18 @@
+{
+"rates": [
+	{
+		"name" : "Rodzinny",
+		"price" : 60.00,
+		"attraction_id" : 3
+	},
+	{
+		"name" : "Standard",
+		"price" : 40.00,
+		"attraction_id" : 2
+	},
+	{
+		"name" : "Premium",
+		"price" : 100.00,
+		"attraction_id" : 1
+	}
+]}

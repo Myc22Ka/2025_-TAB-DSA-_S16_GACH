@@ -1,0 +1,24 @@
+{
+"attractions": [
+	{
+		"current_people_amount" : 50,
+		"description" : "Basen z falami",
+		"image_url" : "https:\/\/example.com\/images\/wave_pool.jpg",
+		"max_people_amount" : 100,
+		"name" : "Basen z Falami"
+	},
+	{
+		"current_people_amount" : 30,
+		"description" : "zjeżdżalnia wodna",
+		"image_url" : "https:\/\/example.com\/images\/slide_twister.jpg",
+		"max_people_amount" : 60,
+		"name" : "Twister"
+	},
+	{
+		"current_people_amount" : 15,
+		"description" : "Relaksująca rzeka",
+		"image_url" : "https:\/\/example.com\/images\/lazy_river.jpg",
+		"max_people_amount" : 40,
+		"name" : "Leniwa Rzeka"
+	}
+]}
