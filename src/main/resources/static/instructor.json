@@ -1,21 +1,22 @@
 {
-"instructor": [
-	{
-		"login" : "bkowalski",
-		"firstname" : "Bartek",
-		"lastname" : "Kowalski",
-		"accesscode" : "AC789"
-	},
-	{
-		"login" : "mnowak",
-		"firstname" : "Marek",
-		"lastname" : "Nowak",
-		"accesscode" : "AC123"
-	},
-	{
-		"login" : "jczyzewski",
-		"firstname" : "Jan",
-		"lastname" : "Czyżewski",
-		"accesscode" : "AC456"
-	}
-]}
+    "instructor": [
+        {
+            "login": "bkowalski",
+            "firstname": "Bartek",
+            "lastname": "Kowalski",
+            "accesscode": "AC789"
+        },
+        {
+            "login": "mnowak",
+            "firstname": "Marek",
+            "lastname": "Nowak",
+            "accesscode": "AC123"
+        },
+        {
+            "login": "jczyzewski",
+            "firstname": "Jan",
+            "lastname": "Czyżewski",
+            "accesscode": "AC456"
+        }
+    ]
+}

@@ -17,16 +17,24 @@ public class Attraction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(length = 255)
     private String name;
+
+    @Column(columnDefinition = "TEXT")
     private String description;
+
+    @Column(name = "image_url", columnDefinition = "TEXT")
     private String imageUrl;
 
+    @Column(name = "max_people_amount")
     private Integer maxPeopleAmount;
+
+    @Column(name = "current_people_amount")
     private Integer currentPeopleAmount;
+
+    @Column(name = "price")
+    private Double price;
 
     @OneToMany(mappedBy = "attraction", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OpeningHour> openingHours;
-
-    @OneToMany(mappedBy = "attraction", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Rate> rates;
 }

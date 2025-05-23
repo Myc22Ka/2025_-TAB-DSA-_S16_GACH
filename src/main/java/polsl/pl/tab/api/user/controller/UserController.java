@@ -29,18 +29,12 @@ public class UserController {
         return ResponseEntity.ok(service.getCurrentUser(authentication));
     }
 
-    @PostMapping("/give-ticket")
-    public ResponseEntity<?> giveTicket(@RequestParam("email") String email, Authentication authentication) {
-        service.giveTicketToUser(email);
-        return ResponseEntity.ok().build();
-    }
-
     @PostMapping("/add-cash")
-    public ResponseEntity<?> addCash(
-            @RequestParam("email") String email,
+    public ResponseEntity<Double> addCash(
+            Authentication authentication,
             @RequestParam("amount") double amount
     ) {
-        service.addCashToUser(email, amount);
+        service.addCashToUser(authentication, amount);
         return ResponseEntity.ok().build();
     }
 

@@ -27,7 +27,7 @@ public class TabProjectApplication {
 
 		SpringApplication.run(TabProjectApplication.class, args);
 		
-		System.out.println("Hi!");
+		System.out.println("Decisions have repercussions...");
 	}
 
 }

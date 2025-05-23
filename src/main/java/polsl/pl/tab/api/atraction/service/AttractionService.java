@@ -1,6 +1,5 @@
 package polsl.pl.tab.api.atraction.service;
 
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import polsl.pl.tab.api.atraction.dto.*;
@@ -8,7 +7,6 @@ import polsl.pl.tab.api.atraction.model.Attraction;
 import polsl.pl.tab.api.atraction.model.OpeningHour;
 import polsl.pl.tab.api.atraction.repository.AttractionRepository;
 import polsl.pl.tab.api.atraction.repository.OpeningHourRepository;
-import polsl.pl.tab.api.atraction.repository.RateRepository;
 import polsl.pl.tab.exception.AppException;
 
 import java.time.DayOfWeek;
@@ -22,7 +20,6 @@ public class AttractionService {
 
     private final AttractionRepository attractionRepository;
     private final OpeningHourRepository openingHourRepository;
-    private final RateRepository rateRepository;
 
     public List<AttractionDetails> getAttractionDetails() {
         return attractionRepository.findAll()
@@ -31,6 +28,7 @@ public class AttractionService {
                         attraction.getName(),
                         attraction.getDescription(),
                         attraction.getImageUrl(),
+                        attraction.getPrice(),
                         attraction.getMaxPeopleAmount(),
                         attraction.getCurrentPeopleAmount()
                 ))
@@ -74,19 +72,14 @@ public class AttractionService {
                 })
                 .toList();
 
-        List<RateDTO> rates = rateRepository.findByAttractionId(attractionId).stream()
-                .map(rate -> new RateDTO(rate.getName(), rate.getPrice()))
-                .toList();
-
-        // Zbuduj DTO dla atrakcji
         return new AttractionDetailsFull(
                 attraction.getName(),
                 attraction.getDescription(),
                 attraction.getImageUrl(),
                 attraction.getMaxPeopleAmount(),
                 attraction.getCurrentPeopleAmount(),
-                openingDays,
-                rates
+                attraction.getPrice(),
+                openingDays
         );
     }
 }

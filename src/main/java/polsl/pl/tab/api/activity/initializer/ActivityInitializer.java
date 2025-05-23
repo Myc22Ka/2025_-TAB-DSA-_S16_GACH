@@ -17,30 +17,30 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ActivityInitializer {
 
-    private final ActivityRepository activityRepository;
-
-    @Bean
-    public CommandLineRunner initActivities(ObjectMapper objectMapper) {
-        return args -> {
-            if (activityRepository.count() == 0) {
-                try (InputStream is = getClass().getClassLoader().getResourceAsStream("static/activities.json")) {
-                    if (is == null) {
-                        throw new IllegalArgumentException("Could not find static/activities.json in classpath.");
-                    }
-
-                    ActivitiesWrapper wrapper = objectMapper.readValue(is, ActivitiesWrapper.class);
-                    activityRepository.saveAll(wrapper.getActivity());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-    }
-
-    // Wrapper for outer "activity": [ ... ]
-    @Setter
-    @Getter
-    public static class ActivitiesWrapper {
-        private List<Activity> activity;
-    }
+//    private final ActivityRepository activityRepository;
+//
+//    @Bean
+//    public CommandLineRunner initActivities(ObjectMapper objectMapper) {
+//        return args -> {
+//            if (activityRepository.count() == 0) {
+//                try (InputStream is = getClass().getClassLoader().getResourceAsStream("static/activities.json")) {
+//                    if (is == null) {
+//                        throw new IllegalArgumentException("Could not find static/activities.json in classpath.");
+//                    }
+//
+//                    ActivitiesWrapper wrapper = objectMapper.readValue(is, ActivitiesWrapper.class);
+//                    activityRepository.saveAll(wrapper.getActivity());
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        };
+//    }
+//
+//    // Wrapper for outer "activity": [ ... ]
+//    @Setter
+//    @Getter
+//    public static class ActivitiesWrapper {
+//        private List<Activity> activity;
+//    }
 }

@@ -17,29 +17,29 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TokenInitializer {
 
-    private final TokenRepository tokenRepository;
-
-    @Bean
-    public CommandLineRunner initTokens(ObjectMapper objectMapper) {
-        return args -> {
-            if (tokenRepository.count() == 0) {
-                try (InputStream is = getClass().getClassLoader().getResourceAsStream("static/token.json")) {
-                    if (is == null) {
-                        throw new IllegalArgumentException("Could not find static/tokens.json in classpath.");
-                    }
-
-                    TokensWrapper wrapper = objectMapper.readValue(is, TokensWrapper.class);
-                    tokenRepository.saveAll(wrapper.getTokens());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-    }
-
-    @Getter
-    @Setter
-    public static class TokensWrapper {
-        private List<Token> tokens;
-    }
+//    private final TokenRepository tokenRepository;
+//
+//    @Bean
+//    public CommandLineRunner initTokens(ObjectMapper objectMapper) {
+//        return args -> {
+//            if (tokenRepository.count() == 0) {
+//                try (InputStream is = getClass().getClassLoader().getResourceAsStream("static/token.json")) {
+//                    if (is == null) {
+//                        throw new IllegalArgumentException("Could not find static/tokens.json in classpath.");
+//                    }
+//
+//                    TokensWrapper wrapper = objectMapper.readValue(is, TokensWrapper.class);
+//                    tokenRepository.saveAll(wrapper.getTokens());
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        };
+//    }
+//
+//    @Getter
+//    @Setter
+//    public static class TokensWrapper {
+//        private List<Token> tokens;
+//    }
 }

@@ -1,30 +1,31 @@
 {
-"tickets": [
-	{
-		"availability_from" : "2025-06-01",
-		"availability_until" : "2025-06-30",
-		"entry_limit" : 100,
-		"ticket_type" : "standard",
-		"time_limit" : 60,
-		"used" : false,
-		"user_id" : 1
-	},
-	{
-		"availability_from" : "2025-07-01",
-		"availability_until" : "2025-07-15",
-		"entry_limit" : 50,
-		"ticket_type" : "vip",
-		"time_limit" : 120,
-		"used" : true,
-		"user_id" : 2
-	},
-	{
-		"availability_from" : "2025-08-10",
-		"availability_until" : "2025-08-20",
-		"entry_limit" : 200,
-		"ticket_type" : "student",
-		"time_limit" : 90,
-		"used" : false,
-		"user_id" : 3
-	}
-]}
+    "tickets": [
+        {
+            "availability_from": "2025-06-01",
+            "availability_until": "2025-06-30",
+            "entry_limit": 100,
+            "ticket_type": "standard",
+            "time_limit": 60,
+            "used": false,
+            "user_id": 1
+        },
+        {
+            "availability_from": "2025-07-01",
+            "availability_until": "2025-07-15",
+            "entry_limit": 50,
+            "ticket_type": "vip",
+            "time_limit": 120,
+            "used": true,
+            "user_id": 2
+        },
+        {
+            "availability_from": "2025-08-10",
+            "availability_until": "2025-08-20",
+            "entry_limit": 200,
+            "ticket_type": "student",
+            "time_limit": 90,
+            "used": false,
+            "user_id": 3
+        }
+    ]
+}

@@ -8,6 +8,6 @@ public record AttractionDetailsFull(
         String imageUrl,
         Integer maxPeopleAmount,
         Integer currentPeopleAmount,
-        List<DayOpeningDTO> openingDays,
-        List<RateDTO> rates) {
+        Double price,
+        List<DayOpeningDTO> openingDays) {
 }

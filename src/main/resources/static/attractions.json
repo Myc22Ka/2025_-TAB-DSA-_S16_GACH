@@ -1,24 +1,189 @@
-{
-"attractions": [
-	{
-		"current_people_amount" : 50,
-		"description" : "Basen z falami",
-		"image_url" : "https:\/\/example.com\/images\/wave_pool.jpg",
-		"max_people_amount" : 100,
-		"name" : "Basen z Falami"
-	},
-	{
-		"current_people_amount" : 30,
-		"description" : "zjeżdżalnia wodna",
-		"image_url" : "https:\/\/example.com\/images\/slide_twister.jpg",
-		"max_people_amount" : 60,
-		"name" : "Twister"
-	},
-	{
-		"current_people_amount" : 15,
-		"description" : "Relaksująca rzeka",
-		"image_url" : "https:\/\/example.com\/images\/lazy_river.jpg",
-		"max_people_amount" : 40,
-		"name" : "Leniwa Rzeka"
-	}
-]}
+[
+    {
+        "name": "Kitty Splash Slide",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 100,
+        "currentPeopleAmount": 10,
+        "price": 12.99,
+        "openingDays": [
+            {
+                "dayOfWeek": "MONDAY",
+                "hours": [
+                    { "from": "09:00:00", "to": "12:00:00" },
+                    { "from": "13:00:00", "to": "18:00:00" }
+                ]
+            },
+            {
+                "dayOfWeek": "TUESDAY",
+                "hours": [{ "from": "10:00:00", "to": "17:00:00" }]
+            }
+        ]
+    },
+    {
+        "name": "Purring Lagoon",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 100,
+        "currentPeopleAmount": 10,
+        "price": 14.5,
+        "openingDays": [
+            {
+                "dayOfWeek": "WEDNESDAY",
+                "hours": [{ "from": "08:00:00", "to": "12:00:00" }]
+            },
+            {
+                "dayOfWeek": "THURSDAY",
+                "hours": [{ "from": "13:00:00", "to": "19:00:00" }]
+            }
+        ]
+    },
+    {
+        "name": "The Meowtain Fountain",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 100,
+        "currentPeopleAmount": 20,
+        "price": 13.75,
+        "openingDays": [
+            {
+                "dayOfWeek": "FRIDAY",
+                "hours": [{ "from": "09:00:00", "to": "16:00:00" }]
+            },
+            {
+                "dayOfWeek": "SATURDAY",
+                "hours": [{ "from": "10:00:00", "to": "20:00:00" }]
+            }
+        ]
+    },
+    {
+        "name": "Miaow Express",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 50,
+        "currentPeopleAmount": 5,
+        "price": 11.0,
+        "openingDays": [
+            {
+                "dayOfWeek": "SUNDAY",
+                "hours": [{ "from": "08:00:00", "to": "12:00:00" }]
+            }
+        ]
+    },
+    {
+        "name": "Water mousetrap",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 100,
+        "currentPeopleAmount": 0,
+        "price": 10.0,
+        "openingDays": [
+            {
+                "dayOfWeek": "MONDAY",
+                "hours": [{ "from": "11:00:00", "to": "14:00:00" }]
+            }
+        ]
+    },
+    {
+        "name": "Fairy Tail Pool",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 50,
+        "currentPeopleAmount": 12,
+        "price": 13.25,
+        "openingDays": [
+            {
+                "dayOfWeek": "TUESDAY",
+                "hours": [{ "from": "09:30:00", "to": "17:30:00" }]
+            }
+        ]
+    },
+    {
+        "name": "Droplet Paw-suit",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 50,
+        "currentPeopleAmount": 15,
+        "price": 14.0,
+        "openingDays": [
+            {
+                "dayOfWeek": "WEDNESDAY",
+                "hours": [{ "from": "10:00:00", "to": "16:00:00" }]
+            }
+        ]
+    },
+    {
+        "name": "Splashing Cat's Eye",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 50,
+        "currentPeopleAmount": 0,
+        "price": 10.5,
+        "openingDays": [
+            {
+                "dayOfWeek": "THURSDAY",
+                "hours": [{ "from": "09:00:00", "to": "14:00:00" }]
+            }
+        ]
+    },
+    {
+        "name": "Bubble Paws Jacuzzi",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 100,
+        "currentPeopleAmount": 28,
+        "price": 15.0,
+        "openingDays": [
+            {
+                "dayOfWeek": "FRIDAY",
+                "hours": [{ "from": "10:00:00", "to": "18:00:00" }]
+            }
+        ]
+    },
+    {
+        "name": "Catnap Cove Spa",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 100,
+        "currentPeopleAmount": 31,
+        "price": 12.75,
+        "openingDays": [
+            {
+                "dayOfWeek": "SATURDAY",
+                "hours": [{ "from": "08:00:00", "to": "20:00:00" }]
+            }
+        ]
+    },
+    {
+        "name": "Claw Falls",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 100,
+        "currentPeopleAmount": 5,
+        "price": 11.5,
+        "openingDays": [
+            {
+                "dayOfWeek": "SUNDAY",
+                "hours": [{ "from": "09:00:00", "to": "15:00:00" }]
+            }
+        ]
+    },
+    {
+        "name": "Kitty Katness",
+        "description": "x",
+        "imageUrl": "x",
+        "maxPeopleAmount": 100,
+        "currentPeopleAmount": 55,
+        "price": 15.99,
+        "openingDays": [
+            {
+                "dayOfWeek": "MONDAY",
+                "hours": [{ "from": "09:00:00", "to": "17:00:00" }]
+            },
+            {
+                "dayOfWeek": "TUESDAY",
+                "hours": [{ "from": "09:00:00", "to": "15:00:00" }]
+            }
+        ]
+    }
+]

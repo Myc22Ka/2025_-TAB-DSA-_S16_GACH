@@ -17,29 +17,29 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RoleChangeInitializer {
 
-    private final RoleChangeRequestRepository roleChangeRepository;
-
-    @Bean
-    public CommandLineRunner initRoleChanges(ObjectMapper objectMapper) {
-        return args -> {
-            if (roleChangeRepository.count() == 0) {
-                try (InputStream is = getClass().getClassLoader().getResourceAsStream("static/role_changes_requests.json")) {
-                    if (is == null) {
-                        throw new IllegalArgumentException("Could not find static/role_changes.json in classpath.");
-                    }
-
-                    RoleChangeWrapper wrapper = objectMapper.readValue(is, RoleChangeWrapper.class);
-                    roleChangeRepository.saveAll(wrapper.getRoleChanges());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-    }
-
-    @Getter
-    @Setter
-    public static class RoleChangeWrapper {
-        private List<RoleChangeRequest> roleChanges;
-    }
+//    private final RoleChangeRequestRepository roleChangeRepository;
+//
+//    @Bean
+//    public CommandLineRunner initRoleChanges(ObjectMapper objectMapper) {
+//        return args -> {
+//            if (roleChangeRepository.count() == 0) {
+//                try (InputStream is = getClass().getClassLoader().getResourceAsStream("static/role_change_requests.json")) {
+//                    if (is == null) {
+//                        throw new IllegalArgumentException("Could not find static/role_change_requests.json in classpath.");
+//                    }
+//
+//                    RoleChangeWrapper wrapper = objectMapper.readValue(is, RoleChangeWrapper.class);
+//                    roleChangeRepository.saveAll(wrapper.getRoleChanges());
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        };
+//    }
+//
+//    @Getter
+//    @Setter
+//    public static class RoleChangeWrapper {
+//        private List<RoleChangeRequest> roleChanges;
+//    }
 }

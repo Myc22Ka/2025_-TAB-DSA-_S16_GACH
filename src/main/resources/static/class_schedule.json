@@ -1,27 +1,28 @@
 {
-"class_schedule": [
-	{
-		"classid" : 3,
-		"date" : "2025-05-15",
-		"seatsnumber" : 25,
-		"seatsreservated" : 25
-	},
-	{
-		"classid" : 1,
-		"date" : "2025-05-16",
-		"seatsnumber" : 20,
-		"seatsreservated" : 15
-	},
-	{
-		"classid" : 2,
-		"date" : "2025-05-17",
-		"seatsnumber" : 30,
-		"seatsreservated" : 30
-	},
-	{
-		"classid" : 3,
-		"date" : "2025-05-18",
-		"seatsnumber" : 25,
-		"seatsreservated" : 20
-	}
-]}
+    "class_schedule": [
+        {
+            "classid": 3,
+            "date": "2025-05-15",
+            "seatsnumber": 25,
+            "seatsreservated": 25
+        },
+        {
+            "classid": 1,
+            "date": "2025-05-16",
+            "seatsnumber": 20,
+            "seatsreservated": 15
+        },
+        {
+            "classid": 2,
+            "date": "2025-05-17",
+            "seatsnumber": 30,
+            "seatsreservated": 30
+        },
+        {
+            "classid": 3,
+            "date": "2025-05-18",
+            "seatsnumber": 25,
+            "seatsreservated": 20
+        }
+    ]
+}

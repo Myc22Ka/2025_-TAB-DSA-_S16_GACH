@@ -13,6 +13,7 @@ import polsl.pl.tab.api.user.dto.UserDto;
 import polsl.pl.tab.api.user.model.User;
 import polsl.pl.tab.api.user.repository.UserRepository;
 import polsl.pl.tab.api.user.dto.UpdateUserRequest;
+import polsl.pl.tab.exception.AppException;
 
 import java.security.Principal;
 
@@ -60,20 +61,14 @@ public class UserService {
         );
     }
 
-    public void giveTicketToUser(String email) {
+    public void addCashToUser(Authentication authentication, double amount) {
+        String email = authentication.getName();
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        Ticket ticket = Ticket.builder()
-                .user(user)
-                .build();
-
-        ticketRepository.save(ticket);
-    }
-
-    public void addCashToUser(String email, double amount) {
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        if(amount < 0) {
+            throw new AppException("You can't just make money from air!");
+        }
 
         user.setCash(user.getCash() + amount);
 

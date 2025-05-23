@@ -1,0 +1,100 @@
+{
+    "activity": [
+        {
+            "activityTime": "2025-05-14 23:45",
+            "activityDuration": 58,
+            "entryLimit": 23,
+            "activityType": "Pine Nuts",
+            "available": 5,
+            "price": 25.0
+        },
+        {
+            "activitytime": "2025-05-15 16:51",
+            "activityduration": 36,
+            "entrylimit": 16,
+            "activitytype": "Bicycle Lock",
+            "available": 2,
+            "price": 3.7
+        },
+        {
+            "activitytime": "2025-05-14 20:00",
+            "activityduration": 114,
+            "entrylimit": 15,
+            "activitytype": "Sunglasses",
+            "available": 2,
+            "price": 12.2
+        },
+        {
+            "activitytime": "2025-05-16 02:05",
+            "activityduration": 102,
+            "entrylimit": 21,
+            "activitytype": "Fruit & Nut Trail Mix",
+            "available": 4,
+            "price": 16.0
+        },
+        {
+            "activitytime": "2025-05-16 03:34",
+            "activityduration": 28,
+            "entrylimit": 27,
+            "activitytype": "Overnight Hiking Backpack",
+            "available": 0,
+            "price": 29.7
+        },
+        {
+            "activitytime": "2025-05-16 03:25",
+            "activityduration": 45,
+            "entrylimit": 0,
+            "activitytype": "Organic Vanilla Bean Ice Cream",
+            "available": 1,
+            "price": 2.9
+        },
+        {
+            "activitytime": "2025-05-15 05:51",
+            "activityduration": 62,
+            "entrylimit": 12,
+            "activitytype": "Oven-Baked Parmesan Zucchini",
+            "available": 1,
+            "price": 17.4
+        },
+        {
+            "activitytime": "2025-05-16 05:57",
+            "activityduration": 53,
+            "entrylimit": 13,
+            "activitytype": "Chicken Sausage",
+            "available": 3,
+            "price": 3.1
+        },
+        {
+            "activitytime": "2025-05-14 05:40",
+            "activityduration": 35,
+            "entrylimit": 15,
+            "activitytype": "Peach Slices (canned)",
+            "available": 0,
+            "price": 11.4
+        },
+        {
+            "activitytime": "2025-05-15 18:29",
+            "activityduration": 115,
+            "entrylimit": 6,
+            "activitytype": "Garden Hoses with Expandable Features",
+            "available": 2,
+            "price": 26.5
+        },
+        {
+            "activitytime": "2025-05-16 15:23",
+            "activityduration": 110,
+            "entrylimit": 27,
+            "activitytype": "Portable Speaker Stand",
+            "available": 2,
+            "price": 4.4
+        },
+        {
+            "activitytime": "2025-05-15 13:43",
+            "activityduration": 66,
+            "entrylimit": 5,
+            "activitytype": "Spicy Hummus",
+            "available": 1,
+            "price": 5.0
+        }
+    ]
+}

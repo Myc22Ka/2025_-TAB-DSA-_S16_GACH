@@ -1,21 +1,22 @@
 {
-"price_list": [
-	{
-		"ticket_id" : 3,
-		"price" : 60.0,
-		"validfrom" : "2025-05-15",
-		"validto" : "2025-06-15"
-	},
-	{
-		"ticket_id" : 1,
-		"price" : 50.0,
-		"validfrom" : "2025-06-01",
-		"validto" : "2025-06-30"
-	},
-	{
-		"ticket_id" : 2,
-		"price" : 70.0,
-		"validfrom" : "2025-05-20",
-		"validto" : "2025-06-20"
-	}
-]}
+    "price_list": [
+        {
+            "ticket_id": 3,
+            "price": 60.0,
+            "validfrom": "2025-05-15",
+            "validto": "2025-06-15"
+        },
+        {
+            "ticket_id": 1,
+            "price": 50.0,
+            "validfrom": "2025-06-01",
+            "validto": "2025-06-30"
+        },
+        {
+            "ticket_id": 2,
+            "price": 70.0,
+            "validfrom": "2025-05-20",
+            "validto": "2025-06-20"
+        }
+    ]
+}
