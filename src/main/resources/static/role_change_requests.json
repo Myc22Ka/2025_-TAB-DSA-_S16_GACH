@@ -14,6 +14,106 @@
             "requested_role": "ADMIN",
             "status": "PENDING",
             "user_id": 2
+        },
+        {
+            "requested_role": "ADMIN",
+            "status": "APPROVED",
+            "user_id": 2
+        },
+        {
+            "requested_role": "USER",
+            "status": "APPROVED",
+            "user_id": 2
+        },
+        {
+            "requested_role": "ADMIN",
+            "status": "PENDING",
+            "user_id": 2
+        },
+        {
+            "requested_role": "USER",
+            "status": "REJECTED",
+            "user_id": 3
+        },
+        {
+            "requested_role": "ADMIN",
+            "status": "REJECTED",
+            "user_id": 3
+        },
+        {
+            "requested_role": "ADMIN",
+            "status": "PENDING",
+            "user_id": 2
+        },
+        {
+            "requested_role": "USER",
+            "status": "REJECTED",
+            "user_id": 2
+        },
+        {
+            "requested_role": "USER",
+            "status": "REJECTED",
+            "user_id": 3
+        },
+        {
+            "requested_role": "USER",
+            "status": "REJECTED",
+            "user_id": 2
+        },
+        {
+            "requested_role": "ADMIN",
+            "status": "APPROVED",
+            "user_id": 1
+        },
+        {
+            "requested_role": "USER",
+            "status": "PENDING",
+            "user_id": 2
+        },
+        {
+            "requested_role": "ADMIN",
+            "status": "APPROVED",
+            "user_id": 3
+        },
+        {
+            "requested_role": "USER",
+            "status": "PENDING",
+            "user_id": 1
+        },
+        {
+            "requested_role": "ADMIN",
+            "status": "REJECTED",
+            "user_id": 3
+        },
+        {
+            "requested_role": "ADMIN",
+            "status": "APPROVED",
+            "user_id": 1
+        },
+        {
+            "requested_role": "ADMIN",
+            "status": "APPROVED",
+            "user_id": 3
+        },
+        {
+            "requested_role": "USER",
+            "status": "APPROVED",
+            "user_id": 3
+        },
+        {
+            "requested_role": "ADMIN",
+            "status": "REJECTED",
+            "user_id": 1
+        },
+        {
+            "requested_role": "ADMIN",
+            "status": "REJECTED",
+            "user_id": 2
+        },
+        {
+            "requested_role": "USER",
+            "status": "REJECTED",
+            "user_id": 3
         }
     ]
 }

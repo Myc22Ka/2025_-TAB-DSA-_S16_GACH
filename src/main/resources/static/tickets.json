@@ -26,6 +26,186 @@
             "time_limit": 90,
             "used": false,
             "user_id": 3
+        },
+        {
+            "availability_from": "6/20/2025",
+            "availability_until": "7/5/2025",
+            "entry_limit": 172,
+            "ticket_type": "student",
+            "time_limit": 117,
+            "used": false,
+            "user_id": 2
+        },
+        {
+            "availability_from": "6/29/2025",
+            "availability_until": "7/10/2025",
+            "entry_limit": 47,
+            "ticket_type": "student",
+            "time_limit": 111,
+            "used": false,
+            "user_id": 3
+        },
+        {
+            "availability_from": "6/4/2025",
+            "availability_until": "7/14/2025",
+            "entry_limit": 58,
+            "ticket_type": "student",
+            "time_limit": 97,
+            "used": false,
+            "user_id": 3
+        },
+        {
+            "availability_from": "6/1/2025",
+            "availability_until": "7/2/2025",
+            "entry_limit": 22,
+            "ticket_type": "student",
+            "time_limit": 29,
+            "used": false,
+            "user_id": 3
+        },
+        {
+            "availability_from": "6/19/2025",
+            "availability_until": "7/7/2025",
+            "entry_limit": 125,
+            "ticket_type": "vip",
+            "time_limit": 81,
+            "used": true,
+            "user_id": 3
+        },
+        {
+            "availability_from": "6/25/2025",
+            "availability_until": "7/12/2025",
+            "entry_limit": 9,
+            "ticket_type": "standard",
+            "time_limit": 76,
+            "used": true,
+            "user_id": 2
+        },
+        {
+            "availability_from": "6/19/2025",
+            "availability_until": "7/7/2025",
+            "entry_limit": 177,
+            "ticket_type": "standard",
+            "time_limit": 75,
+            "used": true,
+            "user_id": 1
+        },
+        {
+            "availability_from": "6/21/2025",
+            "availability_until": "7/9/2025",
+            "entry_limit": 98,
+            "ticket_type": "student",
+            "time_limit": 9,
+            "used": true,
+            "user_id": 1
+        },
+        {
+            "availability_from": "6/2/2025",
+            "availability_until": "7/4/2025",
+            "entry_limit": 87,
+            "ticket_type": "vip",
+            "time_limit": 57,
+            "used": true,
+            "user_id": 1
+        },
+        {
+            "availability_from": "6/18/2025",
+            "availability_until": "7/12/2025",
+            "entry_limit": 54,
+            "ticket_type": "student",
+            "time_limit": 105,
+            "used": false,
+            "user_id": 3
+        },
+        {
+            "availability_from": "6/10/2025",
+            "availability_until": "7/14/2025",
+            "entry_limit": 40,
+            "ticket_type": "standard",
+            "time_limit": 4,
+            "used": true,
+            "user_id": 2
+        },
+        {
+            "availability_from": "6/3/2025",
+            "availability_until": "7/7/2025",
+            "entry_limit": 15,
+            "ticket_type": "vip",
+            "time_limit": 50,
+            "used": false,
+            "user_id": 1
+        },
+        {
+            "availability_from": "6/21/2025",
+            "availability_until": "7/5/2025",
+            "entry_limit": 16,
+            "ticket_type": "student",
+            "time_limit": 5,
+            "used": true,
+            "user_id": 1
+        },
+        {
+            "availability_from": "6/23/2025",
+            "availability_until": "7/1/2025",
+            "entry_limit": 79,
+            "ticket_type": "standard",
+            "time_limit": 51,
+            "used": true,
+            "user_id": 2
+        },
+        {
+            "availability_from": "6/4/2025",
+            "availability_until": "7/5/2025",
+            "entry_limit": 112,
+            "ticket_type": "standard",
+            "time_limit": 1,
+            "used": true,
+            "user_id": 1
+        },
+        {
+            "availability_from": "6/28/2025",
+            "availability_until": "7/12/2025",
+            "entry_limit": 59,
+            "ticket_type": "student",
+            "time_limit": 64,
+            "used": true,
+            "user_id": 2
+        },
+        {
+            "availability_from": "6/23/2025",
+            "availability_until": "7/11/2025",
+            "entry_limit": 134,
+            "ticket_type": "student",
+            "time_limit": 111,
+            "used": true,
+            "user_id": 3
+        },
+        {
+            "availability_from": "6/16/2025",
+            "availability_until": "7/13/2025",
+            "entry_limit": 163,
+            "ticket_type": "vip",
+            "time_limit": 22,
+            "used": false,
+            "user_id": 2
+        },
+        {
+            "availability_from": "6/1/2025",
+            "availability_until": "7/7/2025",
+            "entry_limit": 25,
+            "ticket_type": "student",
+            "time_limit": 94,
+            "used": false,
+            "user_id": 1
+        },
+        {
+            "availability_from": "6/6/2025",
+            "availability_until": "7/3/2025",
+            "entry_limit": 45,
+            "ticket_type": "student",
+            "time_limit": 111,
+            "used": false,
+            "user_id": 2
         }
     ]
 }
