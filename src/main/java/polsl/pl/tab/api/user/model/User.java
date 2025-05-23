@@ -43,6 +43,7 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
 
+    @Column(name="photo_url", columnDefinition = "TEXT")
     private String photoUrl;
 
     @Column(name="cash", nullable = false)
