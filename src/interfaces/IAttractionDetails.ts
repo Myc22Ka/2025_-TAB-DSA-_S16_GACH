@@ -4,6 +4,7 @@ export interface IAttractionDetails {
     imageUrl: string;
     maxPeopleAmount: number;
     currentPeopleAmount: number;
+    price: number;
 }
 
 export interface IAttractionDetailsFull {

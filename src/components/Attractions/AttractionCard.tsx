@@ -30,11 +30,10 @@ const AttractionCard: React.FC<AttractionCardProps> = ({ attraction, currentId }
                     className="w-full mt-4"
                     onClick={e => {
                         e.stopPropagation();
-                        console.log(attraction.id);
-                        navigate(`/atraction/${currentId}`);
+                        navigate(`/attraction/${currentId}`);
                     }}
                 >
-                    See more {attraction.id}
+                    See more
                 </Button>
             </CardContent>
         </Card>

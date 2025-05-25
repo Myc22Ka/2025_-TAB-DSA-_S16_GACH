@@ -80,7 +80,7 @@ const AttractionSite = () => {
                                 <strong>Current Visitors:</strong> {attraction.currentPeopleAmount} / {attraction.maxPeopleAmount}
                             </div>
                             <div>
-                                <strong>Price:</strong> ${attraction.price.toFixed(2)}
+                                <strong>Price:</strong> {attraction.price.toFixed(2)} $
                             </div>
                         </div>
 

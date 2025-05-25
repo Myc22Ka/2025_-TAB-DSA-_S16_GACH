@@ -31,11 +31,11 @@ const UserActions: React.FC = () => {
         <div className="flex items-center space-x-2">
             <Button variant="ghost" className="text-sm flex items-center space-x-1" onClick={() => navigate('/login')}>
                 <LogIn className="h-4 w-4" />
-                <span>Zaloguj</span>
+                <span>Login</span>
             </Button>
             <Button variant="default" className="text-sm flex items-center space-x-1" onClick={() => navigate('/signup')}>
                 <UserPlus className="h-4 w-4" />
-                <span>Rejestracja</span>
+                <span>Registration</span>
             </Button>
         </div>
     );
