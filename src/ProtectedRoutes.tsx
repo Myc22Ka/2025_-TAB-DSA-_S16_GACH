@@ -3,19 +3,16 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthProvider';
 
 type ProtectedRouteProps = {
-    requiredRoles: string[];
     children: React.ReactNode;
 };
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ requiredRoles, children }) => {
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
     const { user } = useAuth();
 
-    if (!user) {
-        return <Navigate to="/login" replace />;
-    }
+    const token = localStorage.getItem('token');
 
-    if (!requiredRoles.includes(user.role)) {
-        return <Navigate to="/" replace />;
+    if (!user && !token) {
+        return <Navigate to="/login" replace />;
     }
 
     return <>{children}</>;

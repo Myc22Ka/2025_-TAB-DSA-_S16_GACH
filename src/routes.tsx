@@ -6,7 +6,6 @@ import Login from './components/auth/Login';
 import SignUp from './components/auth/SignUp';
 import Home from './views/HomePage/Home';
 import Dashboard from './views/Dashboard/Dashboard';
-import { Role } from '@/interfaces/IUser';
 import DashboardOverview from './views/Dashboard/Content/DashboardOverview';
 import { useAuth } from '@/context/AuthProvider';
 import DefaultLayout from './layouts/DefaultLayout';
@@ -31,11 +30,6 @@ export const routerConfig = {
     },
 };
 
-const USER: Role = 'USER';
-const CASHIER: Role = 'CASHIER';
-const ADMIN: Role = 'ADMIN';
-const INSTRUCTOR: Role = 'INSTRUCTOR';
-
 export const routes: RouteObject[] = [
     {
         path: '/',
@@ -56,7 +50,7 @@ export const routes: RouteObject[] = [
     {
         path: '/dashboard',
         element: (
-            <ProtectedRoute requiredRoles={[USER, CASHIER, ADMIN, INSTRUCTOR]}>
+            <ProtectedRoute>
                 <DefaultLayout>
                     <Dashboard />
                 </DefaultLayout>
