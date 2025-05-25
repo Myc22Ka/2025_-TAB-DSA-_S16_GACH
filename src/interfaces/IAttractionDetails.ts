@@ -5,3 +5,11 @@ export interface IAttractionDetails {
     maxPeopleAmount: number;
     currentPeopleAmount: number;
 }
+
+export interface IAttractionDetailsFull {
+    name: string;
+    description: string;
+    imageUrl: string;
+    maxPeopleAmount: number;
+    currentPeopleAmount: number;
+}

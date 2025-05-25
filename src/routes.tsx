@@ -11,6 +11,9 @@ import AttractionsList from './components/Attractions/AttractionsList';
 import DashboardAdminPanel from './views/Dashboard/Content/DashboardSettings/AdminPanel/DashboardAdminPanel';
 import DashboardSettings from './views/Dashboard/Content/DashboardSettings/DashboardSettings';
 import DashboardOverview from './views/Dashboard/Content/DashboardOverview';
+import AttractionFull from './views/AtractionFull';
+import AttractionSite from './components/Attractions/AttractionSite';
+import PriceList from './components/Attractions/AttractionPrices';
 
 export const routerConfig = {
     future: {
@@ -38,6 +41,18 @@ export const routes: RouteObject[] = [
     {
         path: '/atrakcje',
         element: <AttractionsList />,
+    },
+    {
+        path: '/atraction',
+        element: <AttractionFull />,
+    },
+    {
+        path: '/attraction/:id',
+        element: <AttractionSite />,
+    },
+    {
+        path: '/prices',
+        element: <PriceList />,
     },
     {
         path: '/dashboard',

@@ -3,12 +3,16 @@ import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { IAttractionDetails } from '@/interfaces/IAttractionDetails';
+import { useNavigate } from 'react-router-dom';
+import { number } from 'zod';
 
 interface AttractionCardProps {
     attraction: IAttractionDetails;
+    currentId: number;
 }
 
-const AttractionCard: React.FC<AttractionCardProps> = ({ attraction }) => {
+const AttractionCard: React.FC<AttractionCardProps> = ({ attraction, currentId }) => {
+    const navigate = useNavigate();
     return (
         <Card
             key={attraction.name}
@@ -26,10 +30,11 @@ const AttractionCard: React.FC<AttractionCardProps> = ({ attraction }) => {
                     className="w-full mt-4"
                     onClick={e => {
                         e.stopPropagation();
-                        alert(`Reserve a spot at: ${attraction.name}`);
+                        console.log(attraction.id);
+                        navigate(`/atraction/${currentId}`);
                     }}
                 >
-                    See more
+                    See more {attraction.id}
                 </Button>
             </CardContent>
         </Card>

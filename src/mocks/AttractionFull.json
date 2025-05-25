@@ -1,0 +1,90 @@
+[
+    {
+        "name": "Kitty Splash Slide",
+        "description": "Experience the thrill of the ultimate feline-themed water slide! With sharp turns, sudden drops, and endless splashes, the Kitty Splash Slide delivers excitement for all ages. Perfect for energetic visitors looking to slide into fun.",
+        "imageUrl": "x",
+        "maxPeopleAmount": 100,
+        "currentPeopleAmount": 10,
+        "price": 12.99,
+        "openingDays": [
+            {
+                "dayOfWeek": "MONDAY",
+                "hours": [
+                    {
+                        "from": "09:00:00",
+                        "to": "12:00:00"
+                    },
+                    {
+                        "from": "13:00:00",
+                        "to": "18:00:00"
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "TUESDAY",
+                "hours": [
+                    {
+                        "from": "10:00:00",
+                        "to": "17:00:00"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Purring Lagoon",
+        "description": "Unwind in the soothing waters of the Purring Lagoon — a tranquil area designed for rest and rejuvenation. Gentle waves and calming sounds create a peaceful oasis, perfect for families and those seeking a slower pace.",
+        "imageUrl": "x",
+        "maxPeopleAmount": 100,
+        "currentPeopleAmount": 10,
+        "price": 14.5,
+        "openingDays": [
+            {
+                "dayOfWeek": "THURSDAY",
+                "hours": [
+                    {
+                        "from": "13:00:00",
+                        "to": "19:00:00"
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "WEDNESDAY",
+                "hours": [
+                    {
+                        "from": "08:00:00",
+                        "to": "12:00:00"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "The Meowtain Fountain",
+        "description": "Stand in awe before the majestic Meowtain Fountain, where streams of water burst from a towering feline-inspired structure. This centerpiece attraction offers playful jets and misty cooling zones that captivate both kids and adults alike.",
+        "imageUrl": "x",
+        "maxPeopleAmount": 100,
+        "currentPeopleAmount": 20,
+        "price": 13.75,
+        "openingDays": [
+            {
+                "dayOfWeek": "SATURDAY",
+                "hours": [
+                    {
+                        "from": "10:00:00",
+                        "to": "20:00:00"
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "FRIDAY",
+                "hours": [
+                    {
+                        "from": "09:00:00",
+                        "to": "16:00:00"
+                    }
+                ]
+            }
+        ]
+    }
+]

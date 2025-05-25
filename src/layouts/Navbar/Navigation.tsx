@@ -9,16 +9,16 @@ interface NavigationList {
 
 const navigationList: NavigationList[] = [
     {
-        link: '/atrakcje',
-        text: 'Atrakcje',
+        link: '/attractions',
+        text: 'Attractions',
     },
     {
-        link: '/cennik',
-        text: 'Cennik',
+        link: '/prices',
+        text: 'Prices',
     },
     {
-        link: '/kontakt',
-        text: 'Kontakt',
+        link: '/contact',
+        text: 'Contact',
     },
 ];
 
