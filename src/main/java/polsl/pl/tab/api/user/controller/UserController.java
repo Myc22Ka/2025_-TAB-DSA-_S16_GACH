@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import polsl.pl.tab.api.user.dto.ChangeEmailRequest;
 import polsl.pl.tab.api.user.dto.ChangePasswordRequest;
 import polsl.pl.tab.api.user.dto.UserDto;
 import polsl.pl.tab.api.user.service.UserService;
@@ -18,9 +19,15 @@ public class UserController {
 
     private final UserService service;
 
-    @PatchMapping
+    @PatchMapping("/change-password")
     public ResponseEntity<?> changePassword( @RequestBody ChangePasswordRequest request, Principal connectedUser) {
         service.changePassword(request, connectedUser);
+        return ResponseEntity.ok().build();
+    }
+
+    @PatchMapping("/change-email")
+    public ResponseEntity<?> changeEmail(@RequestBody ChangeEmailRequest request, Principal connectedUser) {
+        service.changeEmail(request, connectedUser);
         return ResponseEntity.ok().build();
     }
 

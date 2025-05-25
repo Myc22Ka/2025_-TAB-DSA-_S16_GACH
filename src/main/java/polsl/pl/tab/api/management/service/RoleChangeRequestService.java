@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import polsl.pl.tab.api.management.model.RoleChangeRequestDto;
+import polsl.pl.tab.api.management.dto.RoleChangeRequestDto;
 import polsl.pl.tab.api.management.repository.RoleChangeRequestRepository;
 import polsl.pl.tab.api.management.model.Status;
 import polsl.pl.tab.api.management.model.RoleChangeRequest;
@@ -59,6 +59,7 @@ public class RoleChangeRequestService {
         return new RoleChangeRequestDto(
                 savedRequest.getId(),
                 savedRequest.getUser().getLogin(),
+                savedRequest.getUser().getRole(),
                 savedRequest.getRequestedRole(),
                 savedRequest.getStatus());
     }
@@ -86,6 +87,7 @@ public class RoleChangeRequestService {
                 .map(request -> new RoleChangeRequestDto(
                         request.getId(),
                         request.getUser().getLogin(),
+                        request.getUser().getRole(),
                         request.getRequestedRole(),
                         request.getStatus()
                 ))

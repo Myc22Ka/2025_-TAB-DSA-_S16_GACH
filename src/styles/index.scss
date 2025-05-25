@@ -44,6 +44,10 @@
         --sidebar-accent-foreground: 0 0% 10%;
         --sidebar-border: 0 15% 88%;
         --sidebar-ring: 0 84% 60%;
+
+        --scrollbar-track: #f0f0f0; /* light background */
+        --scrollbar-thumb: #a0aec0; /* gray-400 */
+        --scrollbar-thumb-hover: #718096; /* gray-600 */
     }
 
     .dark {
@@ -83,6 +87,10 @@
         --sidebar-accent-foreground: 0 0% 98%;
         --sidebar-border: 0 15% 20%;
         --sidebar-ring: 0 74% 55%;
+
+        --scrollbar-track: #1a202c; /* gray-900 */
+        --scrollbar-thumb: #4a5568; /* gray-600 */
+        --scrollbar-thumb-hover: #718096; /* gray-500 */
     }
 }
 

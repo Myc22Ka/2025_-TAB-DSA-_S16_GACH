@@ -22,7 +22,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ user }) => {
     const visibleLinks = allLinks.filter(link => link.roles.includes(role ?? ''));
 
     return (
-        <aside className="w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 min-h-screen p-6 shadow-sm">
+        <aside className="bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 min-h-screen p-6 shadow-sm">
             <nav className="space-y-1">
                 {visibleLinks.map(link => {
                     const Icon = link.icon;

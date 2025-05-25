@@ -25,14 +25,12 @@ const navigationList: NavigationList[] = [
 const Navigation: React.FC = () => {
     return (
         <NavigationMenu>
-            <NavigationMenuList className="flex gap-10">
+            <NavigationMenuList className="flex gap-6">
                 {navigationList.map((item, index) => (
                     <NavigationMenuItem key={index}>
-                        <div>
-                            <Link to={item.link} className="text-2xl hover:text-primary-hover transition-colors">
-                                {item.text}
-                            </Link>
-                        </div>
+                        <Link to={item.link} className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors duration-200">
+                            {item.text}
+                        </Link>
                     </NavigationMenuItem>
                 ))}
             </NavigationMenuList>

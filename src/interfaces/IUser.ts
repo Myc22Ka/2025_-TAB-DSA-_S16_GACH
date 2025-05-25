@@ -19,9 +19,3 @@ export interface AuthenticationResponse {
     access_token: string;
     refresh_token: string;
 }
-export interface RoleChangeRequestDto {
-    id: number;
-    userLogin: string;
-    requestedRole: Role;
-    status: 'PENDING' | 'APPROVED' | 'REJECTED';
-}

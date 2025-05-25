@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import polsl.pl.tab.api.management.model.RoleChangeRequestDto;
+import polsl.pl.tab.api.management.dto.RoleChangeRequestDto;
 import polsl.pl.tab.api.management.service.RoleChangeRequestService;
 import polsl.pl.tab.api.management.model.Status;
 import polsl.pl.tab.api.user.model.Role;
@@ -27,15 +27,15 @@ public class RoleChangeRequestController {
      *
      * @param requestedRole the role the user is requesting
      * @param authentication the authentication information of the current user
-     * @return a ResponseEntity containing the created RoleChangeRequestDto
+     * @return a ResponseEntity with no content if the request was successful
      */
     @PostMapping
     public ResponseEntity<RoleChangeRequestDto> createRequest(
             @RequestParam Role requestedRole,
             Authentication authentication) {
 
-        RoleChangeRequestDto createdRequest = roleChangeRequestService.createRequest(requestedRole, authentication);
-        return ResponseEntity.ok(createdRequest);
+        roleChangeRequestService.createRequest(requestedRole, authentication);
+        return ResponseEntity.noContent().build();
     }
 
     /**

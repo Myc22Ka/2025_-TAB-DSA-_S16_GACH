@@ -13,33 +13,29 @@ const UserActions: React.FC = () => {
         return <div></div>;
     }
 
-    if (user) {
-        return (
-            <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate('/dashboard')}>
-                    <Avatar>
-                        <AvatarImage src={''} alt={user?.login} />
-                        <AvatarFallback>{user?.login.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <span className="text-sm font-medium">{user?.login}</span>
-                </div>
-                <Button variant="outline" className="flex items-center space-x-2" onClick={logout}>
-                    <LogOut className="h-4 w-4" />
-                    <span>Log out</span>
-                </Button>
+    return user ? (
+        <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 cursor-pointer hover:opacity-90 transition" onClick={() => navigate('/dashboard')}>
+                <Avatar>
+                    <AvatarImage src={''} alt={user?.login} />
+                    <AvatarFallback>{user?.login.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <span className="text-sm font-medium text-foreground">{user?.login}</span>
             </div>
-        );
-    }
-
-    return (
-        <div className="flex items-center space-x-2">
-            <Button variant="outline" onClick={() => navigate('/login')}>
-                <LogIn className="h-4 w-4 mr-1" />
-                Log in
+            <Button variant="ghost" className="flex items-center space-x-1 text-sm" onClick={logout}>
+                <LogOut className="h-4 w-4" />
+                <span>Wyloguj</span>
             </Button>
-            <Button variant="default" onClick={() => navigate('/signup')}>
-                <UserPlus className="h-4 w-4 mr-1" />
-                Sign up
+        </div>
+    ) : (
+        <div className="flex items-center space-x-2">
+            <Button variant="ghost" className="text-sm flex items-center space-x-1" onClick={() => navigate('/login')}>
+                <LogIn className="h-4 w-4" />
+                <span>Zaloguj</span>
+            </Button>
+            <Button variant="default" className="text-sm flex items-center space-x-1" onClick={() => navigate('/signup')}>
+                <UserPlus className="h-4 w-4" />
+                <span>Rejestracja</span>
             </Button>
         </div>
     );

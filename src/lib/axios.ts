@@ -1,5 +1,5 @@
-import { RequestConfig } from '@/interfaces/IAxios';
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { ApiError, RequestConfig } from '@/interfaces/IAxios';
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export const BASE_URL = `http://${import.meta.env.VITE_PLATFORM_URL}:${import.meta.env.VITE_BACKEND_PORT}` || 'http://localhost:8080';
 export const API_URL = `${BASE_URL}/api`;
@@ -72,3 +72,17 @@ export const del = async <T>(url: string, data?: unknown): Promise<T> => {
     const response = await request<T>({ method: 'DELETE', url, data });
     return response.data;
 };
+
+export const patch = async <T>(url: string, data?: unknown): Promise<T> => {
+    const response = await request<T>({ method: 'PATCH', url, data });
+    return response.data;
+};
+
+export function getApiErrorMessage(error: unknown): string {
+    if (typeof error === 'object' && error !== null && 'isAxiosError' in error && (error as AxiosError).isAxiosError === true) {
+        const apiError = (error as AxiosError<ApiError>).response?.data;
+        return apiError?.messages?.[0] ?? 'An unknown error occurred.';
+    }
+
+    return 'Unexpected error occurred.';
+}

@@ -26,3 +26,10 @@ export interface ApiResponse<T> {
     statusText: string;
     headers: Record<string, string>;
 }
+
+export interface ApiError {
+    timestamp: string;
+    error: string;
+    messages: string[];
+    status: number;
+}

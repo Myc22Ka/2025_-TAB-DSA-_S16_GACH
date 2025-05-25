@@ -6,8 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import polsl.pl.tab.api.ticket.model.Ticket;
-import polsl.pl.tab.api.ticket.repository.TicketRepository;
+import polsl.pl.tab.api.user.dto.ChangeEmailRequest;
 import polsl.pl.tab.api.user.dto.ChangePasswordRequest;
 import polsl.pl.tab.api.user.dto.UserDto;
 import polsl.pl.tab.api.user.model.User;
@@ -23,7 +22,6 @@ public class UserService {
 
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
-    private final TicketRepository ticketRepository;
 
     public void changePassword(ChangePasswordRequest request, Principal connectedUser) {
 
@@ -92,4 +90,11 @@ public class UserService {
     }
 
 
+    public void changeEmail(ChangeEmailRequest request, Principal connectedUser) {
+        var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
+
+        user.setEmail(request.email());
+
+        userRepository.save(user);
+    }
 }

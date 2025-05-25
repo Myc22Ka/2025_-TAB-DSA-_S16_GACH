@@ -10,8 +10,8 @@ import DashboardOverview from './views/Dashboard/Content/DashboardOverview';
 import { useAuth } from '@/context/AuthProvider';
 import DefaultLayout from './layouts/DefaultLayout';
 import AttractionsList from './components/Attractions/AttractionsList';
-import DashboardSettings from './views/Dashboard/Content/DashboardSettings';
-import DashboardAdminPanel from './views/Dashboard/Content/DashboardAdminPanel';
+import DashboardAdminPanel from './views/Dashboard/Content/DashboardSettings/AdminPanel/DashboardAdminPanel';
+import DashboardSettings from './views/Dashboard/Content/DashboardSettings/DashboardSettings';
 
 const DashboardProfileWrapper = () => {
     const { user } = useAuth();
