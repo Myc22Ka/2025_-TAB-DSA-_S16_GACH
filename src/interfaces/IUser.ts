@@ -9,7 +9,7 @@ export interface User {
     phoneNumber: string | null;
     address: string | null;
     dateOfBirth: string | null;
-    gender: string | null;
+    gender: 'F' | 'M' | null;
 }
 
 export const roles = ['USER', 'ADMIN', 'INSTRUCTOR', 'CASHIER'] as const;

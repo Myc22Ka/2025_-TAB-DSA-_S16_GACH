@@ -78,13 +78,18 @@ public class UserService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        if (request.getFirstname() != null) user.setFirstname(request.getFirstname());
-        if (request.getLastname() != null) user.setLastname(request.getLastname());
-        if (request.getPhoneNumber() != null) user.setPhoneNumber(request.getPhoneNumber());
-        if (request.getAddress() != null) user.setAddress(request.getAddress());
-        if (request.getPhotoUrl() != null) user.setPhotoUrl(request.getPhotoUrl());
-        if (request.getDateOfBirth() != null) user.setDateOfBirth(request.getDateOfBirth());
-        if (request.getGender() != null) user.setGender(request.getGender());
+        if (request.firstname() != null) user.setFirstname(request.firstname());
+        if (request.lastname() != null) user.setLastname(request.lastname());
+        if (request.phoneNumber() != null) user.setPhoneNumber(request.phoneNumber());
+        if (request.address() != null) user.setAddress(request.address());
+        if (request.photoUrl() != null) user.setPhotoUrl(request.photoUrl());
+        if (request.dateOfBirth() != null) user.setDateOfBirth(request.dateOfBirth());
+
+        if (request.gender() != null && (request.gender().equalsIgnoreCase("M") || request.gender().equalsIgnoreCase("F"))) {
+            user.setGender(request.gender().toUpperCase());
+        } else if (request.gender() != null) {
+            throw new IllegalArgumentException("Gender must be 'M' or 'F'");
+        }
 
         userRepository.save(user);
     }

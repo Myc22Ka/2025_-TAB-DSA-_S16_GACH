@@ -45,7 +45,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @PatchMapping("/change-entity")
+    @PatchMapping("/update")
     public ResponseEntity<?> updateUser(
             @RequestBody UpdateUserRequest request,
             Authentication authentication

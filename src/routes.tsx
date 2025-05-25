@@ -6,20 +6,12 @@ import Login from './components/auth/Login';
 import SignUp from './components/auth/SignUp';
 import Home from './views/HomePage/Home';
 import Dashboard from './views/Dashboard/Dashboard';
-import DashboardOverview from './views/Dashboard/Content/DashboardOverview';
-import { useAuth } from '@/context/AuthProvider';
 import DefaultLayout from './layouts/DefaultLayout';
 import AttractionsList from './components/Attractions/AttractionsList';
 import DashboardAdminPanel from './views/Dashboard/Content/DashboardSettings/AdminPanel/DashboardAdminPanel';
 import DashboardSettings from './views/Dashboard/Content/DashboardSettings/DashboardSettings';
+import DashboardOverview from './views/Dashboard/Content/DashboardOverview';
 
-const DashboardProfileWrapper = () => {
-    const { user } = useAuth();
-
-    if (!user) return null;
-
-    return <DashboardOverview user={user} />;
-};
 export const routerConfig = {
     future: {
         v7_relativeSplatPath: true,
@@ -59,7 +51,7 @@ export const routes: RouteObject[] = [
         children: [
             {
                 path: '',
-                element: <DashboardProfileWrapper />,
+                element: <DashboardOverview />,
             },
             {
                 path: 'settings',

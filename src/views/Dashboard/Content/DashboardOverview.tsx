@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { User } from '@/interfaces/IUser';
 import { Card, CardContent, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 import { Form, FormField, FormItem, FormLabel, FormControl } from '@/components/ui/form';
-
-type DashboardOverviewProps = {
-    user: User | null;
-};
+import { getApiErrorMessage, patch } from '@/lib/axios';
+import { toast } from 'sonner';
+import { useAuth } from '@/context/AuthProvider';
 
 type ProfileFormValues = {
     firstname: string;
@@ -18,11 +16,12 @@ type ProfileFormValues = {
     phoneNumber: string;
     address: string;
     dateOfBirth: string;
-    gender: string;
+    gender: 'F' | 'M';
 };
 
-const DashboardOverview: React.FC<DashboardOverviewProps> = ({ user }) => {
+const DashboardOverview: React.FC = () => {
     const [isFormVisible, setIsFormVisible] = useState(false);
+    const { user, setUser } = useAuth();
 
     const getValue = (value: string | null | undefined, defaultValue = 'No data available') => value ?? defaultValue;
 
@@ -34,7 +33,7 @@ const DashboardOverview: React.FC<DashboardOverviewProps> = ({ user }) => {
         { label: 'Phone number', name: 'phoneNumber', value: user?.phoneNumber },
         { label: 'Address', name: 'address', value: user?.address },
         { label: 'Date of birth', name: 'dateOfBirth', value: user?.dateOfBirth },
-        { label: 'Gender', name: 'gender', value: user?.gender },
+        { label: 'Gender', name: 'gender', value: user?.gender === 'F' ? 'Female' : 'Male' },
         { label: 'Role', name: 'role', value: user?.role },
         { label: 'Cash balance', name: 'cash', value: `${user?.cash} zł` },
     ];
@@ -47,18 +46,43 @@ const DashboardOverview: React.FC<DashboardOverviewProps> = ({ user }) => {
             value,
         }));
 
-    const defaultValues = formFields.reduce(
+    const defaultValues: ProfileFormValues = formFields.reduce(
         (acc, { name, value }) => {
-            acc[name] = value ?? '';
+            if (name === 'gender') {
+                acc.gender = value === 'F' ? 'F' : 'M';
+            } else {
+                acc[name] = value ?? '';
+            }
             return acc;
         },
-        {} as Record<keyof ProfileFormValues, string>
+        {
+            firstname: '',
+            lastname: '',
+            phoneNumber: '',
+            address: '',
+            dateOfBirth: '',
+            gender: 'M',
+        } as ProfileFormValues
     );
 
     const form = useForm<ProfileFormValues>({ defaultValues });
 
+    const changeUserData = async (data: ProfileFormValues) => {
+        try {
+            await patch(`/api/users/update`, data);
+            setUser({
+                ...user!,
+                ...data,
+            });
+            toast.success(`You updated user's data successfully.`);
+        } catch (error) {
+            toast.error(getApiErrorMessage(error));
+        }
+    };
+
     const onSubmit = (data: ProfileFormValues) => {
-        console.log('Zapisujemy profil:', data);
+        changeUserData(data);
+
         setIsFormVisible(false);
     };
 
@@ -104,8 +128,8 @@ const DashboardOverview: React.FC<DashboardOverviewProps> = ({ user }) => {
                                                                             <SelectValue placeholder="Choose Gender" />
                                                                         </SelectTrigger>
                                                                         <SelectContent>
-                                                                            <SelectItem value="Male">Male</SelectItem>
-                                                                            <SelectItem value="Female">Female</SelectItem>
+                                                                            <SelectItem value="M">Male</SelectItem>
+                                                                            <SelectItem value="F">Female</SelectItem>
                                                                         </SelectContent>
                                                                     </Select>
                                                                 )}

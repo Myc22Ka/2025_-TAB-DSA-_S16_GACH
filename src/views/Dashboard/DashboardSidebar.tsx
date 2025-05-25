@@ -1,12 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { User } from '@/interfaces/IUser';
 import { User as UserIcon, Settings, Shield, DollarSign, Ticket } from 'lucide-react';
-
-type DashboardSidebarProps = {
-    user: User | null;
-};
+import { useAuth } from '@/context/AuthProvider';
 
 const allLinks = [
     { name: 'My Profile', to: '/dashboard', roles: ['USER', 'CASHIER', 'ADMIN'], icon: UserIcon },
@@ -16,10 +12,11 @@ const allLinks = [
     { name: 'Cash Register', to: '/dashboard/cash-register', roles: ['CASHIER'], icon: DollarSign },
 ];
 
-const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ user }) => {
+const DashboardSidebar: React.FC = () => {
     const { pathname } = useLocation();
-    const role = user?.role;
-    const visibleLinks = allLinks.filter(link => link.roles.includes(role ?? ''));
+    const { user } = useAuth();
+
+    const visibleLinks = allLinks.filter(link => link.roles.includes(user?.role ?? ''));
 
     return (
         <aside className="bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 min-h-screen p-6 shadow-sm">

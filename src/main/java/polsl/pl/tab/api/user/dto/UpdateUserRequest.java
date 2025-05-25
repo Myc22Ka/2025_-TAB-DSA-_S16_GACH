@@ -1,17 +1,13 @@
 package polsl.pl.tab.api.user.dto;
 
-import lombok.Data;
-
 import java.time.LocalDate;
 
-@Data
-public class UpdateUserRequest {
-
-    private String firstname;
-    private String lastname;
-    private String phoneNumber;
-    private String address;
-    private String photoUrl;
-    private LocalDate dateOfBirth;
-    private String gender;
-}
+public record UpdateUserRequest (
+        String firstname,
+        String lastname,
+        String phoneNumber,
+        String address,
+        String photoUrl,
+        LocalDate dateOfBirth,
+        String gender
+) {}
