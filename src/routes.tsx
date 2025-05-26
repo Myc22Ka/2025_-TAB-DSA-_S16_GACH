@@ -15,6 +15,7 @@ import AttractionFull from './views/AtractionFull';
 import AttractionSite from './components/Attractions/AttractionSite';
 import PriceList from './components/Attractions/AttractionPrices';
 import GiveTicket from './views/Dashboard/Content/DashboardSettings/Ticket/GiveTicket';
+import MyTickets from './views/Dashboard/Content/DashboardSettings/Ticket/MyTicket';
 
 export const routerConfig = {
     future: {
@@ -89,6 +90,10 @@ export const routes: RouteObject[] = [
             {
                 path: 'sell-tickets',
                 element: <GiveTicket />,
+            },
+            {
+                path: 'my-tickets',
+                element: <MyTickets />,
             },
             {
                 path: 'admin',
