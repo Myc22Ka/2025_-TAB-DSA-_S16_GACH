@@ -9,7 +9,7 @@ const allLinks = [
     { name: 'Settings', to: '/dashboard/settings', roles: ['USER', 'CASHIER', 'ADMIN'], icon: Settings },
     { name: 'My tickets', to: '/dashboard/my-tickets', roles: ['USER', 'CASHIER', 'ADMIN'], icon: Ticket },
     { name: 'Admin Panel', to: '/dashboard/admin', roles: ['ADMIN'], icon: Shield },
-    { name: 'Cash Register', to: '/dashboard/cash-register', roles: ['CASHIER'], icon: DollarSign },
+    { name: 'Cash Register', to: '/dashboard/sell-tickets', roles: ['CASHIER'], icon: DollarSign },
 ];
 
 const DashboardSidebar: React.FC = () => {

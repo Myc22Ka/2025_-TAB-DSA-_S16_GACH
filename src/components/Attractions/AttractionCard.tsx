@@ -4,7 +4,6 @@ import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { IAttractionDetails } from '@/interfaces/IAttractionDetails';
 import { useNavigate } from 'react-router-dom';
-import { number } from 'zod';
 
 interface AttractionCardProps {
     attraction: IAttractionDetails;

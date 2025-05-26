@@ -87,9 +87,9 @@ const DashboardOverview: React.FC = () => {
     };
 
     return (
-        <Card className="w-full max-w-3xl mx-auto rounded-xl bg-secondary text-secondary-foreground shadow-lg">
+        <Card className="w-full max-w-3xl mx-auto rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg">
             <CardContent className="p-6 space-y-6">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center ">
                     <div>
                         <CardTitle className="text-3xl text-primary">Hi {user?.firstname ?? user?.login}!</CardTitle>
                         <CardDescription className="text-muted-foreground">Welcome to your user panel</CardDescription>
@@ -100,7 +100,7 @@ const DashboardOverview: React.FC = () => {
                             <Button>{isFormVisible ? 'Cancel' : 'Edit Profile'}</Button>
                         </DialogTrigger>
 
-                        <DialogContent className="space-y-4">
+                        <DialogContent className="max-w-2xl bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-2xl border border-border space-y-6">
                             <DialogHeader>
                                 <DialogTitle>Edit Profile</DialogTitle>
                                 <DialogDescription>Enter new details into your profile.</DialogDescription>
@@ -108,7 +108,7 @@ const DashboardOverview: React.FC = () => {
 
                             {/* Form z shadcn/ui + react-hook-form */}
                             <Form {...form}>
-                                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 ">
                                     {formFields.map(({ label, name }) => (
                                         <FormField
                                             key={name}

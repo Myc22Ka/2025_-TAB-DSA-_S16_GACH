@@ -14,6 +14,7 @@ import DashboardOverview from './views/Dashboard/Content/DashboardOverview';
 import AttractionFull from './views/AtractionFull';
 import AttractionSite from './components/Attractions/AttractionSite';
 import PriceList from './components/Attractions/AttractionPrices';
+import GiveTicket from './views/Dashboard/Content/DashboardSettings/Ticket/GiveTicket';
 
 export const routerConfig = {
     future: {
@@ -39,8 +40,13 @@ export const routes: RouteObject[] = [
         element: <SignUp />,
     },
     {
-        path: '/atrakcje',
-        element: <AttractionsList />,
+        path: '/attractions',
+
+        element: (
+            <DefaultLayout>
+                <AttractionsList />
+            </DefaultLayout>
+        ),
     },
     {
         path: '/atraction',
@@ -81,8 +87,8 @@ export const routes: RouteObject[] = [
                 element: <div>Transactions</div>,
             },
             {
-                path: 'cash-register',
-                element: <div>Cash Register</div>,
+                path: 'sell-tickets',
+                element: <GiveTicket />,
             },
             {
                 path: 'admin',
