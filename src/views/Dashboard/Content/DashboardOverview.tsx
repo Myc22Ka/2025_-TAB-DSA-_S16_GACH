@@ -9,6 +9,7 @@ import { Form, FormField, FormItem, FormLabel, FormControl } from '@/components/
 import { getApiErrorMessage, patch } from '@/lib/axios';
 import { toast } from 'sonner';
 import { useAuth } from '@/context/AuthProvider';
+import AddCash from '@/components/AddCash';
 
 type ProfileFormValues = {
     firstname: string;
@@ -22,7 +23,6 @@ type ProfileFormValues = {
 const DashboardOverview: React.FC = () => {
     const [isFormVisible, setIsFormVisible] = useState(false);
     const { user, setUser } = useAuth();
-
     const getValue = (value: string | null | undefined, defaultValue = 'No data available') => value ?? defaultValue;
 
     const userDetails = [
@@ -157,12 +157,25 @@ const DashboardOverview: React.FC = () => {
 
                 {/* Wyświetlanie danych */}
                 <div className="space-y-4">
-                    {userDetails.map(({ label, value }, idx) => (
-                        <div key={idx} className="flex justify-between items-center border-b border-border last:border-none pb-2">
-                            <span className="font-medium">{label}:</span>
-                            <span>{getValue(value)}</span>
-                        </div>
-                    ))}
+                    {userDetails.map(({ label, name, value }, idx) => {
+                        if (name === 'cash') {
+                            return (
+                                <div key={idx} className="flex justify-between items-center border-b border-border last:border-none pb-2">
+                                    <span className="font-medium">{label}:</span>
+                                    <div className="flex items-center gap-4">
+                                        <AddCash />
+                                        <span>{getValue(value)}</span>
+                                    </div>
+                                </div>
+                            );
+                        }
+                        return (
+                            <div key={idx} className="flex justify-between items-center border-b border-border last:border-none pb-2">
+                                <span className="font-medium">{label}:</span>
+                                <span>{getValue(value)}</span>
+                            </div>
+                        );
+                    })}
                 </div>
             </CardContent>
         </Card>

@@ -20,8 +20,13 @@ const UserActions: React.FC = () => {
                     <AvatarImage src={''} alt={user?.login} />
                     <AvatarFallback>{user?.login.charAt(0)}</AvatarFallback>
                 </Avatar>
-                <span className="text-sm font-medium text-foreground">{user?.login}</span>
+
+                <div className="flex flex-col">
+                    <span className="text-sm font-medium text-foreground">{user?.login}</span>
+                    <span className="text-xs text-muted-foreground">{user?.cash?.toFixed(2)} zł</span>
+                </div>
             </div>
+
             <Button variant="ghost" className="flex items-center space-x-1 text-sm" onClick={logout}>
                 <LogOut className="h-4 w-4" />
                 <span>Wyloguj</span>
