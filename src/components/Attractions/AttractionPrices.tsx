@@ -24,7 +24,7 @@ const PriceList: React.FC = () => {
                             {attractions?.map(attraction => (
                                 <tr key={attraction.name} className="border-t border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
                                     <td className="px-4 py-2 font-medium">{attraction.name}</td>
-                                    <td className="px-4 py-2">{attraction.price.toFixed(2)} zł</td>
+                                    <td className="px-4 py-2">{attraction.price.toFixed(2)}</td>
                                     <th className="px-4 py-2 text-left font-medium">60 min</th>
                                 </tr>
                             ))}

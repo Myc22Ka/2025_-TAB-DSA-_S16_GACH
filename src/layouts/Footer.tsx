@@ -8,32 +8,35 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Logo & description */}
                 <div>
-                    <h2 className="text-2xl font-bold mb-2">TwojaFirma</h2>
-                    <p className="text-sm">Profesjonalne rozwiązania dla Twojego biznesu. Działamy z pasją i zaangażowaniem.</p>
+                    <h2 className="text-2xl font-bold mb-2">AquaPark</h2>
+                    <p className="text-sm">
+                        Dive into a world of water fun and relaxation. Our aquapark is the perfect destination for the whole family – with thrilling slides,
+                        swimming pools, a relaxing spa zone, and exciting attractions waiting for you every day!
+                    </p>
                 </div>
 
                 {/* Links */}
                 <div>
-                    <h3 className="text-lg font-semibold mb-3">Nawigacja</h3>
+                    <h3 className="text-lg font-semibold mb-3">Navigation</h3>
                     <ul className="space-y-2 text-sm">
                         <li>
-                            <a href="#" className="hover:underline">
-                                O nas
+                            <a href="/contact" className="hover:underline">
+                                About us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/attractions" className="hover:underline">
+                                Services
                             </a>
                         </li>
                         <li>
                             <a href="#" className="hover:underline">
-                                Usługi
+                                Contact
                             </a>
                         </li>
                         <li>
                             <a href="#" className="hover:underline">
-                                Kontakt
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="hover:underline">
-                                Polityka prywatności
+                                Policy
                             </a>
                         </li>
                     </ul>
@@ -41,7 +44,7 @@ const Footer = () => {
 
                 {/* Contact & Social */}
                 <div>
-                    <h3 className="text-lg font-semibold mb-3">Kontakt</h3>
+                    <h3 className="text-lg font-semibold mb-3">Contact</h3>
                     <p className="text-sm mb-2">ul. Przykładowa 1, 00-000 Miasto</p>
                     <p className="text-sm mb-4">kontakt@twojafirma.pl</p>
                     <div className="flex space-x-4">
@@ -60,7 +63,7 @@ const Footer = () => {
 
             <Separator className="my-6 bg-white/30" />
 
-            <div className="text-center text-sm text-white/80">&copy; {new Date().getFullYear()} TwojaFirma. Wszelkie prawa zastrzeżone.</div>
+            <div className="text-center text-sm text-white/80">&copy; {new Date().getFullYear()} AquaPark. All rights reserved.</div>
         </footer>
     );
 };

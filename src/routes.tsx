@@ -16,6 +16,7 @@ import AttractionSite from './components/Attractions/AttractionSite';
 import PriceList from './components/Attractions/AttractionPrices';
 import GiveTicket from './views/Dashboard/Content/DashboardSettings/Ticket/GiveTicket';
 import MyTickets from './views/Dashboard/Content/DashboardSettings/Ticket/MyTicket';
+import ContactPage from './views/ContactPage/Contact';
 
 export const routerConfig = {
     future: {
@@ -39,6 +40,10 @@ export const routes: RouteObject[] = [
     {
         path: '/signup',
         element: <SignUp />,
+    },
+    {
+        path: '/contact',
+        element: <ContactPage />,
     },
     {
         path: '/attractions',
