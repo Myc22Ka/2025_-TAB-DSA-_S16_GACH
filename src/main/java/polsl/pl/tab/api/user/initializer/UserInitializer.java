@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import polsl.pl.tab.api.user.model.User;
 import polsl.pl.tab.api.user.repository.UserRepository;
 
@@ -20,8 +21,11 @@ public class UserInitializer {
     private final UserRepository userRepository;
 
     @Bean
+    @Order(1)
     public CommandLineRunner initUsers(ObjectMapper objectMapper) {
         return args -> {
+            System.out.println("[INIT] UserInitializer");
+
             if (userRepository.count() == 0) {
                 try (InputStream is = getClass().getClassLoader().getResourceAsStream("static/users.json")) {
                     if (is == null) {

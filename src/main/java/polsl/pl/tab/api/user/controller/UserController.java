@@ -4,13 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import polsl.pl.tab.api.user.dto.ChangeEmailRequest;
-import polsl.pl.tab.api.user.dto.ChangePasswordRequest;
-import polsl.pl.tab.api.user.dto.UserDto;
+import polsl.pl.tab.api.user.dto.*;
 import polsl.pl.tab.api.user.service.UserService;
 
 import java.security.Principal;
-import polsl.pl.tab.api.user.dto.UpdateUserRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
@@ -54,4 +52,8 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/instructors")
+    public ResponseEntity<List<InstructorDetails>> getInstructorDetails() {
+        return ResponseEntity.ok(service.getAllInstructors());
+    }
 }

@@ -6,7 +6,7 @@ import polsl.pl.tab.api.atraction.dto.*;
 import polsl.pl.tab.api.atraction.model.Attraction;
 import polsl.pl.tab.api.atraction.model.OpeningHour;
 import polsl.pl.tab.api.atraction.repository.AttractionRepository;
-import polsl.pl.tab.api.atraction.repository.OpeningHourRepository;
+import polsl.pl.tab.api.ticket.repository.TicketRepository;
 import polsl.pl.tab.exception.AppException;
 
 import java.time.DayOfWeek;
@@ -19,19 +19,23 @@ import java.util.stream.Collectors;
 public class AttractionService {
 
     private final AttractionRepository attractionRepository;
-    private final OpeningHourRepository openingHourRepository;
+    private final TicketRepository ticketRepository;
 
     public List<AttractionDetails> getAttractionDetails() {
         return attractionRepository.findAll()
                 .stream()
-                .map(attraction -> new AttractionDetails(
-                        attraction.getName(),
-                        attraction.getDescription(),
-                        attraction.getImageUrl(),
-                        attraction.getPrice(),
-                        attraction.getMaxPeopleAmount(),
-                        attraction.getCurrentPeopleAmount()
-                ))
+                .map(attraction -> {
+                    int currentPeople = (int) ticketRepository.countActiveTicketsByAttractionId(attraction.getId());
+
+                    return new AttractionDetails(
+                            attraction.getName(),
+                            attraction.getDescription(),
+                            attraction.getImageUrl(),
+                            attraction.getPrice(),
+                            attraction.getMaxPeopleAmount(),
+                            currentPeople
+                    );
+                })
                 .toList();
     }
 
@@ -72,12 +76,14 @@ public class AttractionService {
                 })
                 .toList();
 
+        int currentPeople = (int) ticketRepository.countActiveTicketsByAttractionId(attraction.getId());
+
         return new AttractionDetailsFull(
                 attraction.getName(),
                 attraction.getDescription(),
                 attraction.getImageUrl(),
                 attraction.getMaxPeopleAmount(),
-                attraction.getCurrentPeopleAmount(),
+                currentPeople,
                 attraction.getPrice(),
                 openingDays
         );

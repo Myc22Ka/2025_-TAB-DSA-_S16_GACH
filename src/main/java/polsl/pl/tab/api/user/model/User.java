@@ -3,15 +3,14 @@ package polsl.pl.tab.api.user.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
-import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import polsl.pl.tab.api.instructor.model.InstructorAvailability;
 import polsl.pl.tab.auth.model.Token;
 
 @Entity
@@ -59,6 +58,9 @@ public class User implements UserDetails {
 
     @Column(name = "gender")
     private String gender;
+
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<InstructorAvailability> availability;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

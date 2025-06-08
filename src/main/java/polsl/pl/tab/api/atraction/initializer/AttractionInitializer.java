@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import polsl.pl.tab.api.atraction.dto.AttractionDetailsFull;
 import polsl.pl.tab.api.atraction.model.Attraction;
 import polsl.pl.tab.api.atraction.model.OpeningHour;
@@ -22,9 +23,12 @@ public class AttractionInitializer {
     private final ObjectMapper objectMapper;
 
     @Bean
+    @Order(2)
     public CommandLineRunner initAttractions() {
         return args -> {
             if (attractionRepository.count() == 0) {
+                System.out.println("[INIT] Start AttractionInitializer");
+
                 try (InputStream is = getClass().getClassLoader().getResourceAsStream("static/attractions.json")) {
                     if (is == null) {
                         throw new IllegalArgumentException("Could not find static/attractions.json");
@@ -51,7 +55,6 @@ public class AttractionInitializer {
         attraction.setImageUrl(dto.imageUrl());
         attraction.setPrice(dto.price());
         attraction.setMaxPeopleAmount(dto.maxPeopleAmount());
-        attraction.setCurrentPeopleAmount(dto.currentPeopleAmount());
 
         List<OpeningHour> openingHours = dto.openingDays().stream()
                 .flatMap(dayOpening -> dayOpening.hours().stream()

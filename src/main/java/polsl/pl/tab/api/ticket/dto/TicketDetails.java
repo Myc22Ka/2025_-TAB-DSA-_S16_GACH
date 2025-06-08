@@ -5,8 +5,8 @@ import polsl.pl.tab.api.ticket.model.Ticket;
 
 import java.time.LocalDateTime;
 
-
 public record TicketDetails(
+        Integer id,
         LocalDateTime purchaseTime,
         LocalDateTime availabilityTo,
         String status,
@@ -16,8 +16,9 @@ public record TicketDetails(
         AttractionDetails attractionDetails,
         String attractionName
 ) {
-    public static TicketDetails fromEntity(Ticket ticket) {
+    public static TicketDetails fromEntity(Ticket ticket, int currentPeopleAmount) {
         return new TicketDetails(
+                ticket.getId(),
                 ticket.getPurchaseTime(),
                 ticket.getAvailabilityTo(),
                 ticket.getStatus().name(),
@@ -30,7 +31,7 @@ public record TicketDetails(
                         ticket.getAttraction().getImageUrl(),
                         ticket.getAttraction().getPrice(),
                         ticket.getAttraction().getMaxPeopleAmount(),
-                        ticket.getAttraction().getCurrentPeopleAmount()
+                        currentPeopleAmount
                 ),
                 ticket.getAttraction().getName()
         );

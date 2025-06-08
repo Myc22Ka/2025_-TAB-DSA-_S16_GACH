@@ -29,9 +29,6 @@ public class Attraction {
     @Column(name = "max_people_amount")
     private Integer maxPeopleAmount;
 
-    @Column(name = "current_people_amount")
-    private Integer currentPeopleAmount;
-
     @Column(name = "price")
     private Double price;
 

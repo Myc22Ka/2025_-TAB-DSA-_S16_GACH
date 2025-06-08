@@ -1,0 +1,23 @@
+[
+  {
+    "instructorId": 27,
+    "userId": 1,
+    "dayOfWeek": "MONDAY",
+    "startTime": "09:00:00",
+    "endTime": "10:00:00"
+  },
+  {
+    "instructorId": 27,
+    "userId": 2,
+    "dayOfWeek": "MONDAY",
+    "startTime": "10:00:00",
+    "endTime": "11:00:00"
+  },
+  {
+    "instructorId": 27,
+    "userId": 3,
+    "dayOfWeek": "TUESDAY",
+    "startTime": "13:00:00",
+    "endTime": "14:00:00"
+  }
+]

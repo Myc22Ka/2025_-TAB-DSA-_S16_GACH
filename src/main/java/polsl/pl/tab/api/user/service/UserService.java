@@ -6,15 +6,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import polsl.pl.tab.api.user.dto.ChangeEmailRequest;
-import polsl.pl.tab.api.user.dto.ChangePasswordRequest;
-import polsl.pl.tab.api.user.dto.UserDto;
+import polsl.pl.tab.api.user.dto.*;
+import polsl.pl.tab.api.user.model.Role;
 import polsl.pl.tab.api.user.model.User;
 import polsl.pl.tab.api.user.repository.UserRepository;
-import polsl.pl.tab.api.user.dto.UpdateUserRequest;
 import polsl.pl.tab.exception.AppException;
 
 import java.security.Principal;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -101,5 +100,11 @@ public class UserService {
         user.setEmail(request.email());
 
         userRepository.save(user);
+    }
+
+    public List<InstructorDetails> getAllInstructors() {
+        return userRepository.findByRole(Role.INSTRUCTOR).stream()
+                .map(InstructorDetails::fromEntity)
+                .toList();
     }
 }

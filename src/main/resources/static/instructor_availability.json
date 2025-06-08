@@ -1,0 +1,30 @@
+{
+    "instructorId": 27,
+    "availability": [
+        {
+            "dayOfWeek": "MONDAY",
+            "hours": [
+                {
+                    "fromTime": "09:00:00",
+                    "toTime": "10:00:00",
+                    "maxCount": 10
+                },
+                {
+                    "fromTime": "10:00:00",
+                    "toTime": "11:00:00",
+                    "maxCount": 10
+                }
+            ]
+        },
+        {
+            "dayOfWeek": "TUESDAY",
+            "hours": [
+                {
+                    "fromTime": "13:00:00",
+                    "toTime": "14:00:00",
+                    "maxCount": 10
+                }
+            ]
+        }
+    ]
+}

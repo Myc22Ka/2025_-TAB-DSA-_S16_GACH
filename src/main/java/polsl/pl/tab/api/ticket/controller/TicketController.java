@@ -44,33 +44,36 @@ public class TicketController {
     public ResponseEntity<List<TicketDetails>> getAllUserTickets(Authentication authentication) {
         return ResponseEntity.ok(ticketService.getAllUserTickets(authentication));
     }
-//
-//    @GetMapping("/user/{userId}")
-//    public ResponseEntity<List<Ticket>> getTicketsByUserId(@PathVariable long userId) {
-//        return ResponseEntity.ok(ticketService.getTicketsByUserId(userId));
-//    }
-//
-//    @PostMapping("/use/{id}")
-//    public ResponseEntity<?> useTicket(@PathVariable Integer id) {
-//        ticketService.useTicket(id);
-//        return ResponseEntity.ok().build();
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<?> deleteTicket(@PathVariable Integer id) {
-//        ticketService.deleteTicket(id);
-//        return ResponseEntity.ok().build();
-//    }
-//
-//    @PostMapping("/buy")
-//    public ResponseEntity<?> buyTicket(@RequestBody Ticket ticket) {
-//        ticketService.buyTicket(ticket);
-//        return ResponseEntity.ok().build();
-//    }
-//
-//    @PostMapping("/create")
-//    public ResponseEntity<?> createTicket(@RequestBody Ticket ticket) {
-//        ticketService.createTicket(ticket);
-//        return ResponseEntity.ok().build();
-//    }
+
+    @PostMapping("/{ticketId}/activate")
+    public ResponseEntity<SuccessResponse> activateTicket(
+            Authentication authentication,
+            @PathVariable Integer ticketId) {
+
+        ticketService.activateTicket(authentication, ticketId);
+
+        SuccessResponse response = new SuccessResponse(
+                LocalDateTime.now().toString(),
+                "Ticket activated successfully",
+                200
+        );
+
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/refund")
+    public ResponseEntity<SuccessResponse> refundTicket(
+            Authentication authentication,
+            @RequestParam Integer ticketId) {
+
+        ticketService.refundTicket(authentication, ticketId);
+
+        SuccessResponse response = new SuccessResponse(
+                LocalDateTime.now().toString(),
+                "Ticket refunded successfully",
+                200
+        );
+
+        return ResponseEntity.ok(response);
+    }
 }

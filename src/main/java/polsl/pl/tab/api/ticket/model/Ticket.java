@@ -57,8 +57,6 @@ public class Ticket {
 
     @PrePersist
     protected void onCreate() {
-        this.purchaseTime = LocalDateTime.now();
-        this.availabilityTo = this.purchaseTime.plusDays(7);
         if (this.ticketCode == null) {
             this.ticketCode = UUID.randomUUID().toString();
         }

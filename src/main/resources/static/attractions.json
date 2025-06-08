@@ -4,7 +4,6 @@
         "description": "Experience the thrill of the ultimate feline-themed water slide! With sharp turns, sudden drops, and endless splashes, the Kitty Splash Slide delivers excitement for all ages. Perfect for energetic visitors looking to slide into fun.",
         "imageUrl": "x",
         "maxPeopleAmount": 100,
-        "currentPeopleAmount": 10,
         "price": 12.99,
         "openingDays": [
             {
@@ -36,7 +35,6 @@
         "description": "Unwind in the soothing waters of the Purring Lagoon — a tranquil area designed for rest and rejuvenation. Gentle waves and calming sounds create a peaceful oasis, perfect for families and those seeking a slower pace.",
         "imageUrl": "x",
         "maxPeopleAmount": 100,
-        "currentPeopleAmount": 10,
         "price": 14.5,
         "openingDays": [
             {
@@ -64,7 +62,6 @@
         "description": "Stand in awe before the majestic Meowtain Fountain, where streams of water burst from a towering feline-inspired structure. This centerpiece attraction offers playful jets and misty cooling zones that captivate both kids and adults alike.",
         "imageUrl": "x",
         "maxPeopleAmount": 100,
-        "currentPeopleAmount": 20,
         "price": 13.75,
         "openingDays": [
             {
@@ -92,7 +89,6 @@
         "description": "Hop on the Miaow Express for a fast-paced water ride packed with excitement! Short but intense, this narrow slide is designed for speed lovers who enjoy quick bursts of adrenaline and splashy landings.",
         "imageUrl": "x",
         "maxPeopleAmount": 50,
-        "currentPeopleAmount": 5,
         "price": 11.0,
         "openingDays": [
             {
@@ -111,7 +107,6 @@
         "description": "Navigate a maze of water tunnels, sprays, and surprise fountains in the thrilling Water Mousetrap. Inspired by a playful cat-and-mouse chase, this interactive attraction keeps you guessing and giggling at every turn.",
         "imageUrl": "x",
         "maxPeopleAmount": 100,
-        "currentPeopleAmount": 0,
         "price": 10.0,
         "openingDays": [
             {
@@ -130,7 +125,6 @@
         "description": "Step into a whimsical world at the Fairy Tail Pool — where fairy tales meet feline charm. Soft lighting, gentle fountains, and decorative elements create a magical atmosphere, perfect for daydreamers and young swimmers.",
         "imageUrl": "x",
         "maxPeopleAmount": 50,
-        "currentPeopleAmount": 12,
         "price": 13.25,
         "openingDays": [
             {
@@ -149,7 +143,6 @@
         "description": "Ready for a wet and wild obstacle course? The Droplet Paw-suit is a challenge filled with slippery surfaces, bouncing pads, and unexpected splashes. Great for adventurous spirits looking to test their reflexes and balance!",
         "imageUrl": "x",
         "maxPeopleAmount": 50,
-        "currentPeopleAmount": 15,
         "price": 14.0,
         "openingDays": [
             {
@@ -168,7 +161,6 @@
         "description": "Get hypnotized by swirling waters and playful lights in the Splashing Cat's Eye. Designed with interactive jets and rhythmic water patterns, this attraction mesmerizes while offering cool, refreshing fun.",
         "imageUrl": "x",
         "maxPeopleAmount": 50,
-        "currentPeopleAmount": 0,
         "price": 10.5,
         "openingDays": [
             {
@@ -187,7 +179,6 @@
         "description": "Sink into bliss in the Bubble Paws Jacuzzi, where thousands of tiny bubbles gently massage your body. With warm waters and a cozy atmosphere, it's the perfect retreat for tired paws after a fun-filled day.",
         "imageUrl": "x",
         "maxPeopleAmount": 100,
-        "currentPeopleAmount": 28,
         "price": 15.0,
         "openingDays": [
             {
@@ -206,7 +197,6 @@
         "description": "Relax and recharge at Catnap Cove Spa — a serene corner of the waterpark designed for pure comfort. Soft jets, warm currents, and aromatic breezes create the ultimate environment for a peaceful water nap.",
         "imageUrl": "x",
         "maxPeopleAmount": 100,
-        "currentPeopleAmount": 31,
         "price": 12.75,
         "openingDays": [
             {
@@ -225,7 +215,6 @@
         "description": "Feel the raw power of nature at Claw Falls, a cascading waterfall attraction where water tumbles with wild intensity. Perfect for thrill-seekers who want to stand beneath the roar of falling water and cool down dramatically.",
         "imageUrl": "x",
         "maxPeopleAmount": 100,
-        "currentPeopleAmount": 5,
         "price": 11.5,
         "openingDays": [
             {
@@ -244,7 +233,6 @@
         "description": "Step into the arena of agility and strength at Kitty Katness, the most daring water attraction in the park. Inspired by fierce feline warriors, this area features high slides, splash challenges, and epic water battles for those brave enough to enter.",
         "imageUrl": "x",
         "maxPeopleAmount": 100,
-        "currentPeopleAmount": 55,
         "price": 15.99,
         "openingDays": [
             {
