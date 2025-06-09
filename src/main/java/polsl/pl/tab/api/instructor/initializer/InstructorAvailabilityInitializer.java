@@ -34,35 +34,39 @@ public class InstructorAvailabilityInitializer {
             System.out.println("[INIT] InstructorAvailabilityInitializer");
 
             if (availabilityRepository.count() == 0) {
-                User instructor = userRepository.findById(27)
-                        .orElseThrow(() -> new IllegalStateException("User with id 27 not found"));
 
                 try (InputStream is = getClass().getClassLoader().getResourceAsStream("static/instructor_availability.json")) {
                     if (is == null) {
                         throw new IllegalArgumentException("Could not find static/instructor_availability.json in classpath.");
                     }
 
-                    InstructorAvailabilityJsonWrapper iaJson = objectMapper.readValue(is, InstructorAvailabilityJsonWrapper.class);
+                    // Deserializacja tablicy JSON
+                    InstructorAvailabilityJsonWrapper[] iaJsonArray = objectMapper.readValue(is, InstructorAvailabilityJsonWrapper[].class);
 
                     List<InstructorAvailability> availabilityList = new ArrayList<>();
 
-                    for (AvailabilityDay day : iaJson.getAvailability()) {
-                        InstructorAvailability instructorAvailability = new InstructorAvailability();
-                        instructorAvailability.setInstructor(instructor);
-                        instructorAvailability.setDayOfWeek(DayOfWeek.valueOf(day.getDayOfWeek()));
+                    for (InstructorAvailabilityJsonWrapper iaJson : iaJsonArray) {
+                        User instructor = userRepository.findById(iaJson.getInstructorId())
+                                .orElseThrow(() -> new IllegalStateException("User with id " + iaJson.getInstructorId() + " not found"));
 
-                        List<InstructorAvailabilityHour> hoursList = new ArrayList<>();
-                        for (HourRange hr : day.getHours()) {
-                            InstructorAvailabilityHour hour = new InstructorAvailabilityHour();
-                            hour.setFromTime(LocalTime.parse(hr.getFromTime()));
-                            hour.setToTime(LocalTime.parse(hr.getToTime()));
-                            hour.setMaxCount(hr.getMaxCount());
-                            hour.setAvailability(instructorAvailability);
-                            hoursList.add(hour);
+                        for (AvailabilityDay day : iaJson.getAvailability()) {
+                            InstructorAvailability instructorAvailability = new InstructorAvailability();
+                            instructorAvailability.setInstructor(instructor);
+                            instructorAvailability.setDayOfWeek(DayOfWeek.valueOf(day.getDayOfWeek()));
+
+                            List<InstructorAvailabilityHour> hoursList = new ArrayList<>();
+                            for (HourRange hr : day.getHours()) {
+                                InstructorAvailabilityHour hour = new InstructorAvailabilityHour();
+                                hour.setFromTime(LocalTime.parse(hr.getFromTime()));
+                                hour.setToTime(LocalTime.parse(hr.getToTime()));
+                                hour.setMaxCount(hr.getMaxCount());
+                                hour.setAvailability(instructorAvailability);
+                                hoursList.add(hour);
+                            }
+
+                            instructorAvailability.setHours(hoursList);
+                            availabilityList.add(instructorAvailability);
                         }
-
-                        instructorAvailability.setHours(hoursList);
-                        availabilityList.add(instructorAvailability);
                     }
 
                     availabilityRepository.saveAll(availabilityList);
@@ -71,10 +75,10 @@ public class InstructorAvailabilityInitializer {
         };
     }
 
-    // Wrapper odpowiadający strukturze JSON
     @Getter
     @Setter
     public static class InstructorAvailabilityJsonWrapper {
+        private Integer instructorId;
         private List<AvailabilityDay> availability;
     }
 
@@ -93,3 +97,4 @@ public class InstructorAvailabilityInitializer {
         private int maxCount;
     }
 }
+

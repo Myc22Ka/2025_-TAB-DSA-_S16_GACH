@@ -50,7 +50,20 @@ public class InstructorAppointmentInitializer {
                         InstructorAppointment appointment = new InstructorAppointment();
                         appointment.setInstructor(instructor);
                         appointment.setUser(user);
-                        appointment.setDayOfWeek(DayOfWeek.valueOf(apptJson.getDayOfWeek()));
+
+                        // POPRAWKA: zabezpieczenie dayOfWeek
+                        String dayString = apptJson.getDayOfWeek();
+                        if (dayString == null) {
+                            throw new IllegalArgumentException("dayOfWeek is null for instructorId=" + apptJson.getInstructorId());
+                        }
+                        DayOfWeek dayOfWeek;
+                        try {
+                            dayOfWeek = DayOfWeek.valueOf(dayString.toUpperCase());
+                        } catch (IllegalArgumentException e) {
+                            throw new IllegalArgumentException("Invalid dayOfWeek: '" + dayString + "' for instructorId=" + apptJson.getInstructorId(), e);
+                        }
+                        appointment.setDayOfWeek(dayOfWeek);
+
                         appointment.setStartTime(LocalTime.parse(apptJson.getStartTime()));
                         appointment.setEndTime(LocalTime.parse(apptJson.getEndTime()));
 
@@ -73,4 +86,3 @@ public class InstructorAppointmentInitializer {
         private String endTime;
     }
 }
-

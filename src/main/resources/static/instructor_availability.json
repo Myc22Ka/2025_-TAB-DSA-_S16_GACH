@@ -1,30 +1,227 @@
-{
-    "instructorId": 27,
-    "availability": [
-        {
-            "dayOfWeek": "MONDAY",
-            "hours": [
-                {
-                    "fromTime": "09:00:00",
-                    "toTime": "10:00:00",
-                    "maxCount": 10
-                },
-                {
-                    "fromTime": "10:00:00",
-                    "toTime": "11:00:00",
-                    "maxCount": 10
-                }
-            ]
-        },
-        {
-            "dayOfWeek": "TUESDAY",
-            "hours": [
-                {
-                    "fromTime": "13:00:00",
-                    "toTime": "14:00:00",
-                    "maxCount": 10
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        "instructorId": 27,
+        "availability": [
+            {
+                "dayOfWeek": "MONDAY",
+                "hours": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "10:00:00",
+                        "maxCount": 10
+                    },
+                    {
+                        "fromTime": "10:00:00",
+                        "toTime": "11:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "TUESDAY",
+                "hours": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "10:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "instructorId": 28,
+        "availability": [
+            {
+                "dayOfWeek": "TUESDAY",
+                "hours": [
+                    {
+                        "fromTime": "10:00:00",
+                        "toTime": "11:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "SUNDAY",
+                "hours": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "10:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "instructorId": 29,
+        "availability": [
+            {
+                "dayOfWeek": "FRIDAY",
+                "hours": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "10:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "MONDAY",
+                "hours": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "10:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "instructorId": 30,
+        "availability": [
+            {
+                "dayOfWeek": "WEDNESDAY",
+                "hours": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "10:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "TUESDAY",
+                "hours": [
+                    {
+                        "fromTime": "10:00:00",
+                        "toTime": "11:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "instructorId": 31,
+        "availability": [
+            {
+                "dayOfWeek": "FRIDAY",
+                "hours": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "10:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "THURSDAY",
+                "hours": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "10:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "instructorId": 32,
+        "availability": [
+            {
+                "dayOfWeek": "THURSDAY",
+                "hours": [
+                    {
+                        "fromTime": "10:00:00",
+                        "toTime": "11:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "SUNDAY",
+                "hours": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "10:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "instructorId": 33,
+        "availability": [
+            {
+                "dayOfWeek": "THURSDAY",
+                "hours": [
+                    {
+                        "fromTime": "11:00:00",
+                        "toTime": "12:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "instructorId": 34,
+        "availability": [
+            {
+                "dayOfWeek": "THURSDAY",
+                "hours": [
+                    {
+                        "fromTime": "12:00:00",
+                        "toTime": "13:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "instructorId": 35,
+        "availability": [
+            {
+                "dayOfWeek": "THURSDAY",
+                "hours": [
+                    {
+                        "fromTime": "13:00:00",
+                        "toTime": "14:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "instructorId": 36,
+        "availability": [
+            {
+                "dayOfWeek": "THURSDAY",
+                "hours": [
+                    {
+                        "fromTime": "14:00:00",
+                        "toTime": "15:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            },
+            {
+                "dayOfWeek": "WEDNESDAY",
+                "hours": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "10:00:00",
+                        "maxCount": 10
+                    }
+                ]
+            }
+        ]
+    }
+]
