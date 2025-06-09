@@ -9,7 +9,7 @@ function Home() {
             <Section>
                 <div className="w-full px-6 md:px-12 lg:px-24 text-center mb-10">
                     <h1 className="text-4xl font-kanchenjunga font-bold text-gray-900 dark:text-white mb-4">Welcome in Aquapark!</h1>
-                    <p className="text-lg font-kanchenjunga text-gray-700 dark:text-gray-300">Odkryj nasze atrakcje – kliknij, aby dowiedzieć się więcej!</p>
+                    <p className="text-lg font-kanchenjunga text-gray-700 dark:text-gray-300">Discover our attractions – click to learn more!</p>
                 </div>
             </Section>
 

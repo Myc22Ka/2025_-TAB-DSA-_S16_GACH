@@ -1,4 +1,5 @@
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from '@/components/ui/navigation-menu';
+import { useAuth } from '@/context/AuthProvider';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -23,6 +24,7 @@ const navigationList: NavigationList[] = [
 ];
 
 const Navigation: React.FC = () => {
+    const { user } = useAuth();
     return (
         <NavigationMenu>
             <NavigationMenuList className="flex gap-6">
@@ -33,6 +35,13 @@ const Navigation: React.FC = () => {
                         </Link>
                     </NavigationMenuItem>
                 ))}
+                {user && (
+                    <NavigationMenuItem>
+                        <Link to="/instructors" className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors duration-200">
+                            Instructors
+                        </Link>
+                    </NavigationMenuItem>
+                )}
             </NavigationMenuList>
         </NavigationMenu>
     );

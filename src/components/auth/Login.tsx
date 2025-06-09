@@ -28,13 +28,13 @@ const Login: React.FC = () => {
     const onSubmit: SubmitHandler<FormLoginData> = async values => {
         try {
             await loginService(values);
-            toast.success('Zalogowano pomyślnie');
+            toast.success('You have logged in successfully');
 
             const user = await authenticate();
             setUser(user);
             navigate('/');
         } catch (error) {
-            toast.error(`Błąd logowania: ${error}`);
+            toast.error(`Login error: ${error}`);
         }
     };
 
@@ -43,7 +43,7 @@ const Login: React.FC = () => {
             <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
                 <Card className="w-full max-w-md shadow-xl rounded-2xl">
                     <CardHeader>
-                        <CardTitle className="text-center text-2xl">Zaloguj się</CardTitle>
+                        <CardTitle className="text-center text-2xl">Sign In</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <Form {...form}>
@@ -67,7 +67,7 @@ const Login: React.FC = () => {
                                     name="password"
                                     render={({ field }: { field: ControllerRenderProps<FormLoginData, 'password'> }) => (
                                         <FormItem>
-                                            <FormLabel>Hasło</FormLabel>
+                                            <FormLabel>Password</FormLabel>
                                             <FormControl>
                                                 <div className="relative">
                                                     <Input type={showPassword ? 'text' : 'password'} placeholder="••••••••" {...field} className="pr-10" />
@@ -87,11 +87,11 @@ const Login: React.FC = () => {
                                 />
 
                                 <Button type="submit" className="w-full">
-                                    {form.formState.isSubmitting ? 'Logowanie...' : 'Zaloguj się'}
+                                    {form.formState.isSubmitting ? 'Login...' : 'Sign In'}
                                 </Button>
                                 <div className="text-center mt-2">
                                     <a href="/signup" className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
-                                        Nie masz konta? Zarejestruj się
+                                        Don&apos;t have an account? Sign up
                                     </a>
                                 </div>
                             </form>

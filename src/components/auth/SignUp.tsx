@@ -30,13 +30,13 @@ const SignUp: React.FC = () => {
     const onSubmit: SubmitHandler<FormSignUpData> = async values => {
         try {
             await register(values);
-            toast.success('Rejestracja zakończona sukcesem');
+            toast.success('Registration successful');
 
             const user = await authenticate();
             setUser(user);
             navigate('/');
         } catch (error) {
-            toast(`Błąd rejestracji: ${error}`);
+            toast(`Registration error: ${error}`);
         }
     };
 
@@ -45,7 +45,7 @@ const SignUp: React.FC = () => {
             <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
                 <Card className="w-full max-w-md shadow-xl rounded-2xl">
                     <CardHeader>
-                        <CardTitle className="text-center text-2xl">Zarejestruj się</CardTitle>
+                        <CardTitle className="text-center text-2xl">Sign up</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <Form {...form}>
@@ -55,7 +55,7 @@ const SignUp: React.FC = () => {
                                     name="login"
                                     render={({ field }: { field: ControllerRenderProps<FormSignUpData, 'login'> }) => (
                                         <FormItem>
-                                            <FormLabel>Login</FormLabel>
+                                            <FormLabel>Username</FormLabel>
                                             <FormControl>
                                                 <Input {...field} />
                                             </FormControl>
@@ -83,7 +83,7 @@ const SignUp: React.FC = () => {
                                     name="password"
                                     render={({ field }: { field: ControllerRenderProps<FormSignUpData, 'password'> }) => (
                                         <FormItem>
-                                            <FormLabel>Hasło</FormLabel>
+                                            <FormLabel>Password</FormLabel>
                                             <FormControl>
                                                 <Input
                                                     type="password"
@@ -103,9 +103,15 @@ const SignUp: React.FC = () => {
                                     name="confirmPassword"
                                     render={({ field }: { field: ControllerRenderProps<FormSignUpData, 'confirmPassword'> }) => (
                                         <FormItem>
-                                            <FormLabel>Potwierdź hasło</FormLabel>
+                                            <FormLabel>Confirm password</FormLabel>
                                             <FormControl>
-                                                <Input type="password" placeholder="••••••••" {...field} />
+                                                <Input
+                                                    type="password"
+                                                    placeholder="••••••••"
+                                                    {...field}
+                                                    onFocus={() => setIsPasswordFocused(true)}
+                                                    onBlur={() => setIsPasswordFocused(false)}
+                                                />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -113,14 +119,14 @@ const SignUp: React.FC = () => {
                                 />
                                 {isPasswordFocused && (
                                     <div className="mt-1 text-xs text-gray-600 dark:text-gray-300 space-y-1">
-                                        <p>• Min. 9 znaków</p>
-                                        <p>• 1 wielka litera</p>
-                                        <p>• 1 cyfra</p>
-                                        <p>• 1 znak specjalny</p>
+                                        <p>• Minimum 9 characters</p>
+                                        <p>• At least 1 uppercase letter</p>
+                                        <p>• At least 1 digit</p>
+                                        <p>• At least 1 special character</p>
                                     </div>
                                 )}
                                 <Button type="submit" className="w-full">
-                                    Zarejestruj się
+                                    Sign up
                                 </Button>
                             </form>
                         </Form>

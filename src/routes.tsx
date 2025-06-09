@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteObject } from 'react-router';
+import { Outlet, RouteObject } from 'react-router';
 import ProtectedRoute from './ProtectedRoutes';
 import ErrorPage from './views/ErrorPage';
 import Login from './components/auth/Login';
@@ -17,6 +17,8 @@ import PriceList from './components/Attractions/AttractionPrices';
 import GiveTicket from './views/Dashboard/Content/DashboardSettings/Ticket/GiveTicket';
 import MyTickets from './views/Dashboard/Content/DashboardSettings/Ticket/MyTicket';
 import ContactPage from './views/ContactPage/Contact';
+import InstructorsList from './components/Instructors/InstructorList';
+import InstructorDetail from './components/Instructors/InstructorDetail ';
 
 export const routerConfig = {
     future: {
@@ -45,6 +47,26 @@ export const routes: RouteObject[] = [
         path: '/contact',
         element: <ContactPage />,
     },
+    {
+        path: '/instructors',
+        element: (
+            <ProtectedRoute>
+                <Outlet />
+            </ProtectedRoute>
+        ),
+        children: [
+            { index: true, element: <InstructorsList /> },
+            {
+                path: ':id',
+                element: (
+                    <DefaultLayout>
+                        <InstructorDetail />
+                    </DefaultLayout>
+                ),
+            },
+        ],
+    },
+
     {
         path: '/attractions',
 
@@ -83,10 +105,6 @@ export const routes: RouteObject[] = [
             {
                 path: 'settings',
                 element: <DashboardSettings />,
-            },
-            {
-                path: 'orders',
-                element: <div>Orders</div>,
             },
             {
                 path: 'transactions',
