@@ -1,128 +1,128 @@
 [
-  {
-    "instructorId": 27,
-    "userId": 1,
-    "dayOfWeek": "MONDAY",
-    "startTime": "09:00:00",
-    "endTime": "10:00:00"
-  },
-  {
-    "instructorId": 27,
-    "userId": 2,
-    "dayOfWeek": "MONDAY",
-    "startTime": "10:00:00",
-    "endTime": "11:00:00"
-  },
-  {
-    "instructorId": 27,
-    "userId": 3,
-    "dayOfWeek": "TUESDAY",
-    "startTime": "09:00:00",
-    "endTime": "10:00:00"
-  },
-  {
-    "instructorId": 28,
-    "userId": 4,
-    "dayOfWeek": "TUESDAY",
-    "startTime": "10:00:00",
-    "endTime": "11:00:00"
-  },
-  {
-    "instructorId": 28,
-    "userId": 5,
-    "dayOfWeek": "SUNDAY",
-    "startTime": "09:00:00",
-    "endTime": "10:00:00"
-  },
-  {
-    "instructorId": 29,
-    "userId": 6,
-    "dayOfWeek": "FRIDAY",
-    "startTime": "09:00:00",
-    "endTime": "10:00:00"
-  },
-  {
-    "instructorId": 29,
-    "userId": 7,
-    "dayOfWeek": "MONDAY",
-    "startTime": "09:00:00",
-    "endTime": "10:00:00"
-  },
-  {
-    "instructorId": 30,
-    "userId": 8,
-    "dayOfWeek": "WEDNESDAY",
-    "startTime": "09:00:00",
-    "endTime": "10:00:00"
-  },
-  {
-    "instructorId": 30,
-    "userId": 9,
-    "dayOfWeek": "TUESDAY",
-    "startTime": "10:00:00",
-    "endTime": "11:00:00"
-  },
-  {
-    "instructorId": 31,
-    "userId": 10,
-    "dayOfWeek": "FRIDAY",
-    "startTime": "09:00:00",
-    "endTime": "10:00:00"
-  },
-  {
-    "instructorId": 31,
-    "userId": 11,
-    "dayOfWeek": "THURSDAY",
-    "startTime": "09:00:00",
-    "endTime": "10:00:00"
-  },
-  {
-    "instructorId": 32,
-    "userId": 12,
-    "dayOfWeek": "THURSDAY",
-    "startTime": "10:00:00",
-    "endTime": "11:00:00"
-  },
-  {
-    "instructorId": 32,
-    "userId": 13,
-    "dayOfWeek": "SUNDAY",
-    "startTime": "09:00:00",
-    "endTime": "10:00:00"
-  },
-  {
-    "instructorId": 33,
-    "userId": 14,
-    "dayOfWeek": "THURSDAY",
-    "startTime": "11:00:00",
-    "endTime": "12:00:00"
-  },
-  {
-    "instructorId": 34,
-    "userId": 15,
-    "dayOfWeek": "THURSDAY",
-    "startTime": "12:00:00",
-    "endTime": "13:00:00"
-  },
-  {
-    "instructorId": 35,
-    "userId": 16,
-    "dayOfWeek": "THURSDAY",
-    "startTime": "13:00:00",
-    "endTime": "14:00:00"
-  },
-  {
-    "instructorId": 36,
-    "userId": 17,
-    "dayOfWeek": "THURSDAY",
-    "startTime": "14:00:00",
-    "endTime": "15:00:00"
-  },
-  {
-    "instructorId": 36,
-    "userId": 18,
-    "dayOfWeek": "WEDNESDAY",
-    "startTime": "09:00:00",
-    "endTime": "10:00:00"
-  }
+    {
+        "instructorId": 27,
+        "userId": 1,
+        "dayOfWeek": "MONDAY",
+        "startTime": "09:00:00",
+        "endTime": "10:00:00"
+    },
+    {
+        "instructorId": 27,
+        "userId": 2,
+        "dayOfWeek": "MONDAY",
+        "startTime": "10:00:00",
+        "endTime": "11:00:00"
+    },
+    {
+        "instructorId": 27,
+        "userId": 3,
+        "dayOfWeek": "TUESDAY",
+        "startTime": "09:00:00",
+        "endTime": "10:00:00"
+    },
+    {
+        "instructorId": 28,
+        "userId": 4,
+        "dayOfWeek": "TUESDAY",
+        "startTime": "10:00:00",
+        "endTime": "11:00:00"
+    },
+    {
+        "instructorId": 28,
+        "userId": 5,
+        "dayOfWeek": "SUNDAY",
+        "startTime": "09:00:00",
+        "endTime": "10:00:00"
+    },
+    {
+        "instructorId": 29,
+        "userId": 6,
+        "dayOfWeek": "FRIDAY",
+        "startTime": "09:00:00",
+        "endTime": "10:00:00"
+    },
+    {
+        "instructorId": 29,
+        "userId": 7,
+        "dayOfWeek": "MONDAY",
+        "startTime": "09:00:00",
+        "endTime": "10:00:00"
+    },
+    {
+        "instructorId": 30,
+        "userId": 8,
+        "dayOfWeek": "WEDNESDAY",
+        "startTime": "09:00:00",
+        "endTime": "10:00:00"
+    },
+    {
+        "instructorId": 30,
+        "userId": 9,
+        "dayOfWeek": "TUESDAY",
+        "startTime": "10:00:00",
+        "endTime": "11:00:00"
+    },
+    {
+        "instructorId": 31,
+        "userId": 10,
+        "dayOfWeek": "FRIDAY",
+        "startTime": "09:00:00",
+        "endTime": "10:00:00"
+    },
+    {
+        "instructorId": 31,
+        "userId": 11,
+        "dayOfWeek": "THURSDAY",
+        "startTime": "09:00:00",
+        "endTime": "10:00:00"
+    },
+    {
+        "instructorId": 32,
+        "userId": 12,
+        "dayOfWeek": "THURSDAY",
+        "startTime": "10:00:00",
+        "endTime": "11:00:00"
+    },
+    {
+        "instructorId": 32,
+        "userId": 13,
+        "dayOfWeek": "SUNDAY",
+        "startTime": "09:00:00",
+        "endTime": "10:00:00"
+    },
+    {
+        "instructorId": 33,
+        "userId": 14,
+        "dayOfWeek": "THURSDAY",
+        "startTime": "11:00:00",
+        "endTime": "12:00:00"
+    },
+    {
+        "instructorId": 34,
+        "userId": 15,
+        "dayOfWeek": "THURSDAY",
+        "startTime": "12:00:00",
+        "endTime": "13:00:00"
+    },
+    {
+        "instructorId": 35,
+        "userId": 16,
+        "dayOfWeek": "THURSDAY",
+        "startTime": "13:00:00",
+        "endTime": "14:00:00"
+    },
+    {
+        "instructorId": 36,
+        "userId": 17,
+        "dayOfWeek": "THURSDAY",
+        "startTime": "14:00:00",
+        "endTime": "15:00:00"
+    },
+    {
+        "instructorId": 36,
+        "userId": 18,
+        "dayOfWeek": "WEDNESDAY",
+        "startTime": "09:00:00",
+        "endTime": "10:00:00"
+    }
 ]

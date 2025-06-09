@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import DefaultLayout from '@/layouts/DefaultLayout'; // <-- dodaj ten import
+import DefaultLayout from '@/layouts/DefaultLayout';
 import Section from '@/layouts/Section';
 import AttractionsList from '@/components/Attractions/AttractionsList';
 
@@ -25,22 +25,10 @@ interface IAttractionDetails {
     openingDays: OpeningDay[];
 }
 
-const DAYS_ORDER = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
-
-const DAY_NAMES_PL: Record<string, string> = {
-    MONDAY: 'Mon',
-    TUESDAY: 'Tue',
-    WEDNESDAY: 'Wed',
-    THURSDAY: 'Thu',
-    FRIDAY: 'Fri',
-    SATURDAY: 'Sat',
-    SUNDAY: 'Sun',
-};
-
 const Attractions = () => {
     const { id } = useParams<{ id: string }>();
-    const [attraction, setAttraction] = useState<IAttractionDetails | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [, setAttraction] = useState<IAttractionDetails | null>(null);
+    const [, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchAttraction = async () => {

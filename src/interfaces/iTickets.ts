@@ -1,4 +1,5 @@
 export type Ticket = {
+    id: number;
     purchaseTime: string;
     availabilityTo: string;
     status: string;
