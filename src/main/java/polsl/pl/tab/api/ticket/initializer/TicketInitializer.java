@@ -60,7 +60,7 @@ public class TicketInitializer {
                         Ticket ticket = Ticket.builder()
                                 .id(raw.getId())
                                 .purchaseTime(raw.getPurchaseTime())
-                                .availabilityTo(raw.getAvailabilityTo())
+                                .availabilityTo(raw.getPurchaseTime().plusDays(30))
                                 .status(raw.getStatus())
                                 .price(raw.getPrice())
                                 .ticketCode(null) // Will be generated in @PrePersist

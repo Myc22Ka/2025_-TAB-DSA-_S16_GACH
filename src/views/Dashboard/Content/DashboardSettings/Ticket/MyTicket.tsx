@@ -10,19 +10,57 @@ import { Ticket } from '@/interfaces/iTickets';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 
+type TimerMap = Record<number, string>;
+
 const MyTickets: React.FC = () => {
     const [tickets, setTickets] = useState<Ticket[] | null>(null);
     const [error] = useState<string | null>(null);
-    useEffect(() => {
-        const fetchTickets = async () => {
-            try {
-                const tickets = (await get('/api/tickets/me')) as Ticket[];
-                setTickets(tickets);
-            } catch (error) {
-                toast.error(getApiErrorMessage(error));
-            }
-        };
+    const [timeLeft, setTimeLeft] = useState<TimerMap>({});
 
+    const formatDuration = (ms: number) => {
+        if (ms <= 0) return '00:00';
+        const totalSeconds = Math.floor(ms / 1000);
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        if (hours > 0) {
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    };
+
+    useEffect(() => {
+        if (!tickets) return;
+
+        const interval = setInterval(() => {
+            const now = Date.now();
+
+            const updatedTimeLeft: TimerMap = {};
+
+            tickets.forEach(ticket => {
+                if (ticket.status === 'ACTIVE' && ticket.usedTime) {
+                    const endTime = new Date(ticket.usedTime).getTime() + ticket.validDurationMinutes * 60 * 1000;
+                    const diff = endTime - now;
+                    updatedTimeLeft[ticket.id] = formatDuration(diff);
+                }
+            });
+
+            setTimeLeft(updatedTimeLeft);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [tickets]);
+
+    const fetchTickets = async () => {
+        try {
+            const tickets = (await get('/api/tickets/me')) as Ticket[];
+            setTickets(tickets);
+        } catch (error) {
+            toast.error(getApiErrorMessage(error));
+        }
+    };
+
+    useEffect(() => {
         fetchTickets();
     }, []);
 
@@ -35,26 +73,41 @@ const MyTickets: React.FC = () => {
         return Date.now() < expirationLimit;
     };
 
+    const sortTickets = (tickets: Ticket[]) => {
+        const order: Record<string, number> = {
+            ACTIVE: 1,
+            INACTIVE: 2,
+            EXPIRED: 3,
+            REFUNDED: 4,
+        };
+
+        return [...tickets].sort((a, b) => {
+            const orderA = order[a.status] ?? 99;
+            const orderB = order[b.status] ?? 99;
+            return orderA - orderB;
+        });
+    };
+
     const handleActivate = async (ticketId: number) => {
         try {
             await post(`/api/tickets/${ticketId}/activate`);
             toast.success('🎟️ Ticket successfully activated!');
-            const updatedTickets = (await get('/api/tickets/me')) as Ticket[];
-            setTickets(updatedTickets);
+            fetchTickets();
         } catch (error) {
             toast.error(getApiErrorMessage(error));
         }
     };
+
     const handleRefund = async (ticketId: number) => {
         try {
             await post(`/api/tickets/refund?ticketId=${ticketId}`);
             toast.success('🎟️ Sorry for inconvenience!');
-            const updatedTickets = (await get('/api/tickets/me')) as Ticket[];
-            setTickets(updatedTickets);
+            fetchTickets();
         } catch (error) {
             toast.error(getApiErrorMessage(error));
         }
     };
+
     if (tickets === null) {
         return (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -67,7 +120,7 @@ const MyTickets: React.FC = () => {
 
     if (tickets.length === 0 || error) {
         return (
-            <Alert variant="default">
+            <Alert variant="default" className="max-w-lg mx-auto mt-10">
                 <AlertCircle className="h-5 w-5 text-muted-foreground" />
                 <AlertTitle>No tickets found</AlertTitle>
                 <AlertDescription>{error || 'You don’t have any tickets yet. Go explore and book something!'}</AlertDescription>
@@ -75,61 +128,77 @@ const MyTickets: React.FC = () => {
         );
     }
 
+    const visibleSortedTickets = sortTickets(tickets.filter(isTicketVisible).filter(ticket => ticket.status !== 'REFUNDED'));
+
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {tickets.filter(isTicketVisible).map((ticket, idx) => (
-                <Card key={idx} className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-6 text-sm">
-                    {/* Godziny i atrakcja */}
-                    <div className="flex justify-between items-center gap-1">
-                        <div className="text-left">
-                            <div className="text-xs text-muted-foreground">Date of purchase</div>
-                            <div className="text-lg font-semibold">{format(new Date(ticket.purchaseTime), 'dd.MM.yyyy HH:mm')}</div>
-                        </div>
-
-                        <div className="text-center text-xl font-bold tracking-wide uppercase">{ticket.attractionName}</div>
-
-                        <div className="text-right">
-                            <div className="text-xs text-muted-foreground">Valid until</div>
-                            <div className="text-lg font-semibold">{format(new Date(ticket.availabilityTo), 'dd.MM.yyyy HH:mm')}</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {visibleSortedTickets.map(ticket => (
+                <Card
+                    key={ticket.id}
+                    className={`flex flex-col p-4 rounded-2xl border-2 shadow-md
+            ${ticket.status === 'ACTIVE' ? 'border-green-500' : 'border-gray-300'}
+          `}
+                >
+                    {/* Obrazek i nazwa */}
+                    <div className="flex items-center gap-4">
+                        <img src={ticket.attractionDetails.imageUrl} alt={ticket.attractionName} className="w-20 h-20 rounded-lg object-cover flex-shrink-0" />
+                        <div>
+                            <h3 className="text-xl font-semibold text-gray-900">{ticket.attractionName}</h3>
+                            <p className="text-sm text-gray-600 line-clamp-2">{ticket.attractionDetails.description}</p>
                         </div>
                     </div>
 
-                    {/* Linie podziału */}
-                    <div className="border-t border-dashed my-2" />
-
-                    {/* Informacje dodatkowe */}
-                    <div className="grid grid-cols-3 gap-4 text-center">
+                    {/* Daty i status */}
+                    <div className="mt-4 grid grid-cols-2 gap-4 text-sm text-gray-700">
                         <div>
-                            <div className="text-xs text-muted-foreground">Date of purchase</div>
-                            <div className="font-medium">{format(new Date(ticket.purchaseTime), 'dd MMM yyyy')}</div>
+                            <div className="uppercase text-xs text-gray-400">Date of Purchase</div>
+                            <div>{format(new Date(ticket.purchaseTime), 'dd MMM yyyy HH:mm')}</div>
                         </div>
                         <div>
-                            <div className="text-xs text-muted-foreground">Valid for</div>
-                            <div className="font-medium">{ticket.validDurationMinutes} min</div>
+                            <div className="uppercase text-xs text-gray-400">Valid Until</div>
+                            <div>{format(new Date(ticket.availabilityTo), 'dd MMM yyyy HH:mm')}</div>
                         </div>
-                        <div className="text-center">
-                            <div className="text-xs text-muted-foreground">Used</div>
-                            <div className="font-medium">{ticket.usedTime ? 'Yes' : 'No'}</div>
+                        <div>
+                            <div className="uppercase text-xs text-gray-400">Duration</div>
+                            <div>{ticket.validDurationMinutes} min</div>
                         </div>
+                        <div>
+                            <div className="uppercase text-xs text-gray-400">Used</div>
+                            <div>{ticket.usedTime ? 'Yes' : 'No'}</div>
+                        </div>
+                        <div>
+                            <div className="uppercase text-xs text-gray-400">Price</div>
+                            <div>{ticket.price.toFixed(2)} zł</div>
+                        </div>
+                        {ticket.status === 'ACTIVE' && ticket.usedTime && (
+                            <div>
+                                <div className="uppercase text-xs text-gray-400">Time left</div>
+                                <div className="text-sm font-mono text-primary">
+                                    <span className="font-bold">{timeLeft[ticket.id] || 'Loading...'}</span>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
-                    {/* Kolejna linia */}
-                    <div className="border-t border-dashed my-2" />
+                    {/* Status i cena + akcje */}
+                    <div className="mt-6 flex justify-between items-center">
+                        <Badge
+                            variant={
+                                ticket.status === 'ACTIVE'
+                                    ? 'success'
+                                    : ticket.status === 'INACTIVE'
+                                      ? 'secondary'
+                                      : ticket.status === 'EXPIRED'
+                                        ? 'destructive'
+                                        : 'default'
+                            }
+                            className="uppercase font-semibold tracking-wide"
+                        >
+                            {ticket.status}
+                        </Badge>
 
-                    {/* Status + Cena + Akcje */}
-                    <div className="flex justify-between items-center gap-2">
-                        <div className="flex flex-col gap-1">
-                            <div className="text-xs text-muted-foreground">Status</div>
-                            <Badge variant={ticket.status === 'ACTIVE' ? 'success' : 'default'}>{ticket.status}</Badge>
-                        </div>
-
-                        <div className="text-center">
-                            <div className="text-xs text-muted-foreground">Price</div>
-                            <div className="text-xl font-bold text-purple-600">{ticket.price.toFixed(2)} zł</div>
-                        </div>
-
-                        <div className="flex flex-col gap-1">
-                            {!ticket.usedTime && (
+                        <div className="flex gap-2">
+                            {!ticket.usedTime && ticket.status === 'INACTIVE' && (
                                 <Button size="sm" variant="success" onClick={() => handleActivate(ticket.id)}>
                                     Activate
                                 </Button>

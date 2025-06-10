@@ -7,18 +7,18 @@ import SignUp from './components/auth/SignUp';
 import Home from './views/HomePage/Home';
 import Dashboard from './views/Dashboard/Dashboard';
 import DefaultLayout from './layouts/DefaultLayout';
-import AttractionsList from './components/Attractions/AttractionsList';
 import DashboardAdminPanel from './views/Dashboard/Content/DashboardSettings/AdminPanel/DashboardAdminPanel';
 import DashboardSettings from './views/Dashboard/Content/DashboardSettings/DashboardSettings';
 import DashboardOverview from './views/Dashboard/Content/DashboardOverview';
 import AttractionFull from './views/AtractionFull';
-import AttractionSite from './components/Attractions/AttractionSite';
+import AttractionSite from './views/AttractionSite/AttractionSite';
 import PriceList from './components/Attractions/AttractionPrices';
 import GiveTicket from './views/Dashboard/Content/DashboardSettings/Ticket/GiveTicket';
 import MyTickets from './views/Dashboard/Content/DashboardSettings/Ticket/MyTicket';
 import ContactPage from './views/ContactPage/Contact';
 import InstructorsList from './components/Instructors/InstructorList';
 import InstructorDetail from './components/Instructors/InstructorDetail ';
+import Attractions from './components/Attractions/Attractions';
 
 export const routerConfig = {
     future: {
@@ -70,11 +70,7 @@ export const routes: RouteObject[] = [
     {
         path: '/attractions',
 
-        element: (
-            <DefaultLayout>
-                <AttractionsList />
-            </DefaultLayout>
-        ),
+        element: <Attractions />,
     },
     {
         path: '/atraction',

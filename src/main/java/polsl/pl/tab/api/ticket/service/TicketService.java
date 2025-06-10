@@ -106,8 +106,10 @@ public class TicketService {
 
         boolean updated = false;
         for (Ticket ticket : tickets) {
-            if (ticket.getStatus() == TicketStatus.ACTIVE &&
-                    ticket.getPurchaseTime().plus(ticket.getValidDuration()).isBefore(now)) {
+            if (
+                    (ticket.getStatus() == TicketStatus.INACTIVE && ticket.getAvailabilityTo().isBefore(now)) ||
+                            (ticket.getUsedTime() != null && ticket.getStatus() == TicketStatus.ACTIVE && ticket.getUsedTime().plus(ticket.getValidDuration()).isBefore(now))
+            ) {
 
                 ticket.setStatus(TicketStatus.EXPIRED);
                 updated = true;

@@ -1,257 +1,188 @@
 [
     {
         "name": "Kitty Splash Slide",
-        "description": "Experience the thrill of the ultimate feline-themed water slide! With sharp turns, sudden drops, and endless splashes, the Kitty Splash Slide delivers excitement for all ages. Perfect for energetic visitors looking to slide into fun.",
-        "imageUrl": "x",
+        "description": "A thrilling water slide designed for all ages, featuring gentle curves and splashes, perfect for families and kids who love excitement in a safe environment.",
+        "imageUrl": "https://i.ibb.co/gZ48T5Fh/test2.png",
         "maxPeopleAmount": 100,
+        "currentPeopleAmount": 10,
         "price": 12.99,
         "openingDays": [
             {
                 "dayOfWeek": "MONDAY",
                 "hours": [
-                    {
-                        "from": "09:00:00",
-                        "to": "12:00:00"
-                    },
-                    {
-                        "from": "13:00:00",
-                        "to": "18:00:00"
-                    }
+                    { "from": "09:00:00", "to": "12:00:00" },
+                    { "from": "13:00:00", "to": "18:00:00" }
                 ]
             },
             {
                 "dayOfWeek": "TUESDAY",
-                "hours": [
-                    {
-                        "from": "10:00:00",
-                        "to": "17:00:00"
-                    }
-                ]
+                "hours": [{ "from": "10:00:00", "to": "17:00:00" }]
             }
         ]
     },
     {
         "name": "Purring Lagoon",
-        "description": "Unwind in the soothing waters of the Purring Lagoon — a tranquil area designed for rest and rejuvenation. Gentle waves and calming sounds create a peaceful oasis, perfect for families and those seeking a slower pace.",
-        "imageUrl": "x",
+        "description": "A relaxing lagoon with gentle waves and soothing water jets, ideal for unwinding and enjoying a peaceful aquatic experience.",
+        "imageUrl": "https://i.ibb.co/jPnbmYfm/Chat-GPT-Image-May-22-2025-08-15-54-PM.png",
         "maxPeopleAmount": 100,
+        "currentPeopleAmount": 10,
         "price": 14.5,
         "openingDays": [
             {
                 "dayOfWeek": "WEDNESDAY",
-                "hours": [
-                    {
-                        "from": "08:00:00",
-                        "to": "12:00:00"
-                    }
-                ]
+                "hours": [{ "from": "08:00:00", "to": "12:00:00" }]
             },
             {
                 "dayOfWeek": "THURSDAY",
-                "hours": [
-                    {
-                        "from": "13:00:00",
-                        "to": "19:00:00"
-                    }
-                ]
+                "hours": [{ "from": "13:00:00", "to": "19:00:00" }]
             }
         ]
     },
     {
         "name": "The Meowtain Fountain",
-        "description": "Stand in awe before the majestic Meowtain Fountain, where streams of water burst from a towering feline-inspired structure. This centerpiece attraction offers playful jets and misty cooling zones that captivate both kids and adults alike.",
-        "imageUrl": "x",
+        "description": "A spectacular fountain attraction with cascading water and playful jets, offering a fun and refreshing spot for visitors to cool off.",
+        "imageUrl": "https://i.ibb.co/7Jd27Jj6/Chat-GPT-Image-22-maj-2025-20-15-53.png",
         "maxPeopleAmount": 100,
+        "currentPeopleAmount": 20,
         "price": 13.75,
         "openingDays": [
             {
                 "dayOfWeek": "FRIDAY",
-                "hours": [
-                    {
-                        "from": "09:00:00",
-                        "to": "16:00:00"
-                    }
-                ]
+                "hours": [{ "from": "09:00:00", "to": "16:00:00" }]
             },
             {
                 "dayOfWeek": "SATURDAY",
-                "hours": [
-                    {
-                        "from": "10:00:00",
-                        "to": "20:00:00"
-                    }
-                ]
+                "hours": [{ "from": "10:00:00", "to": "20:00:00" }]
             }
         ]
     },
     {
         "name": "Miaow Express",
-        "description": "Hop on the Miaow Express for a fast-paced water ride packed with excitement! Short but intense, this narrow slide is designed for speed lovers who enjoy quick bursts of adrenaline and splashy landings.",
-        "imageUrl": "x",
+        "description": "A fast-paced water ride that takes you on a twisting journey through tunnels and turns, perfect for thrill-seekers.",
+        "imageUrl": "https://i.ibb.co/NgzYn8Rw/Chat-GPT-Image-22-maj-2025-20-21-25.png",
         "maxPeopleAmount": 50,
+        "currentPeopleAmount": 5,
         "price": 11.0,
         "openingDays": [
             {
                 "dayOfWeek": "SUNDAY",
-                "hours": [
-                    {
-                        "from": "08:00:00",
-                        "to": "12:00:00"
-                    }
-                ]
+                "hours": [{ "from": "08:00:00", "to": "12:00:00" }]
             }
         ]
     },
     {
         "name": "Water mousetrap",
-        "description": "Navigate a maze of water tunnels, sprays, and surprise fountains in the thrilling Water Mousetrap. Inspired by a playful cat-and-mouse chase, this interactive attraction keeps you guessing and giggling at every turn.",
-        "imageUrl": "x",
+        "description": "An adventurous water maze with twists, turns, and surprises at every corner, challenging guests to find their way out.",
+        "imageUrl": "https://i.ibb.co/N65MRbD1/Chat-GPT-Image-May-22-2025-08-26-20-PM.png",
         "maxPeopleAmount": 100,
+        "currentPeopleAmount": 0,
         "price": 10.0,
         "openingDays": [
             {
                 "dayOfWeek": "MONDAY",
-                "hours": [
-                    {
-                        "from": "11:00:00",
-                        "to": "14:00:00"
-                    }
-                ]
+                "hours": [{ "from": "11:00:00", "to": "14:00:00" }]
             }
         ]
     },
     {
         "name": "Fairy Tail Pool",
-        "description": "Step into a whimsical world at the Fairy Tail Pool — where fairy tales meet feline charm. Soft lighting, gentle fountains, and decorative elements create a magical atmosphere, perfect for daydreamers and young swimmers.",
-        "imageUrl": "x",
+        "description": "A magical pool with whimsical decorations and gentle waters, perfect for families and young children to enjoy together.",
+        "imageUrl": "https://i.ibb.co/3GjkSv0/Chat-GPT-Image-May-22-2025-08-51-26-PM.png",
         "maxPeopleAmount": 50,
+        "currentPeopleAmount": 12,
         "price": 13.25,
         "openingDays": [
             {
                 "dayOfWeek": "TUESDAY",
-                "hours": [
-                    {
-                        "from": "09:30:00",
-                        "to": "17:30:00"
-                    }
-                ]
+                "hours": [{ "from": "09:30:00", "to": "17:30:00" }]
             }
         ]
     },
     {
         "name": "Droplet Paw-suit",
-        "description": "Ready for a wet and wild obstacle course? The Droplet Paw-suit is a challenge filled with slippery surfaces, bouncing pads, and unexpected splashes. Great for adventurous spirits looking to test their reflexes and balance!",
-        "imageUrl": "x",
+        "description": "A competitive water course with obstacles and splash zones, designed for those who love a challenge and a good race.",
+        "imageUrl": "https://i.ibb.co/ymyLSYWt/Chat-GPT-Image-22-maj-2025-20-40-31.png",
         "maxPeopleAmount": 50,
+        "currentPeopleAmount": 15,
         "price": 14.0,
         "openingDays": [
             {
                 "dayOfWeek": "WEDNESDAY",
-                "hours": [
-                    {
-                        "from": "10:00:00",
-                        "to": "16:00:00"
-                    }
-                ]
+                "hours": [{ "from": "10:00:00", "to": "16:00:00" }]
             }
         ]
     },
     {
         "name": "Splashing Cat's Eye",
-        "description": "Get hypnotized by swirling waters and playful lights in the Splashing Cat's Eye. Designed with interactive jets and rhythmic water patterns, this attraction mesmerizes while offering cool, refreshing fun.",
-        "imageUrl": "x",
+        "description": "A unique splash pad with interactive water features and colorful designs, great for kids to play and cool off.",
+        "imageUrl": "https://i.ibb.co/8ybJ6P5/test.png",
         "maxPeopleAmount": 50,
+        "currentPeopleAmount": 0,
         "price": 10.5,
         "openingDays": [
             {
                 "dayOfWeek": "THURSDAY",
-                "hours": [
-                    {
-                        "from": "09:00:00",
-                        "to": "14:00:00"
-                    }
-                ]
+                "hours": [{ "from": "09:00:00", "to": "14:00:00" }]
             }
         ]
     },
     {
         "name": "Bubble Paws Jacuzzi",
-        "description": "Sink into bliss in the Bubble Paws Jacuzzi, where thousands of tiny bubbles gently massage your body. With warm waters and a cozy atmosphere, it's the perfect retreat for tired paws after a fun-filled day.",
-        "imageUrl": "x",
+        "description": "A luxurious jacuzzi experience with bubbling water and relaxing jets, perfect for unwinding after a day of fun.",
+        "imageUrl": "https://i.ibb.co/F4XP5hf2/test3.png",
         "maxPeopleAmount": 100,
+        "currentPeopleAmount": 28,
         "price": 15.0,
         "openingDays": [
             {
                 "dayOfWeek": "FRIDAY",
-                "hours": [
-                    {
-                        "from": "10:00:00",
-                        "to": "18:00:00"
-                    }
-                ]
+                "hours": [{ "from": "10:00:00", "to": "18:00:00" }]
             }
         ]
     },
     {
         "name": "Catnap Cove Spa",
-        "description": "Relax and recharge at Catnap Cove Spa — a serene corner of the waterpark designed for pure comfort. Soft jets, warm currents, and aromatic breezes create the ultimate environment for a peaceful water nap.",
-        "imageUrl": "x",
+        "description": "A tranquil spa area offering soothing water features and comfortable seating, ideal for relaxation and rejuvenation.",
+        "imageUrl": "https://i.ibb.co/F4XP5hf2/test3.png",
         "maxPeopleAmount": 100,
+        "currentPeopleAmount": 31,
         "price": 12.75,
         "openingDays": [
             {
                 "dayOfWeek": "SATURDAY",
-                "hours": [
-                    {
-                        "from": "08:00:00",
-                        "to": "20:00:00"
-                    }
-                ]
+                "hours": [{ "from": "08:00:00", "to": "20:00:00" }]
             }
         ]
     },
     {
         "name": "Claw Falls",
-        "description": "Feel the raw power of nature at Claw Falls, a cascading waterfall attraction where water tumbles with wild intensity. Perfect for thrill-seekers who want to stand beneath the roar of falling water and cool down dramatically.",
-        "imageUrl": "x",
+        "description": "A dramatic waterfall attraction with powerful cascades and misty spray, offering a refreshing and scenic spot for visitors.",
+        "imageUrl": "https://i.ibb.co/F4XP5hf2/test3.png",
         "maxPeopleAmount": 100,
+        "currentPeopleAmount": 5,
         "price": 11.5,
         "openingDays": [
             {
                 "dayOfWeek": "SUNDAY",
-                "hours": [
-                    {
-                        "from": "09:00:00",
-                        "to": "15:00:00"
-                    }
-                ]
+                "hours": [{ "from": "09:00:00", "to": "15:00:00" }]
             }
         ]
     },
     {
         "name": "Kitty Katness",
-        "description": "Step into the arena of agility and strength at Kitty Katness, the most daring water attraction in the park. Inspired by fierce feline warriors, this area features high slides, splash challenges, and epic water battles for those brave enough to enter.",
-        "imageUrl": "x",
+        "description": "An action-packed adventure zone with climbing walls, splash pads, and interactive water games, perfect for energetic guests.",
+        "imageUrl": "https://i.ibb.co/sv130316/ed088871-a242-4811-9534-3f5f38a333b6.webp",
         "maxPeopleAmount": 100,
+        "currentPeopleAmount": 55,
         "price": 15.99,
         "openingDays": [
             {
                 "dayOfWeek": "MONDAY",
-                "hours": [
-                    {
-                        "from": "09:00:00",
-                        "to": "17:00:00"
-                    }
-                ]
+                "hours": [{ "from": "09:00:00", "to": "17:00:00" }]
             },
             {
                 "dayOfWeek": "TUESDAY",
-                "hours": [
-                    {
-                        "from": "09:00:00",
-                        "to": "15:00:00"
-                    }
-                ]
+                "hours": [{ "from": "09:00:00", "to": "15:00:00" }]
             }
         ]
     }
