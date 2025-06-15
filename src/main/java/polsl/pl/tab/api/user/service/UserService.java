@@ -6,6 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import polsl.pl.tab.api.user.dto.*;
 import polsl.pl.tab.api.user.model.Role;
 import polsl.pl.tab.api.user.model.User;
@@ -43,19 +44,7 @@ public class UserService {
         String email = authentication.getName();
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        return new UserDto(
-                user.getLogin(),
-                user.getFirstname(),
-                user.getLastname(),
-                user.getEmail(),
-                user.getRole(),
-                user.getPhotoUrl(),
-                user.getCash(),
-                user.getPhoneNumber(),
-                user.getAddress(),
-                user.getDateOfBirth(),
-                user.getGender()
-        );
+        return UserDto.fromEntity(user);
     }
 
     public void addCashToUser(Authentication authentication, double amount) {
@@ -106,5 +95,13 @@ public class UserService {
         return userRepository.findByRole(Role.INSTRUCTOR).stream()
                 .map(InstructorDetails::fromEntity)
                 .toList();
+    }
+
+    @Transactional
+    public void deleteUser(Authentication authentication) {
+        User user = userRepository.findByEmail(authentication.getName())
+                .orElseThrow(() -> new UsernameNotFoundException("Requester not found"));
+
+        userRepository.delete(user);
     }
 }

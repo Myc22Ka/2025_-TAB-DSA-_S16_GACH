@@ -38,8 +38,8 @@ public class Ticket {
     @Column(name = "price")
     private Double price;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @Column(name = "ticket_code", unique = true, nullable = false, length = 64)

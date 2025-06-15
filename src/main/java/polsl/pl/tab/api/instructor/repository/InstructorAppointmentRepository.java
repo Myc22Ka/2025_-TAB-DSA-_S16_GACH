@@ -6,9 +6,14 @@ import polsl.pl.tab.api.instructor.model.InstructorAppointment;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
+import java.util.List;
 
 @Repository
 public interface InstructorAppointmentRepository extends JpaRepository<InstructorAppointment, Integer> {
     long countByInstructorIdAndDayOfWeekAndStartTimeLessThanAndEndTimeGreaterThan(
             Integer instructorId, DayOfWeek dayOfWeek, LocalTime toTime, LocalTime fromTime);
+
+    List<InstructorAppointment> findByDayOfWeek(DayOfWeek day);
+
+    void deleteById(Integer id);
 }

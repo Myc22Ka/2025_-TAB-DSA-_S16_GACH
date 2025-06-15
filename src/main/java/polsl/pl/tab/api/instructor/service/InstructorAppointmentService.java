@@ -1,17 +1,27 @@
 package polsl.pl.tab.api.instructor.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import polsl.pl.tab.api.instructor.dto.InstructorAppointmentRequest;
+import polsl.pl.tab.api.instructor.dto.UserAppointmentDto;
 import polsl.pl.tab.api.instructor.model.InstructorAppointment;
 import polsl.pl.tab.api.instructor.model.InstructorAvailability;
 import polsl.pl.tab.api.instructor.model.InstructorAvailabilityHour;
 import polsl.pl.tab.api.instructor.repository.InstructorAppointmentRepository;
 import polsl.pl.tab.api.instructor.repository.InstructorAvailabilityRepository;
+import polsl.pl.tab.api.user.model.Role;
 import polsl.pl.tab.api.user.model.User;
 import polsl.pl.tab.api.user.repository.UserRepository;
+import polsl.pl.tab.exception.AppException;
+
+import java.time.DayOfWeek;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -59,5 +69,39 @@ public class InstructorAppointmentService {
         appointment.setEndTime(request.endTime());
 
         appointmentRepository.save(appointment);
+    }
+
+    @Transactional(readOnly = true)
+    public List<UserAppointmentDto> getUsersForDay(DayOfWeek day, Authentication authentication) {
+        String email = authentication.getName();
+
+        User instructor = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        if(instructor.getRole() != Role.INSTRUCTOR) {
+            throw new AppException("You need to be an instructor to be able to see users");
+        }
+
+        List<InstructorAppointment> appointments = appointmentRepository.findByDayOfWeek(day);
+
+        return appointments.stream()
+                .map(UserAppointmentDto::fromEntity)
+                .toList();
+    }
+
+    @Transactional
+    public void kickUserFromAppointment(String userEmail, Authentication authentication) {
+        var user = userRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        String requesterEmail = authentication.getName();
+        User instructor = userRepository.findByEmail(requesterEmail)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        if(instructor.getRole() != Role.INSTRUCTOR) {
+            throw new AppException("You need to be an instructor to be able to remove users");
+        }
+
+        appointmentRepository.deleteById(user.getId());
     }
 }

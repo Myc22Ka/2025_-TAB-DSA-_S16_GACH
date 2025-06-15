@@ -6,8 +6,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import polsl.pl.tab.api.user.dto.*;
 import polsl.pl.tab.api.user.service.UserService;
+import polsl.pl.tab.exception.SuccessResponse;
 
 import java.security.Principal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -55,5 +57,18 @@ public class UserController {
     @GetMapping("/instructors")
     public ResponseEntity<List<InstructorDetails>> getInstructorDetails() {
         return ResponseEntity.ok(service.getAllInstructors());
+    }
+
+    @DeleteMapping("/me")
+    public ResponseEntity<SuccessResponse> deleteUser(Authentication authentication){
+        service.deleteUser(authentication);
+
+        SuccessResponse response = new SuccessResponse(
+                LocalDateTime.now().toString(),
+                "Removed user successfully",
+                200
+        );
+
+        return ResponseEntity.ok(response);
     }
 }

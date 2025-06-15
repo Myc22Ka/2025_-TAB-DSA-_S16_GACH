@@ -11,6 +11,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import polsl.pl.tab.api.instructor.model.InstructorAvailability;
+import polsl.pl.tab.api.ticket.model.Ticket;
 import polsl.pl.tab.auth.model.Token;
 
 @Entity
@@ -39,7 +40,11 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Token> tokens;
 
     @Column(name="photo_url", columnDefinition = "TEXT")
@@ -61,6 +66,9 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<InstructorAvailability> availability;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Ticket> tickets;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
