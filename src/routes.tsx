@@ -115,6 +115,10 @@ export const routes: RouteObject[] = [
                 element: <MyTickets />,
             },
             {
+                path: 'my-classes',
+                element: <MyTickets />,
+            },
+            {
                 path: 'admin',
                 element: <DashboardAdminPanel />,
             },

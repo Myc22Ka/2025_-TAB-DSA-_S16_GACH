@@ -33,8 +33,7 @@ const InstructorsList: React.FC = () => {
                                 <Avatar className="w-14 h-14 ring-2 ring-primary-500 ring-offset-2 rounded-full">
                                     <AvatarImage src={instructor.photoUrl} alt={`${instructor.firstname} ${instructor.lastname}`} />
                                     <AvatarFallback className="flex items-center justify-center w-full h-full text-xl font-semibold text-primary-600 dark:text-primary-400">
-                                        {instructor.firstname[0]}
-                                        {instructor.lastname[0]}
+                                        {(instructor.firstname?.[0] ?? '') + (instructor.lastname?.[0] ?? '')}
                                     </AvatarFallback>
                                 </Avatar>
 

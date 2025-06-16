@@ -3,6 +3,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
 import ChangeEmailForm from './ChangeEmailForm';
 import ChangePasswordForm from './PasswordChangeField/ChangeEmailPassword';
 import ChangeRoleForm from './ChangeRoleForm';
+import DeleteAccountForm from './DeleteAccountForm';
 
 const DashboardSettings: React.FC = () => {
     return (
@@ -28,6 +29,12 @@ const DashboardSettings: React.FC = () => {
                     <AccordionTrigger>Change User Role</AccordionTrigger>
                     <AccordionContent>
                         <ChangeRoleForm />
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="delete">
+                    <AccordionTrigger>Delete Account</AccordionTrigger>
+                    <AccordionContent>
+                        <DeleteAccountForm />
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>

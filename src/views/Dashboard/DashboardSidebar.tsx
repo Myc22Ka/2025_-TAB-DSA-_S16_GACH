@@ -5,9 +5,10 @@ import { User as UserIcon, Settings, Shield, DollarSign, Ticket } from 'lucide-r
 import { useAuth } from '@/context/AuthProvider';
 
 const allLinks = [
-    { name: 'My Profile', to: '/dashboard', roles: ['USER', 'CASHIER', 'ADMIN'], icon: UserIcon },
-    { name: 'Settings', to: '/dashboard/settings', roles: ['USER', 'CASHIER', 'ADMIN'], icon: Settings },
-    { name: 'My tickets', to: '/dashboard/my-tickets', roles: ['USER', 'CASHIER', 'ADMIN'], icon: Ticket },
+    { name: 'My Profile', to: '/dashboard', roles: ['USER', 'CASHIER', 'ADMIN', 'INSTRUCTOR'], icon: UserIcon },
+    { name: 'Settings', to: '/dashboard/settings', roles: ['USER', 'CASHIER', 'ADMIN', 'INSTRUCTOR'], icon: Settings },
+    { name: 'My tickets', to: '/dashboard/my-tickets', roles: ['USER', 'CASHIER', 'ADMIN', 'INSTRUCTOR'], icon: Ticket },
+    { name: 'My Classes', to: '/dashboard/my-classes', roles: ['USER', 'CASHIER', 'ADMIN', 'INSTRUCTOR'], icon: Ticket },
     { name: 'Admin Panel', to: '/dashboard/admin', roles: ['ADMIN'], icon: Shield },
     { name: 'Cash Register', to: '/dashboard/sell-tickets', roles: ['CASHIER'], icon: DollarSign },
 ];
