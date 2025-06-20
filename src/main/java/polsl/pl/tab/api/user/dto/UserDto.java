@@ -6,6 +6,7 @@ import polsl.pl.tab.api.user.model.User;
 import java.time.LocalDate;
 
 public record UserDto (
+    Integer id,
     String login,
     String firstname,
     String lastname,
@@ -20,6 +21,7 @@ public record UserDto (
 ) {
     public static UserDto fromEntity(User user) {
         return new UserDto(
+                user.getId(),
                 user.getLogin(),
                 user.getFirstname(),
                 user.getLastname(),
