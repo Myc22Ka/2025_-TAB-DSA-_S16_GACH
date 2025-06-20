@@ -6,6 +6,7 @@ import polsl.pl.tab.api.user.model.User;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
+import java.util.Collection;
 
 @Entity
 @Table(name = "instructor_appointments")

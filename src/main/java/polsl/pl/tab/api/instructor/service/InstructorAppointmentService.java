@@ -1,7 +1,6 @@
 package polsl.pl.tab.api.instructor.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -20,8 +19,6 @@ import polsl.pl.tab.exception.AppException;
 
 import java.time.DayOfWeek;
 import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -59,6 +56,18 @@ public class InstructorAppointmentService {
 
         if (bookedCount >= matchingHour.getMaxCount()) {
             throw new IllegalStateException("No free spots available for the selected time slot");
+        }
+
+        boolean userAlreadyBooked = appointmentRepository.existsByUserIdAndInstructorIdAndDayOfWeekAndStartTimeLessThanAndEndTimeGreaterThan(
+                user.getId(),
+                instructor.getId(),
+                request.dayOfWeek(),
+                request.endTime(),
+                request.startTime()
+        );
+
+        if (userAlreadyBooked) {
+            throw new IllegalStateException("You have already booked an appointment during this time slot");
         }
 
         InstructorAppointment appointment = new InstructorAppointment();

@@ -13,4 +13,6 @@ public interface InstructorAvailabilityRepository extends JpaRepository<Instruct
     List<InstructorAvailability> findByInstructorId(Integer instructorId);
 
     Optional<InstructorAvailability> findByInstructorIdAndDayOfWeek(Integer integer, DayOfWeek dayOfWeek);
+
+    List<InstructorAvailability> findAllByInstructorId(Integer id);
 }

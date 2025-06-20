@@ -7,8 +7,10 @@ import polsl.pl.tab.api.instructor.model.InstructorAvailability;
 import polsl.pl.tab.api.instructor.repository.InstructorAppointmentRepository;
 import polsl.pl.tab.api.instructor.repository.InstructorAvailabilityRepository;
 import polsl.pl.tab.api.user.dto.InstructorDetails;
+import polsl.pl.tab.api.user.model.Role;
 import polsl.pl.tab.api.user.model.User;
 import polsl.pl.tab.api.user.repository.UserRepository;
+import polsl.pl.tab.exception.AppException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -54,6 +56,19 @@ public class InstructorAvailabilityService {
         InstructorDetails instructorDetails = InstructorDetails.fromEntity(user);
 
         return new InstructorAvailabilityResponse(instructorDetails, dayAvailabilities);
+    }
+
+    public InstructorAvailabilityResponse getOwnAvailability(org.springframework.security.core.Authentication authentication) {
+        String email = authentication.getName();
+
+        User instructor = userRepository.findByEmail(email)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        if(instructor.getRole() != Role.INSTRUCTOR){
+            throw new AppException("You need to be instructor");
+        }
+
+        return getInstructorAvailability(instructor.getId());
     }
 }
 

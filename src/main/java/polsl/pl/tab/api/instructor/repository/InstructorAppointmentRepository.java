@@ -1,5 +1,6 @@
 package polsl.pl.tab.api.instructor.repository;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import polsl.pl.tab.api.instructor.model.InstructorAppointment;
@@ -15,5 +16,9 @@ public interface InstructorAppointmentRepository extends JpaRepository<Instructo
 
     List<InstructorAppointment> findByDayOfWeek(DayOfWeek day);
 
-    void deleteById(Integer id);
+    void deleteById(@NotNull Integer id);
+
+    List<InstructorAppointment> findAllByUserId(Integer userId);
+
+    boolean existsByUserIdAndInstructorIdAndDayOfWeekAndStartTimeLessThanAndEndTimeGreaterThan(Integer id, Integer id1, DayOfWeek dayOfWeek, LocalTime localTime, LocalTime localTime1);
 }

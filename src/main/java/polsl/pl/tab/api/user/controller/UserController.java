@@ -71,4 +71,9 @@ public class UserController {
 
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/me/appointments")
+    public ResponseEntity<List<UserAppointmentDto>> getUserAppointments(Authentication authentication) {
+        return ResponseEntity.ok(service.getUserAppointments(authentication));
+    }
 }

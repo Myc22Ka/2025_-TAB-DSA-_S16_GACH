@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import polsl.pl.tab.api.instructor.model.InstructorAppointment;
+import polsl.pl.tab.api.instructor.repository.InstructorAppointmentRepository;
 import polsl.pl.tab.api.user.dto.*;
 import polsl.pl.tab.api.user.model.Role;
 import polsl.pl.tab.api.user.model.User;
@@ -22,6 +24,7 @@ public class UserService {
 
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
+    private final InstructorAppointmentRepository appointmentRepository;
 
     public void changePassword(ChangePasswordRequest request, Principal connectedUser) {
 
@@ -103,5 +106,15 @@ public class UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("Requester not found"));
 
         userRepository.delete(user);
+    }
+
+    public List<UserAppointmentDto> getUserAppointments(Authentication authentication) {
+        String email = authentication.getName();
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        return appointmentRepository.findAllByUserId(user.getId()).stream()
+                .map(UserAppointmentDto::fromEntity)
+                .toList();
     }
 }
