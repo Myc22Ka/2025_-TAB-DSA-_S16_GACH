@@ -20,7 +20,7 @@ import InstructorsList from './components/Instructors/InstructorList';
 import InstructorDetail from './components/Instructors/InstructorDetail ';
 import Attractions from './components/Attractions/Attractions';
 import MyClasses from './views/Dashboard/Content/DashboardSettings/MyClasses/MyClasses';
-import InstructorAvailabilityCard from './components/Instructors/InstructorAvailabilityCard';
+import DayAppointments from './components/Instructors/InstructorDayAppointments';
 
 export const routerConfig = {
     future: {
@@ -105,10 +105,6 @@ export const routes: RouteObject[] = [
                 element: <DashboardSettings />,
             },
             {
-                path: 'availability',
-                element: <InstructorAvailabilityCard />,
-            },
-            {
                 path: 'sell-tickets',
                 element: <GiveTicket />,
             },
@@ -125,8 +121,8 @@ export const routes: RouteObject[] = [
                 element: <DashboardAdminPanel />,
             },
             {
-                path: 'admin/logs',
-                element: <div>System Logs</div>,
+                path: 'appointments',
+                element: <DayAppointments />,
             },
         ],
     },
