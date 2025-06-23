@@ -19,6 +19,8 @@ import ContactPage from './views/ContactPage/Contact';
 import InstructorsList from './components/Instructors/InstructorList';
 import InstructorDetail from './components/Instructors/InstructorDetail ';
 import Attractions from './components/Attractions/Attractions';
+import MyClasses from './views/Dashboard/Content/DashboardSettings/MyClasses/MyClasses';
+import InstructorAvailabilityCard from './components/Instructors/InstructorAvailabilityCard';
 
 export const routerConfig = {
     future: {
@@ -103,8 +105,8 @@ export const routes: RouteObject[] = [
                 element: <DashboardSettings />,
             },
             {
-                path: 'transactions',
-                element: <div>Transactions</div>,
+                path: 'availability',
+                element: <InstructorAvailabilityCard />,
             },
             {
                 path: 'sell-tickets',
@@ -116,7 +118,7 @@ export const routes: RouteObject[] = [
             },
             {
                 path: 'my-classes',
-                element: <MyTickets />,
+                element: <MyClasses />,
             },
             {
                 path: 'admin',

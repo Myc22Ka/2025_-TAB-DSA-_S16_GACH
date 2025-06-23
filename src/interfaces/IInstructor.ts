@@ -23,3 +23,13 @@ export interface InstructorWithAvailability {
     instructor: Instructor;
     availability: Availability[];
 }
+
+export const daysOfWeek = [
+    { label: 'Monday', value: 'MONDAY' },
+    { label: 'Tuesday', value: 'TUESDAY' },
+    { label: 'Wednesday', value: 'WEDNESDAY' },
+    { label: 'Thursday', value: 'THURSDAY' },
+    { label: 'Friday', value: 'FRIDAY' },
+    { label: 'Saturday', value: 'SATURDAY' },
+    { label: 'Sunday', value: 'SUNDAY' },
+];
