@@ -1,6 +1,7 @@
 package polsl.pl.tab.api.instructor.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import polsl.pl.tab.api.instructor.dto.InstructorAvailabilityResponse;
 import polsl.pl.tab.api.instructor.model.InstructorAvailability;
@@ -58,7 +59,7 @@ public class InstructorAvailabilityService {
         return new InstructorAvailabilityResponse(instructorDetails, dayAvailabilities);
     }
 
-    public InstructorAvailabilityResponse getOwnAvailability(org.springframework.security.core.Authentication authentication) {
+    public InstructorAvailabilityResponse getOwnAvailability(Authentication authentication) {
         String email = authentication.getName();
 
         User instructor = userRepository.findByEmail(email)

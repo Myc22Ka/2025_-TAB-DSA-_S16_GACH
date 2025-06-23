@@ -22,6 +22,7 @@ public class InstructorAvailabilityController {
 
     @GetMapping("/me/availability")
     public ResponseEntity<InstructorAvailabilityResponse> getMyAvailability(Authentication authentication) {
-        return ResponseEntity.ok(availabilityService.getOwnAvailability(authentication));
+        var response = availabilityService.getOwnAvailability(authentication);
+        return ResponseEntity.ok(response);
     }
 }

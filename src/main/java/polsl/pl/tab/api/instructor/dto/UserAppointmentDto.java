@@ -8,13 +8,15 @@ import java.time.LocalTime;
 public record UserAppointmentDto(
         UserDto user,
         LocalTime startTime,
-        LocalTime endTime
+        LocalTime endTime,
+        Integer appointmentId
 ) {
     public static UserAppointmentDto fromEntity(InstructorAppointment appointment) {
         return new UserAppointmentDto(
                 UserDto.fromEntity(appointment.getUser()),
                 appointment.getStartTime(),
-                appointment.getEndTime()
+                appointment.getEndTime(),
+                appointment.getId()
         );
     }
 }
